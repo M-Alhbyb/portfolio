@@ -21,7 +21,12 @@ return [
     'hero.status' => 'متاح للتعاون',
 
     // Projects
+    'projects.status' => 'جميع الأنظمة تعمل',
+    'projects.heading' => 'دراسات الحالة',
+    'projects.subheading' => 'دراسات حالة',
     'projects.title' => 'المشاريع المميزة',
+    'projects.case_study' => 'دراسة حالة',
+    'projects.overview' => 'نظرة عامة',
     'projects.subtitle' => 'دراسات حالة',
     'projects.description' => 'تحديات هندسية حللتها في العالم الحقيقي - من البنية إلى النشر.',
     'projects.view_all' => 'عرض كل المشاريع',

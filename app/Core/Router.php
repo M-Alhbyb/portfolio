@@ -47,7 +47,8 @@ class Router
 
             $params = $this->matchPath($route['path'], $uri);
             if ($params !== null) {
-                return $this->callHandler($route['handler'], $params);
+                $this->callHandler($route['handler'], $params);
+                return true;
             }
         }
 

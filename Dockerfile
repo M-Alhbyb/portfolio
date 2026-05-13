@@ -5,6 +5,8 @@ COPY package.json package-lock.json ./
 RUN npm ci
 COPY tailwind.config.js ./
 COPY public/assets/css/input.css ./public/assets/css/input.css
+COPY templates ./templates
+COPY app ./app
 RUN npm run build:css
 
 # PHP runtime (alpine, built-in server)

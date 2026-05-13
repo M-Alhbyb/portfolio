@@ -104,7 +104,7 @@ try {
     $result = $router->dispatch($method, $_SERVER['REQUEST_URI'] ?? '/');
 } catch (\Exception $e) {
     http_response_code(500);
-    if (defined('APP_DEBUG') && APP_DEBUG) {
+    if (!empty($config['debug'])) {
         throw $e;
     }
     require __DIR__ . '/../templates/pages/500.php';

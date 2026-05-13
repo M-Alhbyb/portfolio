@@ -32,7 +32,7 @@ class Database
         $user = $config['user'] ?? 'admin';
         $pass = $config['pass'] ?? '';
 
-        $dsn = "{$driver}:host={$host};port={$port};dbname={$dbname};charset=utf8";
+        $dsn = "{$driver}:host={$host};port={$port};dbname={$dbname}";
 
         $this->pdo = new \PDO($dsn, $user, $pass, [
             \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,

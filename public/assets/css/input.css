@@ -208,6 +208,10 @@ html[dir="rtl"] {
   text-align: right;
 }
 
+html[dir="rtl"] body {
+  font-family: 'Cairo', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
 html[dir="rtl"] .space-x-reverse > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 1;
 }

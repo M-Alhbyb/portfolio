@@ -21,7 +21,12 @@ return [
     'hero.status' => 'Available for collaborations',
 
     // Projects
+    'projects.status' => 'All systems operational',
+    'projects.heading' => 'Case Studies',
+    'projects.subheading' => 'Engineering deep-dives into architecture, implementation, and deployment.',
     'projects.title' => 'Featured Projects',
+    'projects.case_study' => 'Case Study',
+    'projects.overview' => 'Overview',
     'projects.subtitle' => 'case studies',
     'projects.description' => 'Real-world engineering challenges I\'ve solved — from architecture to deployment.',
     'projects.view_all' => 'View All Projects',
