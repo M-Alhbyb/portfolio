@@ -9,6 +9,10 @@ use App\Models\Timeline;
 
 class TimelineController
 {
+    private const LOGO_ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
+    private const LOGO_ALLOWED_EXTENSIONS = ['jpg', 'jpeg', 'png', 'webp'];
+    private const LOGO_MAX_SIZE = 2 * 1024 * 1024;
+
     public function index(array $params = []): void
     {
         Auth::requireLogin();
@@ -28,13 +32,23 @@ class TimelineController
         Auth::requireLogin();
         if (!Session::validateCsrfToken($_POST['csrf_token'] ?? '')) die('Invalid CSRF token');
 
+        $logo = '';
+        if (!empty($_FILES['logo']) && $_FILES['logo']['error'] !== UPLOAD_ERR_NO_FILE) {
+            $uploaded = $this->handleLogoUpload($_FILES['logo']);
+            if ($uploaded === null) {
+                header('Location: /admin/timeline');
+                exit;
+            }
+            $logo = $uploaded;
+        }
+
         $data = [
             'type' => Validation::sanitize($_POST['type'] ?? ''),
             'period' => Validation::sanitize($_POST['period'] ?? ''),
             'title' => Validation::sanitize($_POST['title'] ?? ''),
             'organization' => Validation::sanitize($_POST['organization'] ?? ''),
             'link' => Validation::sanitize($_POST['link'] ?? ''),
-            'logo' => Validation::sanitize($_POST['logo'] ?? ''),
+            'logo' => $logo,
             'description' => Validation::sanitize($_POST['description'] ?? ''),
             'sort_order' => (int) ($_POST['sort_order'] ?? 0),
             'created_at' => date('Y-m-d H:i:s'),
@@ -58,13 +72,39 @@ class TimelineController
         $id = (int) ($params['id'] ?? 0);
         if (!Session::validateCsrfToken($_POST['csrf_token'] ?? '')) die('Invalid CSRF token');
 
+        $entry = Timeline::findById($id);
+        $logo = $entry['logo'] ?? '';
+
+        if (!empty($_POST['remove_logo'])) {
+            if ($logo && str_starts_with($logo, 'uploads/')) {
+                $oldPath = __DIR__ . '/../../public/' . $logo;
+                if (file_exists($oldPath)) {
+                    unlink($oldPath);
+                }
+            }
+            $logo = '';
+        } elseif (!empty($_FILES['logo']) && $_FILES['logo']['error'] !== UPLOAD_ERR_NO_FILE) {
+            $uploaded = $this->handleLogoUpload($_FILES['logo']);
+            if ($uploaded === null) {
+                header('Location: /admin/timeline');
+                exit;
+            }
+            if ($logo && str_starts_with($logo, 'uploads/')) {
+                $oldPath = __DIR__ . '/../../public/' . $logo;
+                if (file_exists($oldPath)) {
+                    unlink($oldPath);
+                }
+            }
+            $logo = $uploaded;
+        }
+
         $data = [
             'type' => Validation::sanitize($_POST['type'] ?? ''),
             'period' => Validation::sanitize($_POST['period'] ?? ''),
             'title' => Validation::sanitize($_POST['title'] ?? ''),
             'organization' => Validation::sanitize($_POST['organization'] ?? ''),
             'link' => Validation::sanitize($_POST['link'] ?? ''),
-            'logo' => Validation::sanitize($_POST['logo'] ?? ''),
+            'logo' => $logo,
             'description' => Validation::sanitize($_POST['description'] ?? ''),
             'sort_order' => (int) ($_POST['sort_order'] ?? 0),
         ];
@@ -79,9 +119,54 @@ class TimelineController
     {
         Auth::requireLogin();
         $id = (int) ($params['id'] ?? 0);
+
+        $entry = Timeline::findById($id);
+        if ($entry && !empty($entry['logo']) && str_starts_with($entry['logo'], 'uploads/')) {
+            $path = __DIR__ . '/../../public/' . $entry['logo'];
+            if (file_exists($path)) {
+                unlink($path);
+            }
+        }
+
         Timeline::delete($id);
         Session::flash('timeline_success', 'Timeline entry deleted');
         header('Location: /admin/timeline');
         exit;
+    }
+
+    private function handleLogoUpload(array $file): ?string
+    {
+        if ($file['error'] !== UPLOAD_ERR_OK) {
+            Session::flash('timeline_error', 'Logo upload failed');
+            return null;
+        }
+
+        if ($file['size'] > self::LOGO_MAX_SIZE) {
+            Session::flash('timeline_error', 'Logo exceeds 2MB maximum size');
+            return null;
+        }
+
+        $mime = mime_content_type($file['tmp_name']);
+        if (!in_array($mime, self::LOGO_ALLOWED_TYPES)) {
+            Session::flash('timeline_error', 'Logo must be JPG, PNG, or WebP');
+            return null;
+        }
+
+        $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+        if (!in_array($ext, self::LOGO_ALLOWED_EXTENSIONS)) {
+            Session::flash('timeline_error', 'Invalid logo file extension');
+            return null;
+        }
+
+        $filename = uniqid('timeline_') . '.' . $ext;
+        $filepath = 'uploads/' . $filename;
+        $dest = __DIR__ . '/../../public/' . $filepath;
+
+        if (!move_uploaded_file($file['tmp_name'], $dest)) {
+            Session::flash('timeline_error', 'Failed to save logo');
+            return null;
+        }
+
+        return $filepath;
     }
 }

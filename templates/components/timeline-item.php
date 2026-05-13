@@ -25,7 +25,11 @@
 
         <p class="text-sm text-gray-400">
             <?php if (!empty($item['logo'])): ?>
-                <span class="inline-block mr-2"><?= htmlspecialchars($item['logo']) ?></span>
+                <?php if (str_starts_with($item['logo'], 'uploads/')): ?>
+                    <img src="/<?= htmlspecialchars($item['logo']) ?>" alt="<?= htmlspecialchars($item['organization'] ?? '') ?> logo" class="inline-block h-5 w-auto mr-2 align-middle">
+                <?php else: ?>
+                    <span class="inline-block mr-2"><?= htmlspecialchars($item['logo']) ?></span>
+                <?php endif; ?>
             <?php endif; ?>
             <?= htmlspecialchars($item['organization'] ?? '') ?>
             <?php if (!empty($item['link'])): ?>
