@@ -17,7 +17,7 @@ RUN apk add --no-cache postgresql-dev libzip-dev unzip curl bash && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install PHP dependencies at build time (layer cached until composer.json changes)
-COPY composer.json composer.lock ./
+COPY composer.json ./
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 # Copy application source code
