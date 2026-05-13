@@ -312,6 +312,8 @@ INSERT INTO timeline (
     title,
     organization,
     description,
+    link,
+    logo,
     sort_order
 ) VALUES
 (
@@ -321,6 +323,8 @@ INSERT INTO timeline (
     'Full Stack Web Developer',
     'Masirat Kum Company',
     'Led core platform development using Python and Django, managed DevOps workflows, optimized PostgreSQL and Redis performance, and integrated AI-powered platform features.',
+    'https://masiratkum.com',
+    NULL,
     1
 ),
 (
@@ -330,6 +334,8 @@ INSERT INTO timeline (
     'Infrastructure & DevOps Lead',
     'Al Baker Group',
     'Managed infrastructure recovery operations, migrated 28 breached websites to AWS infrastructure, secured production systems, and coordinated technical crisis management.',
+    'https://albakergroup.com',
+    NULL,
     2
 ),
 (
@@ -339,6 +345,8 @@ INSERT INTO timeline (
     'Junior Full Stack Developer',
     'Elexplatform.online',
     'Built educational platform features, managed deployment environments, and implemented asynchronous backend workflows.',
+    'https://elexplatform.online',
+    NULL,
     3
 ),
 (
@@ -348,6 +356,8 @@ INSERT INTO timeline (
     'IT Intern',
     'Esh3ark',
     'Worked in FinTech environments, improved SEO performance, maintained systems, and applied web security protocols.',
+    'https://esh3ark.com',
+    NULL,
     4
 ),
 (
@@ -357,6 +367,8 @@ INSERT INTO timeline (
     'Freelance Web Developer & Systems Administrator',
     'Independent',
     'Developed POS systems, inventory platforms, Linux infrastructure, and production hosting environments for multiple businesses.',
+    NULL,
+    NULL,
     5
 ),
 (
@@ -366,6 +378,8 @@ INSERT INTO timeline (
     'Bachelor of Information Technology',
     'Sudan Open University',
     'Currently studying Information Technology with focus on software systems and technical infrastructure.',
+    'https://sudanopen.edu.sd',
+    NULL,
     6
 ),
 (
@@ -375,6 +389,8 @@ INSERT INTO timeline (
     'Bachelor of Arabic Language and Literature',
     'Omdurman Islamic University',
     'Graduated with honors and excellent academic performance.',
+    'https://oiu.edu.sd',
+    NULL,
     7
 ),
 (
@@ -384,6 +400,8 @@ INSERT INTO timeline (
     'Co-Founder',
     'Swaed Aldad Charity Foundation',
     'Participated in strategic planning, volunteer coordination, and humanitarian initiatives.',
+    'https://swaedaldad.org',
+    NULL,
     8
 )
 ON CONFLICT DO NOTHING;

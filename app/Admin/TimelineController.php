@@ -33,6 +33,8 @@ class TimelineController
             'period' => Validation::sanitize($_POST['period'] ?? ''),
             'title' => Validation::sanitize($_POST['title'] ?? ''),
             'organization' => Validation::sanitize($_POST['organization'] ?? ''),
+            'link' => Validation::sanitize($_POST['link'] ?? ''),
+            'logo' => Validation::sanitize($_POST['logo'] ?? ''),
             'description' => Validation::sanitize($_POST['description'] ?? ''),
             'sort_order' => (int) ($_POST['sort_order'] ?? 0),
             'created_at' => date('Y-m-d H:i:s'),
@@ -61,6 +63,8 @@ class TimelineController
             'period' => Validation::sanitize($_POST['period'] ?? ''),
             'title' => Validation::sanitize($_POST['title'] ?? ''),
             'organization' => Validation::sanitize($_POST['organization'] ?? ''),
+            'link' => Validation::sanitize($_POST['link'] ?? ''),
+            'logo' => Validation::sanitize($_POST['logo'] ?? ''),
             'description' => Validation::sanitize($_POST['description'] ?? ''),
             'sort_order' => (int) ($_POST['sort_order'] ?? 0),
         ];

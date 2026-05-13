@@ -14,11 +14,23 @@
         </div>
 
         <h3 class="text-base font-semibold text-white mb-1">
-            <?= htmlspecialchars($item['title'] ?? '') ?>
+            <?php if (!empty($item['link'])): ?>
+                <a href="<?= htmlspecialchars($item['link']) ?>" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">
+                    <?= htmlspecialchars($item['title'] ?? '') ?>
+                </a>
+            <?php else: ?>
+                <?= htmlspecialchars($item['title'] ?? '') ?>
+            <?php endif; ?>
         </h3>
 
         <p class="text-sm text-gray-400">
+            <?php if (!empty($item['logo'])): ?>
+                <span class="inline-block mr-2"><?= htmlspecialchars($item['logo']) ?></span>
+            <?php endif; ?>
             <?= htmlspecialchars($item['organization'] ?? '') ?>
+            <?php if (!empty($item['link'])): ?>
+                <a href="<?= htmlspecialchars($item['link']) ?>" target="_blank" rel="noopener noreferrer" class="ml-1 text-cyan-400 hover:underline text-xs">[Visit]</a>
+            <?php endif; ?>
         </p>
 
         <?php if (!empty($item['description'])): ?>

@@ -120,6 +120,8 @@ CREATE TABLE IF NOT EXISTS timeline (
     title VARCHAR(200) NOT NULL,
     organization VARCHAR(200) NOT NULL,
     description TEXT,
+    link VARCHAR(255),
+    logo VARCHAR(255),
     sort_order INTEGER DEFAULT 0,
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMP

@@ -37,6 +37,16 @@
                 <input type="text" name="organization" required maxlength="200"
                        class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
             </div>
+            <div>
+                <label class="block text-xs text-gray-400 mb-1">Link</label>
+                <input type="url" name="link" maxlength="255" placeholder="https://example.com"
+                       class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+            </div>
+            <div>
+                <label class="block text-xs text-gray-400 mb-1">Logo</label>
+                <input type="text" name="logo" maxlength="255" placeholder="company-logo.png"
+                       class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+            </div>
             <div class="sm:col-span-2">
                 <label class="block text-xs text-gray-400 mb-1">Description</label>
                 <textarea name="description" rows="3" maxlength="5000"
@@ -113,6 +123,16 @@
                                     <div class="sm:col-span-2">
                                         <label class="block text-xs text-gray-400 mb-1">Organization</label>
                                         <input type="text" name="organization" value="<?= htmlspecialchars($e['organization']) ?>" required maxlength="200"
+                                               class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs text-gray-400 mb-1">Link</label>
+                                        <input type="url" name="link" value="<?= htmlspecialchars($e['link'] ?? '') ?>" maxlength="255" placeholder="https://example.com"
+                                               class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs text-gray-400 mb-1">Logo</label>
+                                        <input type="text" name="logo" value="<?= htmlspecialchars($e['logo'] ?? '') ?>" maxlength="255" placeholder="company-logo.png"
                                                class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
                                     </div>
                                     <div class="sm:col-span-2">
