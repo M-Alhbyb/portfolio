@@ -5,6 +5,9 @@ namespace App\Admin;
 use App\Core\Auth;
 use App\Core\Database;
 use App\Helpers\Export;
+use App\Models\Timeline;
+use App\Models\Skill;
+use App\Models\Project;
 
 class ExportController
 {
@@ -38,6 +41,53 @@ class ExportController
         } else {
             Export::json($data, $filename);
         }
+    }
+
+    public function cv(array $params = []): void
+    {
+        Auth::requireLogin();
+
+        $db = Database::getInstance();
+
+        $name = 'Mohamed Elhabib';
+        $email = 'contact@elhabib.dev';
+        $phone = '';
+        $location = '';
+        $github = 'https://github.com/mohamedelhabib';
+        $linkedin = 'https://linkedin.com/in/mohamedelhabib';
+
+        $siteSettings = $db->fetchAll("SELECT key, value FROM settings WHERE key IN ('site_title', 'social_github', 'social_linkedin', 'social_email')");
+        $settingsMap = [];
+        foreach ($siteSettings as $s) {
+            $settingsMap[$s['key']] = $s['value'];
+        }
+
+        $summary = 'Architect, build, and deploy resilient systems. From bare metal to cloud-native, bridge the gap between development and infrastructure.';
+
+        $experience = Timeline::findByType('experience');
+        $education = Timeline::findByType('education');
+
+        $allSkills = Skill::findAll();
+        $groupedSkills = [];
+        foreach ($allSkills as $skill) {
+            $groupedSkills[$skill['category']][] = $skill;
+        }
+
+        $projects = Project::findFeatured(10);
+
+        ob_start();
+        require __DIR__ . '/../../templates/admin/cv-pdf.php';
+        $html = ob_get_clean();
+
+        require __DIR__ . '/../../vendor/autoload.php';
+
+        $dompdf = new \Dompdf\Dompdf();
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->loadHtml($html);
+        $dompdf->render();
+
+        $dompdf->stream('cv_' . date('Y-m-d') . '.pdf', ['Attachment' => true]);
+        exit;
     }
 
     private function getExportData(string $type): array

@@ -6,6 +6,8 @@ node_modules/
 *.log
 .vscode/
 .idea/
+vendor/
+composer.lock
 
 .specify
 .opencode

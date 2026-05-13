@@ -16,6 +16,60 @@ spl_autoload_register(function (string $class): void {
     }
 });
 
+spl_autoload_register(function (string $class): void {
+    $vendorDir = __DIR__ . '/../vendor/';
+    $vendorClasses = [
+        'Dompdf\\Dompdf' => $vendorDir . 'dompdf/src/Dompdf.php',
+        'Dompdf\\Options' => $vendorDir . 'dompdf/src/Options.php',
+        'Dompdf\\Css\\Stylesheet' => $vendorDir . 'dompdf/src/Css/Stylesheet.php',
+        'Dompdf\\DomDocument' => $vendorDir . 'dompdf/src/DomDocument.php',
+        'Dompdf\\Frame\\Frame' => $vendorDir . 'dompdf/src/Frame.php',
+        'Dompdf\\Frame\\FrameTree' => $vendorDir . 'dompdf/src/FrameTree.php',
+        'Dompdf\\FrameDecorator\\FrameDecorator' => $vendorDir . 'dompdf/src/FrameDecorator/FrameDecorator.php',
+        'Dompdf\\FrameRenderer\\FrameRenderer' => $vendorDir . 'dompdf/src/FrameRenderer/FrameRenderer.php',
+        'Dompdf\\Image\\Cache' => $vendorDir . 'dompdf/src/Image/Cache.php',
+        'Dompdf\\Adapter\\CPDF' => $vendorDir . 'dompdf/src/Adapter/CPDF.php',
+        'Dompdf\\Renderer\\Renderer' => $vendorDir . 'dompdf/src/Renderer.php',
+        'Dompdf\\Renderer\\AbstractRenderer' => $vendorDir . 'dompdf/src/Renderer/AbstractRenderer.php',
+        'Dompdf\\Renderer\\TextRenderer' => $vendorDir . 'dompdf/src/Renderer/TextRenderer.php',
+        'Dompdf\\Positioner\\Positioner' => $vendorDir . 'dompdf/src/Positioner.php',
+        'Dompdf\\Positioner\\BlockPositioner' => $vendorDir . 'dompdf/src/Positioner/BlockPositioner.php',
+        'Dompdf\\Inline\\FrameDecorator\\InlineFrameDecorator' => $vendorDir . 'dompdf/src/Inline/FrameDecorator/InlineFrameDecorator.php',
+        'Dompdf\\Table\\Cell\\Cell' => $vendorDir . 'dompdf/src/Table/Cell.php',
+        'Dompdf\\Table\\Row' => $vendorDir . 'dompdf/src/Table/Row.php',
+        'Dompdf\\Table\\TableFrameReflower' => $vendorDir . 'dompdf/src/Table/TableFrameReflower.php',
+        'Dompdf\\Table\\TableReflower' => $vendorDir . 'dompdf/src/Table/TableReflower.php',
+        'Dompdf\\Block\\BlockFrameReflower' => $vendorDir . 'dompdf/src/Block/BlockFrameReflower.php',
+        'Dompdf\\Block\\BlockRenderer' => $vendorDir . 'dompdf/src/Block/BlockRenderer.php',
+        'Dompdf\\Inline\\InlineFrameReflower' => $vendorDir . 'dompdf/src/Inline/InlineFrameReflower.php',
+        'Dompdf\\Inline\\InlineRenderer' => $vendorDir . 'dompdf/src/Inline/InlineRenderer.php',
+        'Dompdf\\Image\\FrameRenderer\\ImageFrameRenderer' => $vendorDir . 'dompdf/src/Image/FrameRenderer/ImageFrameRenderer.php',
+        'Dompdf\\Exception' => $vendorDir . 'dompdf/src/Exception.php',
+        'Dompdf\\FontMetrics' => $vendorDir . 'dompdf/src/FontMetrics.php',
+        'Dompdf\\Canvas' => $vendorDir . 'dompdf/src/Canvas.php',
+        'Dompdf\\Canvas\\Pdf' => $vendorDir . 'dompdf/src/Canvas.php',
+        'Dompdf\\Renderer\\PdfRenderer' => $vendorDir . 'dompdf/src/Renderer/PdfRenderer.php',
+        'Svg\\Sanitize' => $vendorDir . 'phenx/php-svg-lib/src/Svg/Sanitize.php',
+        'Svg\\Document' => $vendorDir . 'phenx/php-svg-lib/src/Svg/Document.php',
+        'Svg\\Element' => $vendorDir . 'phenx/php-svg-lib/src/Svg/Element.php',
+        'Svg\\Tag\\AbstractTag' => $vendorDir . 'phenx/php-svg-lib/src/Svg/Tag/AbstractTag.php',
+        'Svg\\PaintServer\\PaintServer' => $vendorDir . 'phenx/php-svg-lib/src/Svg/PaintServer/PaintServer.php',
+        'Font\\Lib\\FontManager' => $vendorDir . 'phenx/php-font-lib/src/FontLib/FontManager.php',
+        'Font\\Lib\\Font' => $vendorDir . 'phenx/php-font-lib/src/FontLib/Font.php',
+        'Font\\Lib\\BinaryStream' => $vendorDir . 'phenx/php-font-lib/src/FontLib/BinaryStream.php',
+        'Font\\Lib\\Table\\Table' => $vendorDir . 'phenx/php-font-lib/src/FontLib/Table/Table.php',
+        'Font\\Lib\\Table\\Type\\NameTable' => $vendorDir . 'phenx/php-font-lib/src/FontLib/Table/Type/NameTable.php',
+        'Font\\Lib\\Encoding\\EncodingMap' => $vendorDir . 'phenx/php-font-lib/src/FontLib/Encoding/EncodingMap.php',
+    ];
+
+    if (isset($vendorClasses[$class])) {
+        $file = $vendorClasses[$class];
+        if (file_exists($file)) {
+            require $file;
+        }
+    }
+});
+
 use App\Core\Router;
 use App\Core\Session;
 use App\Core\Auth;
@@ -85,6 +139,7 @@ $router->get('/admin/settings', 'Admin\\SettingController@index');
 $router->put('/admin/settings', 'Admin\\SettingController@update');
 $router->get('/admin/export', 'Admin\\ExportController@index');
 $router->get('/admin/export/{type}', 'Admin\\ExportController@download');
+$router->get('/admin/export/cv/download', 'Admin\\ExportController@cv');
 
 // Set locale
 Language::getLocale();
