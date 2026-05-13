@@ -53,10 +53,10 @@ class HomeController
     private function getContactInfo(): array
     {
         return [
-            'email' => 'contact@elhabib.dev',
-            'github' => 'https://github.com/mohamedelhabib',
-            'linkedin' => 'https://linkedin.com/in/mohamedelhabib',
-            'whatsapp' => '+1234567890',
+            'email' => 'mohammedalhbyb@gmail.com',
+            'github' => 'https://github.com/M-Alhbyb',
+            'linkedin' => 'https://linkedin.com/in/m-elhabib',
+            'whatsapp' => 'wa.me/249111696468',
         ];
     }
 }

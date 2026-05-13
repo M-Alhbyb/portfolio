@@ -50,11 +50,11 @@ class ExportController
         $db = Database::getInstance();
 
         $name = 'Mohamed Elhabib';
-        $email = 'contact@elhabib.dev';
-        $phone = '';
+        $email = 'mohammedalhbyb@gmail.com';
+        $phone = 'wa.me/249111696468';
         $location = '';
-        $github = 'https://github.com/mohamedelhabib';
-        $linkedin = 'https://linkedin.com/in/mohamedelhabib';
+        $github = 'https://github.com/M-Alhbyb';
+        $linkedin = 'https://linkedin.com/in/m-elhabib';
 
         $siteSettings = $db->fetchAll("SELECT key, value FROM settings WHERE key IN ('site_title', 'social_github', 'social_linkedin', 'social_email')");
         $settingsMap = [];
