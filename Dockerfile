@@ -17,6 +17,7 @@ RUN apk add --no-cache postgresql-dev libzip-dev unzip curl bash && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 COPY --from=css-builder /app/public/assets/css/app.css /app/public/assets/css/app.css
+COPY composer.json composer.lock ./
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh && mkdir -p /app/public/uploads
 
