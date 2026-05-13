@@ -112,6 +112,22 @@ CREATE TABLE IF NOT EXISTS skills (
 
 CREATE INDEX IF NOT EXISTS idx_skills_category ON skills(category);
 
+-- Timeline entries (experience & education)
+CREATE TABLE IF NOT EXISTS timeline (
+    id SERIAL PRIMARY KEY,
+    type VARCHAR(20) NOT NULL CHECK (type IN ('experience', 'education')),
+    period VARCHAR(100) NOT NULL,
+    title VARCHAR(200) NOT NULL,
+    organization VARCHAR(200) NOT NULL,
+    description TEXT,
+    sort_order INTEGER DEFAULT 0,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_timeline_type ON timeline(type);
+CREATE INDEX IF NOT EXISTS idx_timeline_sort ON timeline(sort_order);
+
 -- Contact messages
 CREATE TABLE IF NOT EXISTS messages (
     id SERIAL PRIMARY KEY,

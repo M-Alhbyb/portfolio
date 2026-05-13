@@ -58,6 +58,10 @@ return [
     // Timeline
     'timeline.title' => 'Experience & Education',
     'timeline.subtitle' => 'career journey',
+    'timeline.experience' => 'Experience',
+    'timeline.education' => 'Education',
+    'timeline.education_subtitle' => 'academic background',
+    'timeline.empty' => 'No entries yet.',
 
     // Contact
     'contact.title' => 'Get In Touch',

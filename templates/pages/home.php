@@ -112,7 +112,7 @@
     </div>
 </section>
 
-<!-- Timeline Section -->
+<!-- Experience Section -->
 <section id="experience" class="relative py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
@@ -120,15 +120,41 @@
                 <span class="text-gray-500">//</span> <?= \App\Helpers\Language::t('timeline.subtitle') ?>
             </p>
             <h2 class="text-3xl sm:text-4xl font-bold gradient-text">
-                <?= \App\Helpers\Language::t('timeline.title') ?>
+                <?= \App\Helpers\Language::t('timeline.experience') ?>
             </h2>
         </div>
 
         <div class="max-w-2xl mx-auto">
-            <?php if (!empty($timeline)): ?>
-                <?php foreach ($timeline as $item): ?>
+            <?php if (!empty($experience)): ?>
+                <?php foreach ($experience as $item): ?>
                     <?php require __DIR__ . '/../components/timeline-item.php'; ?>
                 <?php endforeach; ?>
+            <?php else: ?>
+                <p class="text-center text-gray-500"><?= \App\Helpers\Language::t('timeline.empty') ?></p>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section class="relative py-24 bg-gray-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <p class="text-sm font-mono text-cyan-400 mb-2">
+                <span class="text-gray-500">//</span> <?= \App\Helpers\Language::t('timeline.education_subtitle') ?>
+            </p>
+            <h2 class="text-3xl sm:text-4xl font-bold gradient-text">
+                <?= \App\Helpers\Language::t('timeline.education') ?>
+            </h2>
+        </div>
+
+        <div class="max-w-2xl mx-auto">
+            <?php if (!empty($education)): ?>
+                <?php foreach ($education as $item): ?>
+                    <?php require __DIR__ . '/../components/timeline-item.php'; ?>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p class="text-center text-gray-500"><?= \App\Helpers\Language::t('timeline.empty') ?></p>
             <?php endif; ?>
         </div>
     </div>

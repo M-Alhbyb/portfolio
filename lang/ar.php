@@ -58,6 +58,10 @@ return [
     // Timeline
     'timeline.title' => 'الخبرة والتعليم',
     'timeline.subtitle' => 'المسيرة المهنية',
+    'timeline.experience' => 'الخبرات',
+    'timeline.education' => 'التعليم',
+    'timeline.education_subtitle' => 'الخلفية الأكاديمية',
+    'timeline.empty' => 'لا توجد إدخالات بعد.',
 
     // Contact
     'contact.title' => 'تواصل معي',

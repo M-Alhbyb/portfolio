@@ -7,6 +7,7 @@ use App\Helpers\SEO;
 use App\Helpers\Language;
 use App\Models\Project;
 use App\Models\Post;
+use App\Models\Timeline;
 
 class HomeController
 {
@@ -32,7 +33,8 @@ class HomeController
             $groupedSkills[$skill['category']][] = $skill;
         }
 
-        $timeline = $this->getTimeline();
+        $experience = Timeline::findByType('experience');
+        $education = Timeline::findByType('education');
 
         $contactInfo = $this->getContactInfo();
 
@@ -46,47 +48,6 @@ class HomeController
         $seo = $seo->render();
 
         require __DIR__ . '/../../templates/layouts/public.php';
-    }
-
-    private function getTimeline(): array
-    {
-        return [
-            [
-                'period' => '2024 - Present',
-                'title' => 'Senior DevOps Engineer',
-                'organization' => 'Leading Infrastructure & Automation',
-                'type' => 'Experience',
-                'description' => 'Architecting and managing cloud infrastructure, implementing CI/CD pipelines, and optimizing deployment workflows.',
-            ],
-            [
-                'period' => '2022 - 2024',
-                'title' => 'Full Stack Developer',
-                'organization' => 'Building Scalable Applications',
-                'type' => 'Experience',
-                'description' => 'Developed and maintained full-stack web applications using modern technologies and best practices.',
-            ],
-            [
-                'period' => '2020 - 2022',
-                'title' => 'Systems Engineer',
-                'organization' => 'Infrastructure & Operations',
-                'type' => 'Experience',
-                'description' => 'Managed server infrastructure, monitored system performance, and automated operational tasks.',
-            ],
-            [
-                'period' => '2018 - 2020',
-                'title' => 'Junior Developer',
-                'organization' => 'Software Development',
-                'type' => 'Experience',
-                'description' => 'Contributed to feature development, wrote unit tests, and participated in code reviews.',
-            ],
-            [
-                'period' => '2014 - 2018',
-                'title' => 'B.Sc. Computer Engineering',
-                'organization' => 'University',
-                'type' => 'Education',
-                'description' => 'Focused on software engineering, algorithms, and distributed systems.',
-            ],
-        ];
     }
 
     private function getContactInfo(): array

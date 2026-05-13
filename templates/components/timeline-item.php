@@ -8,8 +8,8 @@
             <span class="text-xs font-mono text-cyan-400">
                 <?= htmlspecialchars($item['period'] ?? '') ?>
             </span>
-            <span class="text-xs text-gray-500">
-                <?= htmlspecialchars($item['type'] ?? '') ?>
+            <span class="text-xs px-2 py-0.5 rounded <?= ($item['type'] ?? '') === 'education' ? 'bg-green-500/10 text-green-300' : 'bg-blue-500/10 text-blue-300' ?>">
+                <?= htmlspecialchars(ucfirst($item['type'] ?? '')) ?>
             </span>
         </div>
 
