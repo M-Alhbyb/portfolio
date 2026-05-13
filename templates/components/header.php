@@ -1,9 +1,8 @@
 <header x-data="navMenu" class="glass fixed inset-x-0 top-0 z-50 border-b border-blue-500/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
-            <a href="/" class="flex items-center space-x-2 group">
-                <span class="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]"></span>
-                <span class="text-lg font-semibold gradient-text">Mohamed Elhabib</span>
+            <a href="/" class="flex items-center group">
+                <img src="/assets/images/logo.png" alt="Mohamed Elhabib" class="h-8 w-auto">
             </a>
 
             <nav class="hidden md:flex items-center gap-x-6">
