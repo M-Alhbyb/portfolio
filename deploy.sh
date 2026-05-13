@@ -20,11 +20,15 @@ done
 
 echo "Running database migrations if needed..."
 docker compose exec -T app php -r "
-\$pdo = new PDO('pgsql:host=db,port=5432,dbname=portfolio', 'portfolio', 'portfolio_secret');
+\$pdo = new PDO('pgsql:host=db;port=5432;dbname=portfolio', 'portfolio', 'portfolio_secret');
 \$tables = \$pdo->query(\"SELECT tablename FROM pg_tables WHERE schemaname = 'public'\")->fetchAll(PDO::FETCH_COLUMN);
 if (!in_array('timeline', \$tables)) {
     \$sql = file_get_contents('/app/database/schema.sql');
     \$pdo->exec(\$sql);
+} else {
+    // Add missing columns if schema was updated
+    \$pdo->exec(\"ALTER TABLE timeline ADD COLUMN IF NOT EXISTS link VARCHAR(255)\");
+    \$pdo->exec(\"ALTER TABLE timeline ADD COLUMN IF NOT EXISTS logo VARCHAR(255)\");
 }
 if (!in_array('users', \$tables)) {
     \$sql = file_get_contents('/app/database/seed.sql');
