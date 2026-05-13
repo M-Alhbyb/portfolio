@@ -1,7 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
-# Generate .env from environment variables
+if [ ! -f /app/vendor/autoload.php ]; then
+    echo "Installing PHP dependencies..."
+    composer install --no-dev --optimize-autoloader
+fi
+
 cat > /app/config/.env << ENVEOF
 DB_DRIVER=pgsql
 DB_HOST=${DB_HOST:-db}
@@ -14,7 +18,6 @@ APP_DEBUG=${APP_DEBUG:-false}
 SESSION_SECRET=${SESSION_SECRET:-}
 ENVEOF
 
-# Wait for DB
 echo "Waiting for PostgreSQL..."
 until php -r "
     try {

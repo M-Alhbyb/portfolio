@@ -13,5 +13,4 @@ AGENTS.md
 specs
 README.md
 docker-compose.yml
-Dockerfile
-.dockerignore
+docker-entrypoint.sh

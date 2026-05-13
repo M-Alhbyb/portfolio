@@ -9,9 +9,9 @@ services:
       DB_NAME: portfolio
       DB_USER: portfolio
       DB_PASS: portfolio_secret
-      APP_ENV: development
-      APP_DEBUG: "true"
-      SESSION_SECRET: dev_secret_change_me
+      APP_ENV: production
+      APP_DEBUG: "false"
+      SESSION_SECRET: ${SESSION_SECRET:-}
     volumes:
       - uploads:/app/public/uploads
     depends_on:
@@ -37,4 +37,4 @@ services:
 
 volumes:
   pgdata:
-  uploads:
+  uploads
