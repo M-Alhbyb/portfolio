@@ -2,6 +2,7 @@
 .gitignore
 .gitattributes
 node_modules
+vendor
 .env
 .DS_Store
 *.log
@@ -13,3 +14,5 @@ AGENTS.md
 specs
 README.md
 docker-compose.yml
+Dockerfile
+deploy.sh

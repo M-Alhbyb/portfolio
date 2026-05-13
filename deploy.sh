@@ -10,6 +10,14 @@ echo "Building and starting containers..."
 docker compose build app
 docker compose up -d --no-deps
 
+echo "Waiting for app container to be ready..."
+for i in $(seq 1 30); do
+    if docker compose exec -T app php -r 'echo "ok\n";' 2>/dev/null; then
+        break
+    fi
+    sleep 2
+done
+
 echo "Running database migrations if needed..."
 docker compose exec -T app php -r "
 \$pdo = new PDO('pgsql:host=db,port=5432,dbname=portfolio', 'portfolio', 'portfolio_secret');

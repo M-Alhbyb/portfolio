@@ -1,11 +1,7 @@
 #!/bin/bash
 set -e
 
-if [ ! -f /app/vendor/autoload.php ]; then
-    echo "Installing PHP dependencies..."
-    composer install --no-dev --optimize-autoloader
-fi
-
+mkdir -p /app/config
 cat > /app/config/.env << ENVEOF
 DB_DRIVER=pgsql
 DB_HOST=${DB_HOST:-db}
