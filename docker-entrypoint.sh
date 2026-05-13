@@ -46,4 +46,24 @@ until php -r "
 done
 echo "PostgreSQL ready."
 
+# Run schema if tables don't exist
+php -r "
+\$pdo = new PDO('pgsql:host=${DB_HOST:-localhost};port=${DB_PORT:-5432};dbname=${DB_NAME:-portfolio}', '${DB_USER:-portfolio}', '${DB_PASS:-}');
+\$tables = \$pdo->query(\"SELECT tablename FROM pg_tables WHERE schemaname = 'public'\")->fetchAll(PDO::FETCH_COLUMN);
+if (!in_array('timeline', \$tables)) {
+    echo 'Running schema...';
+    \$sql = file_get_contents('/app/database/schema.sql');
+    \$pdo->exec(\$sql);
+    echo ' done.';
+} else {
+    echo 'Schema already applied.';
+}
+if (!in_array('users', \$tables)) {
+    echo ' Running seed...';
+    \$sql = file_get_contents('/app/database/seed.sql');
+    \$pdo->exec(\$sql);
+    echo ' done.';
+}
+" 2>/dev/null || echo "Schema check skipped"
+
 exec "$@"
