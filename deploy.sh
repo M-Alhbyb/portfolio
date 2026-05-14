@@ -34,14 +34,14 @@ if (!in_array('languages', \$tables)) {
     \$pdo->exec(\"CREATE TABLE IF NOT EXISTS languages (
         id SERIAL PRIMARY KEY,
         name VARCHAR(100) NOT NULL,
-        proficiency INTEGER NOT NULL CHECK (proficiency >= 1 AND proficiency <= 100),
+        proficiency VARCHAR(50) NOT NULL,
         sort_order INTEGER DEFAULT 0,
         created_at TIMESTAMP NOT NULL DEFAULT NOW()
     )\");
     \$pdo->exec(\"INSERT INTO languages (name, proficiency, sort_order) VALUES
-        ('English', 95, 1),
-        ('Arabic', 100, 2),
-        ('French', 60, 3)
+        ('English', 'Fluent', 1),
+        ('Arabic', 'Native', 2),
+        ('French', 'Intermediate', 3)
     \");
 }
 if (!in_array('users', \$tables)) {

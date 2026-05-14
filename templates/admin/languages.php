@@ -21,9 +21,15 @@
                        class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
             </div>
             <div>
-                <label class="block text-xs text-gray-400 mb-1">Proficiency (1-100)</label>
-                <input type="number" name="proficiency" value="75" min="1" max="100"
-                       class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                <label class="block text-xs text-gray-400 mb-1">Level</label>
+                <select name="proficiency"
+                        class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                    <option value="Native">Native</option>
+                    <option value="Fluent">Fluent</option>
+                    <option value="Advanced">Advanced</option>
+                    <option value="Intermediate" selected>Intermediate</option>
+                    <option value="Beginner">Beginner</option>
+                </select>
             </div>
             <div>
                 <label class="block text-xs text-gray-400 mb-1">Sort Order</label>
@@ -53,21 +59,22 @@
                 <tr class="border-b border-blue-500/5 hover:bg-blue-500/5">
                     <td class="p-4 text-white"><?= htmlspecialchars($l['name']) ?></td>
                     <td class="p-4 hidden sm:table-cell">
-                        <div class="flex items-center gap-2">
-                            <div class="w-24 h-1.5 bg-gray-800 rounded-full overflow-hidden">
-                                <div class="h-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-400" style="width: <?= (int) $l['proficiency'] ?>%"></div>
-                            </div>
-                            <span class="text-xs text-gray-500"><?= (int) $l['proficiency'] ?>%</span>
-                        </div>
+                        <span class="text-xs px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-300"><?= htmlspecialchars($l['proficiency']) ?></span>
                     </td>
                     <td class="p-4">
                         <form method="POST" action="/admin/languages/<?= (int) $l['id'] ?>" class="flex items-center gap-2">
                             <input type="hidden" name="_method" value="PUT">
                             <input type="hidden" name="csrf_token" value="<?= \App\Core\Session::getCsrfToken() ?>">
                             <input type="hidden" name="name" value="<?= htmlspecialchars($l['name']) ?>">
-                            <input type="hidden" name="proficiency" value="<?= (int) $l['proficiency'] ?>">
+                            <input type="hidden" name="proficiency" value="<?= htmlspecialchars($l['proficiency']) ?>">
                             <input type="hidden" name="sort_order" value="<?= (int) ($l['sort_order'] ?? 0) ?>">
-                            <input type="number" name="proficiency" value="<?= (int) $l['proficiency'] ?>" min="1" max="100" class="w-16 px-2 py-1 rounded bg-gray-800/50 border border-gray-700 text-white text-xs focus:border-blue-500">
+                            <select name="proficiency" class="w-24 px-2 py-1 rounded bg-gray-800/50 border border-gray-700 text-white text-xs focus:border-blue-500">
+                                <option value="Native" <?= $l['proficiency'] === 'Native' ? 'selected' : '' ?>>Native</option>
+                                <option value="Fluent" <?= $l['proficiency'] === 'Fluent' ? 'selected' : '' ?>>Fluent</option>
+                                <option value="Advanced" <?= $l['proficiency'] === 'Advanced' ? 'selected' : '' ?>>Advanced</option>
+                                <option value="Intermediate" <?= $l['proficiency'] === 'Intermediate' ? 'selected' : '' ?>>Intermediate</option>
+                                <option value="Beginner" <?= $l['proficiency'] === 'Beginner' ? 'selected' : '' ?>>Beginner</option>
+                            </select>
                             <button type="submit" class="text-xs px-2 py-1 rounded bg-blue-500/10 text-blue-300 hover:bg-blue-500/20">Update</button>
                         </form>
                         <form method="POST" action="/admin/languages/<?= (int) $l['id'] ?>" class="inline" onsubmit="return confirm('Delete this language?')">

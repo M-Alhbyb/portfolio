@@ -33,7 +33,7 @@ ON CONFLICT DO NOTHING;
 
 -- Languages seed data
 INSERT INTO languages (name, proficiency, sort_order) VALUES
-    ('English', 95, 1),
-    ('Arabic', 100, 2),
-    ('French', 60, 3)
+    ('English', 'Fluent', 1),
+    ('Arabic', 'Native', 2),
+    ('French', 'Intermediate', 3)
 ON CONFLICT DO NOTHING;

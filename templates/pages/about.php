@@ -99,14 +99,9 @@
                 <div class="glass-card rounded-xl p-6">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <?php foreach ($languages as $l): ?>
-                        <div>
-                            <div class="flex items-center justify-between mb-1">
-                                <span class="text-sm text-white"><?= htmlspecialchars($l['name']) ?></span>
-                                <span class="text-xs text-gray-500"><?= (int) $l['proficiency'] ?>%</span>
-                            </div>
-                            <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
-                                <div class="h-full rounded-full bg-gradient-to-r from-green-500 to-emerald-400 transition-all duration-1000" style="width: <?= (int) $l['proficiency'] ?>%"></div>
-                            </div>
+                        <div class="flex items-center justify-between py-2 px-3 bg-gray-800/30 rounded-lg">
+                            <span class="text-sm text-white"><?= htmlspecialchars($l['name']) ?></span>
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-green-500/10 text-green-300 font-medium"><?= htmlspecialchars($l['proficiency']) ?></span>
                         </div>
                         <?php endforeach; ?>
                     </div>
