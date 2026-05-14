@@ -8,6 +8,7 @@ use App\Helpers\Language;
 use App\Models\Project;
 use App\Models\Post;
 use App\Models\Timeline;
+use App\Models\Language as LanguageModel;
 
 class HomeController
 {
@@ -33,6 +34,7 @@ class HomeController
             $groupedSkills[$skill['category']][] = $skill;
         }
 
+        $languages = LanguageModel::findAll();
         $experience = Timeline::findByType('experience');
         $education = Timeline::findByType('education');
 

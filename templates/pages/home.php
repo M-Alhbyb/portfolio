@@ -112,6 +112,31 @@
     </div>
 </section>
 
+<?php if (!empty($languages)): ?>
+<section class="relative py-24 bg-gray-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <p class="text-sm font-mono text-cyan-400 mb-2">
+                <span class="text-gray-500">//</span> languages
+            </p>
+            <h2 class="text-3xl sm:text-4xl font-bold gradient-text"><?= \App\Helpers\Language::t('about.languages') ?></h2>
+        </div>
+        <div class="max-w-2xl mx-auto">
+            <div class="glass-card rounded-xl p-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <?php foreach ($languages as $l): ?>
+                    <div class="flex items-center justify-between py-2 px-3 bg-gray-800/30 rounded-lg">
+                        <span class="text-sm text-white"><?= htmlspecialchars($l['name']) ?></span>
+                        <span class="text-xs px-2 py-0.5 rounded-full bg-green-500/10 text-green-300 font-medium"><?= htmlspecialchars($l['proficiency']) ?></span>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+
 <!-- Experience Section -->
 <section id="experience" class="relative py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
