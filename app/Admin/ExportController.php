@@ -8,6 +8,7 @@ use App\Helpers\Export;
 use App\Models\Timeline;
 use App\Models\Skill;
 use App\Models\Project;
+use App\Models\Volunteering;
 use App\Models\Language as LanguageModel;
 
 class ExportController
@@ -51,7 +52,7 @@ class ExportController
         $db = Database::getInstance();
 
         $name = 'Mohamed Elhabib';
-        $email = 'mohammedalhbyb@gmail.com';
+        $email = 'mohamed.elhabib@gmail.com';
         $phone = 'wa.me/249111696468';
         $location = '';
         $github = 'https://github.com/M-Alhbyb';
@@ -76,6 +77,7 @@ class ExportController
 
         $languages = LanguageModel::findAll();
         $projects = Project::findFeatured(10);
+        $volunteering = Volunteering::findAll();
 
         ob_start();
         require __DIR__ . '/../../templates/admin/cv-pdf.php';

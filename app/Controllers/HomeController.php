@@ -38,6 +38,14 @@ class HomeController
         $experience = Timeline::findByType('experience');
         $education = Timeline::findByType('education');
 
+        $volunteering = [];
+        try {
+            $db = Database::getInstance();
+            $volunteering = $db->fetchAll("SELECT * FROM volunteering ORDER BY sort_order ASC, created_at DESC");
+        } catch (\Exception $e) {
+            $volunteering = [];
+        }
+
         $contactInfo = $this->getContactInfo();
 
         $locale = Language::getLocale();
@@ -55,7 +63,7 @@ class HomeController
     private function getContactInfo(): array
     {
         return [
-            'email' => 'mohammedalhbyb@gmail.com',
+            'email' => 'mohamed.elhabib@gmail.com',
             'github' => 'https://github.com/M-Alhbyb',
             'linkedin' => 'https://linkedin.com/in/m-elhabib',
             'whatsapp' => 'wa.me/249111696468',

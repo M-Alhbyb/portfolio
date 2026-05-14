@@ -185,6 +185,51 @@
     </div>
 </section>
 
+<?php if (!empty($volunteering)): ?>
+<section class="relative py-24 bg-gray-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <p class="text-sm font-mono text-cyan-400 mb-2">
+                <span class="text-gray-500">//</span> <?= \App\Helpers\Language::t('volunteering.subtitle') ?>
+            </p>
+            <h2 class="text-3xl sm:text-4xl font-bold gradient-text"><?= \App\Helpers\Language::t('volunteering.title') ?></h2>
+        </div>
+        <div class="max-w-3xl mx-auto space-y-4">
+            <?php foreach ($volunteering as $v): ?>
+            <div class="glass-card rounded-lg p-5">
+                <div class="flex items-start justify-between mb-1">
+                    <div>
+                        <h3 class="text-base font-semibold text-white">
+                            <?php if (!empty($v['link'])): ?>
+                                <a href="<?= htmlspecialchars($v['link']) ?>" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">
+                                    <?= htmlspecialchars($v['title']) ?>
+                                </a>
+                            <?php else: ?>
+                                <?= htmlspecialchars($v['title']) ?>
+                            <?php endif; ?>
+                        </h3>
+                        <p class="text-sm text-gray-400"><?= htmlspecialchars($v['organization']) ?>
+                            <?php if (!empty($v['place'])): ?>
+                                <span class="text-gray-500"> &middot; <?= htmlspecialchars($v['place']) ?></span>
+                            <?php endif; ?>
+                        </p>
+                    </div>
+                    <?php if (!empty($v['start_date']) || !empty($v['end_date'])): ?>
+                        <span class="text-xs text-gray-500 whitespace-nowrap ml-4">
+                            <?= htmlspecialchars($v['start_date'] ?? '') ?> — <?= htmlspecialchars($v['end_date'] ?? '') ?>
+                        </span>
+                    <?php endif; ?>
+                </div>
+                <?php if (!empty($v['description'])): ?>
+                    <p class="text-sm text-gray-500 mt-2"><?= htmlspecialchars($v['description']) ?></p>
+                <?php endif; ?>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+
 <!-- Blog Preview -->
 <section id="blog" class="relative py-24 bg-gray-900/30">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -77,6 +77,10 @@ return [
     'contact.available' => 'متاح للفرص',
     'contact.response_time' => 'عادةً ما أرد خلال 24 ساعة',
 
+    // Volunteering
+    'volunteering.title' => 'العمل التطوعي',
+    'volunteering.subtitle' => 'العطاء',
+
     // About
     'about.title' => 'حولي',
     'about.subtitle' => 'من أنا',

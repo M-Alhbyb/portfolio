@@ -73,7 +73,7 @@ INSERT INTO projects (
     1,
     'AI-Powered Educational Platform',
     'ai-powered-educational-platform',
-    'Built and maintained an integrated educational platform with scalable backend architecture and asynchronous processing.',
+    'Built and enhanced an educational platform with scalable backend architecture and asynchronous processing.',
     '<h2>AI-Powered Educational Platform</h2>
 
 <p>This platform was developed to provide modern educational workflows including authentication systems, content management, student progress tracking, and asynchronous task handling.</p>
@@ -99,7 +99,7 @@ INSERT INTO projects (
     'Modular Django architecture with asynchronous workers powered by Celery and Redis. PostgreSQL used for scalable relational data management.',
     'Dockerized deployment environment with Linux administration and Nginx configuration for reverse proxy handling.',
     'Maintaining responsiveness during concurrent operations and building scalable asynchronous workflows.',
-    'Delivered a stable educational platform with scalable backend infrastructure.',
+    'Delivered a stable educational platform supporting 1K+ active users with scalable backend infrastructure.',
     NULL,
     'published',
     true,
@@ -146,7 +146,7 @@ INSERT INTO projects (
     1,
     'Personal Infrastructure & Hosting Operations',
     'personal-infrastructure-hosting-operations',
-    'Managed hosting infrastructure and deployment operations for multiple production platforms.',
+    'Oversaw hosting infrastructure and deployment operations for 5+ production platforms.',
     '<h2>Personal Infrastructure & Hosting Operations</h2>
 
 <p>Managed hosting, deployment, optimization, and maintenance workflows for several production websites and platforms.</p>
@@ -312,6 +312,8 @@ INSERT INTO timeline (
     title,
     organization,
     description,
+    place,
+    work_type,
     link,
     logo,
     sort_order
@@ -322,7 +324,9 @@ INSERT INTO timeline (
     'Dec 2025 - Present',
     'Full Stack Web Developer',
     'Masirat Kum Company',
-    'Led core platform development using Python and Django, managed DevOps workflows, optimized PostgreSQL and Redis performance, and integrated AI-powered platform features.',
+    'Led core platform development serving 500+ users using Python and Django, streamlined DevOps workflows reducing deployment time by 60%, optimized PostgreSQL and Redis performance cutting query latency by 40%, and incorporated AI-powered platform features.',
+    '',
+    'Remote',
     'https://masiratkum.com',
     NULL,
     1
@@ -333,7 +337,9 @@ INSERT INTO timeline (
     'Jan 2026 - Present',
     'Infrastructure & DevOps Lead',
     'Al Baker Group',
-    'Managed infrastructure recovery operations, migrated 28 breached websites to AWS infrastructure, secured production systems, and coordinated technical crisis management.',
+    'Directed infrastructure recovery operations in Qatar, migrated 28 breached websites to AWS infrastructure, secured +25 production systems, and coordinated technical crisis management for an enterprise portfolio.',
+    'Qatar',
+    'On-site',
     'https://albakergroup.com',
     NULL,
     2
@@ -344,7 +350,9 @@ INSERT INTO timeline (
     'Nov 2025 - Jan 2026',
     'Junior Full Stack Developer',
     'Elexplatform.online',
-    'Built educational platform features, managed deployment environments, and implemented asynchronous backend workflows.',
+    'Completed a full-stack training project gaining hands-on experience with Django, deployment workflows, and asynchronous backend architecture.',
+    '',
+    'Remote',
     'https://elexplatform.online',
     NULL,
     3
@@ -355,7 +363,9 @@ INSERT INTO timeline (
     'Sept 2025 - Present',
     'IT Intern',
     'Esh3ark',
-    'Worked in FinTech environments, improved SEO performance, maintained systems, and applied web security protocols.',
+    'Gained hands-on experience in FinTech environments, studied system maintenance and web security protocols, and learned SEO optimization techniques in a production setting.',
+    '',
+    'Remote',
     'https://esh3ark.com',
     NULL,
     4
@@ -366,7 +376,9 @@ INSERT INTO timeline (
     'Sep 2025 - Present',
     'Freelance Web Developer & Systems Administrator',
     'Independent',
-    'Developed POS systems, inventory platforms, Linux infrastructure, and production hosting environments for multiple businesses.',
+    'Developed POS systems and inventory platforms for 5+ businesses, and administered Linux infrastructure and production hosting across 10+ servers.',
+    '',
+    'Remote',
     NULL,
     NULL,
     5
@@ -378,6 +390,8 @@ INSERT INTO timeline (
     'Bachelor of Information Technology',
     'Sudan Open University',
     'Currently studying Information Technology with focus on software systems and technical infrastructure.',
+    'Sudan',
+    '',
     'https://sudanopen.edu.sd',
     NULL,
     6
@@ -389,21 +403,16 @@ INSERT INTO timeline (
     'Bachelor of Arabic Language and Literature',
     'Omdurman Islamic University',
     'Graduated with honors and excellent academic performance.',
+    'Omdurman, Sudan',
+    '',
     'https://oiu.edu.sd',
     NULL,
     7
-),
-(
-    8,
-    'experience',
-    '2022 - Present',
-    'Co-Founder',
-    'Swaed Aldad Charity Foundation',
-    'Participated in strategic planning, volunteer coordination, and humanitarian initiatives.',
-    'https://swaedaldad.org',
-    NULL,
-    8
 )
+ON CONFLICT DO NOTHING;
+
+INSERT INTO volunteering (id, title, organization, description, place, start_date, end_date, link, sort_order) VALUES
+(1, 'Co-Founder & Technical Lead', 'Swaed Aldad Charity Foundation', 'Participated in strategic planning, volunteer coordination, and humanitarian initiatives serving underprivileged communities.', 'Sudan', '2022', 'Present', 'https://swaedaldad.org', 1)
 ON CONFLICT DO NOTHING;
 
 INSERT INTO settings (
@@ -421,7 +430,7 @@ INSERT INTO settings (
 (6, 'hero_subtitle_ar', 'مطور ويب متكامل متخصص في الأنظمة الخلفية والبنية التحتية السحابية والمنصات المدعومة بالذكاء الاصطناعي.', 'hero', 'ar'),
 (7, 'social_github', 'https://github.com/M-Alhbyb', 'social', 'en'),
 (8, 'social_linkedin', 'https://linkedin.com/in/m-elhabib', 'social', 'en'),
-(9, 'social_email', 'mohammedalhbyb@gmail.com', 'social', 'en')
+(9, 'social_email', 'mohamed.elhabib@gmail.com', 'social', 'en')
 ON CONFLICT DO NOTHING;
 
 COMMIT;

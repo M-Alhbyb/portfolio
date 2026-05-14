@@ -140,6 +140,35 @@
 <p class="summary-text"><?= htmlspecialchars($summary) ?></p>
 <?php endif; ?>
 
+<h2>Volunteering</h2>
+<?php if (empty($volunteering)): ?>
+    <p style="font-size:10pt;color:#555;">No volunteer entries yet.</p>
+<?php else: ?>
+    <?php foreach ($volunteering as $vol): ?>
+    <div class="entry">
+        <div class="entry-header">
+            <span class="entry-title"><?= htmlspecialchars($vol['title']) ?></span>
+            <span class="entry-date">
+                <?= htmlspecialchars($vol['start_date'] ?? '') ?><?= (!empty($vol['start_date']) && !empty($vol['end_date'])) ? ' — ' : '' ?><?= htmlspecialchars($vol['end_date'] ?? '') ?>
+            </span>
+        </div>
+        <div class="entry-org">
+            <?php if (!empty($vol['link'])): ?>
+                <a href="<?= htmlspecialchars($vol['link']) ?>"><?= htmlspecialchars($vol['organization']) ?></a>
+            <?php else: ?>
+                <?= htmlspecialchars($vol['organization']) ?>
+            <?php endif; ?>
+            <?php if (!empty($vol['place'])): ?>
+                <span style="color:#666;"> — <?= htmlspecialchars($vol['place']) ?></span>
+            <?php endif; ?>
+        </div>
+        <?php if (!empty($vol['description'])): ?>
+        <p class="entry-desc"><?= htmlspecialchars($vol['description']) ?></p>
+        <?php endif; ?>
+    </div>
+    <?php endforeach; ?>
+<?php endif; ?>
+
 <h2>Experience</h2>
 <?php if (empty($experience)): ?>
     <p style="font-size:10pt;color:#555;">No experience entries yet.</p>
@@ -155,6 +184,12 @@
                 <a href="<?= htmlspecialchars($exp['link']) ?>"><?= htmlspecialchars($exp['organization']) ?></a>
             <?php else: ?>
                 <?= htmlspecialchars($exp['organization']) ?>
+            <?php endif; ?>
+            <?php if (!empty($exp['place'])): ?>
+                <span style="color:#666;"> — <?= htmlspecialchars($exp['place']) ?></span>
+            <?php endif; ?>
+            <?php if (!empty($exp['work_type'])): ?>
+                <span style="color:#666;font-size:9pt;"> [<?= htmlspecialchars($exp['work_type']) ?>]</span>
             <?php endif; ?>
         </div>
         <?php if (!empty($exp['description'])): ?>

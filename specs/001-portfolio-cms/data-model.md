@@ -278,6 +278,26 @@ Site-wide configuration key-value store.
 
 ---
 
+### Volunteering
+
+Volunteer work entries displayed on the homepage and CV.
+
+| Field | Type | Constraints | Notes |
+|-------|------|-------------|-------|
+| id | INT | PK, AUTO_INCREMENT | |
+| title | VARCHAR(200) | NOT NULL | Role or position |
+| organization | VARCHAR(200) | NOT NULL | Organization name |
+| description | TEXT | NULL | Description of activities |
+| place | VARCHAR(100) | DEFAULT '' | Location |
+| start_date | VARCHAR(50) | DEFAULT '' | Start date |
+| end_date | VARCHAR(50) | DEFAULT '' | End date |
+| link | VARCHAR(255) | NULL | Organization URL |
+| sort_order | INT | DEFAULT 0 | Display ordering |
+| created_at | TIMESTAMP | NOT NULL, DEFAULT NOW() | |
+| updated_at | TIMESTAMP | ON UPDATE NOW() | |
+
+---
+
 ## State Transitions
 
 ### Project / Post Status

@@ -77,6 +77,10 @@ return [
     'contact.available' => 'Available for opportunities',
     'contact.response_time' => 'Typically responds within 24 hours',
 
+    // Volunteering
+    'volunteering.title' => 'Volunteering',
+    'volunteering.subtitle' => 'giving back',
+
     // About
     'about.title' => 'About Me',
     'about.subtitle' => 'who I am',

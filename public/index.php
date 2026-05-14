@@ -144,6 +144,10 @@ $router->put('/admin/settings', 'Admin\\SettingController@update');
 $router->get('/admin/export', 'Admin\\ExportController@index');
 $router->get('/admin/export/{type}', 'Admin\\ExportController@download');
 $router->get('/admin/export/cv/download', 'Admin\\ExportController@cv');
+$router->get('/admin/volunteering', 'Admin\\VolunteerController@index');
+$router->post('/admin/volunteering', 'Admin\\VolunteerController@store');
+$router->put('/admin/volunteering/{id}', 'Admin\\VolunteerController@update');
+$router->delete('/admin/volunteering/{id}', 'Admin\\VolunteerController@destroy');
 
 // Set locale
 Language::getLocale();

@@ -32,6 +32,12 @@
                 <?php endif; ?>
             <?php endif; ?>
             <?= htmlspecialchars($item['organization'] ?? '') ?>
+            <?php if (!empty($item['place'])): ?>
+                <span class="text-gray-500"> &middot; <?= htmlspecialchars($item['place']) ?></span>
+            <?php endif; ?>
+            <?php if (!empty($item['work_type'])): ?>
+                <span class="text-xs px-1.5 py-0.5 rounded bg-gray-700/40 text-gray-400 ml-1"><?= htmlspecialchars($item['work_type']) ?></span>
+            <?php endif; ?>
             <?php if (!empty($item['link'])): ?>
                 <a href="<?= htmlspecialchars($item['link']) ?>" target="_blank" rel="noopener noreferrer" class="ml-1 text-cyan-400 hover:underline text-xs">[Visit]</a>
             <?php endif; ?>

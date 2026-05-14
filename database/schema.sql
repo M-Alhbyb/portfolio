@@ -129,6 +129,8 @@ CREATE TABLE IF NOT EXISTS timeline (
     title VARCHAR(200) NOT NULL,
     organization VARCHAR(200) NOT NULL,
     description TEXT,
+    place VARCHAR(100) DEFAULT '',
+    work_type VARCHAR(50) DEFAULT '',
     link VARCHAR(255),
     logo VARCHAR(255),
     sort_order INTEGER DEFAULT 0,
@@ -171,6 +173,23 @@ CREATE TABLE IF NOT EXISTS media (
 );
 
 CREATE INDEX IF NOT EXISTS idx_media_user ON media(user_id);
+
+-- Volunteering entries
+CREATE TABLE IF NOT EXISTS volunteering (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    organization VARCHAR(200) NOT NULL,
+    description TEXT,
+    place VARCHAR(100) DEFAULT '',
+    start_date VARCHAR(50) DEFAULT '',
+    end_date VARCHAR(50) DEFAULT '',
+    link VARCHAR(255),
+    sort_order INTEGER DEFAULT 0,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_volunteering_sort ON volunteering(sort_order);
 
 -- Settings (key-value configuration)
 CREATE TABLE IF NOT EXISTS settings (

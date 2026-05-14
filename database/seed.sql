@@ -23,12 +23,12 @@ INSERT INTO settings (key, value, group_name, locale) VALUES
 ON CONFLICT (key) DO NOTHING;
 
 -- Timeline seed data
-INSERT INTO timeline (type, period, title, organization, description, sort_order) VALUES
-    ('experience', '2024 - Present', 'Senior DevOps Engineer', 'Leading Infrastructure & Automation', 'Architecting and managing cloud infrastructure, implementing CI/CD pipelines, and optimizing deployment workflows.', 1),
-    ('experience', '2022 - 2024', 'Full Stack Developer', 'Building Scalable Applications', 'Developed and maintained full-stack web applications using modern technologies and best practices.', 2),
-    ('experience', '2020 - 2022', 'Systems Engineer', 'Infrastructure & Operations', 'Managed server infrastructure, monitored system performance, and automated operational tasks.', 3),
-    ('experience', '2018 - 2020', 'Junior Developer', 'Software Development', 'Contributed to feature development, wrote unit tests, and participated in code reviews.', 4),
-    ('education', '2014 - 2018', 'B.Sc. Computer Engineering', 'University', 'Focused on software engineering, algorithms, and distributed systems.', 1)
+INSERT INTO timeline (type, period, title, organization, description, place, work_type, sort_order) VALUES
+    ('experience', '2024 - Present', 'Senior DevOps Engineer', 'Leading Infrastructure & Automation', 'Architecting and managing cloud infrastructure, implementing CI/CD pipelines, and optimizing deployment workflows.', '', 'Remote', 1),
+    ('experience', '2022 - 2024', 'Full Stack Developer', 'Building Scalable Applications', 'Developed and maintained full-stack web applications using modern technologies and best practices.', '', 'Remote', 2),
+    ('experience', '2020 - 2022', 'Systems Engineer', 'Infrastructure & Operations', 'Managed server infrastructure, monitored system performance, and automated operational tasks.', '', 'On-site', 3),
+    ('experience', '2018 - 2020', 'Junior Developer', 'Software Development', 'Contributed to feature development, wrote unit tests, and participated in code reviews.', '', 'On-site', 4),
+    ('education', '2014 - 2018', 'B.Sc. Computer Engineering', 'University', 'Focused on software engineering, algorithms, and distributed systems.', '', '', 1)
 ON CONFLICT DO NOTHING;
 
 -- Languages seed data
