@@ -30,6 +30,20 @@ if (!in_array('timeline', \$tables)) {
     \$pdo->exec(\"ALTER TABLE timeline ADD COLUMN IF NOT EXISTS link VARCHAR(255)\");
     \$pdo->exec(\"ALTER TABLE timeline ADD COLUMN IF NOT EXISTS logo VARCHAR(255)\");
 }
+if (!in_array('languages', \$tables)) {
+    \$pdo->exec(\"CREATE TABLE IF NOT EXISTS languages (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(100) NOT NULL,
+        proficiency INTEGER NOT NULL CHECK (proficiency >= 1 AND proficiency <= 100),
+        sort_order INTEGER DEFAULT 0,
+        created_at TIMESTAMP NOT NULL DEFAULT NOW()
+    )\");
+    \$pdo->exec(\"INSERT INTO languages (name, proficiency, sort_order) VALUES
+        ('English', 95, 1),
+        ('Arabic', 100, 2),
+        ('French', 60, 3)
+    \");
+}
 if (!in_array('users', \$tables)) {
     \$sql = file_get_contents('/app/database/seed.sql');
     \$pdo->exec(\$sql);
