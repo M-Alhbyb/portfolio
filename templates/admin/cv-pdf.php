@@ -150,7 +150,13 @@
             <span class="entry-title"><?= htmlspecialchars($exp['title']) ?></span>
             <span class="entry-date"><?= htmlspecialchars($exp['period']) ?></span>
         </div>
-        <div class="entry-org"><?= htmlspecialchars($exp['organization']) ?></div>
+        <div class="entry-org">
+            <?php if (!empty($exp['link'])): ?>
+                <a href="<?= htmlspecialchars($exp['link']) ?>"><?= htmlspecialchars($exp['organization']) ?></a>
+            <?php else: ?>
+                <?= htmlspecialchars($exp['organization']) ?>
+            <?php endif; ?>
+        </div>
         <?php if (!empty($exp['description'])): ?>
         <p class="entry-desc"><?= htmlspecialchars($exp['description']) ?></p>
         <?php endif; ?>
@@ -168,7 +174,13 @@
             <span class="entry-title"><?= htmlspecialchars($edu['title']) ?></span>
             <span class="entry-date"><?= htmlspecialchars($edu['period']) ?></span>
         </div>
-        <div class="entry-org"><?= htmlspecialchars($edu['organization']) ?></div>
+        <div class="entry-org">
+            <?php if (!empty($edu['link'])): ?>
+                <a href="<?= htmlspecialchars($edu['link']) ?>"><?= htmlspecialchars($edu['organization']) ?></a>
+            <?php else: ?>
+                <?= htmlspecialchars($edu['organization']) ?>
+            <?php endif; ?>
+        </div>
         <?php if (!empty($edu['description'])): ?>
         <p class="entry-desc"><?= htmlspecialchars($edu['description']) ?></p>
         <?php endif; ?>
@@ -186,6 +198,18 @@
             $names = array_map(fn($s) => $s['name'], $skills);
             echo htmlspecialchars(implode(', ', $names));
         ?>
+    </div>
+    <?php endforeach; ?>
+</div>
+<?php endif; ?>
+
+<?php if (!empty($languages)): ?>
+<h2>Languages</h2>
+<div class="skills-grid">
+    <?php foreach ($languages as $l): ?>
+    <div class="skill-cat">
+        <strong><?= htmlspecialchars($l['name']) ?>:</strong>
+        <?= htmlspecialchars($l['proficiency']) ?>
     </div>
     <?php endforeach; ?>
 </div>

@@ -8,6 +8,7 @@ use App\Helpers\Export;
 use App\Models\Timeline;
 use App\Models\Skill;
 use App\Models\Project;
+use App\Models\Language as LanguageModel;
 
 class ExportController
 {
@@ -73,6 +74,7 @@ class ExportController
             $groupedSkills[$skill['category']][] = $skill;
         }
 
+        $languages = LanguageModel::findAll();
         $projects = Project::findFeatured(10);
 
         ob_start();
