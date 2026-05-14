@@ -6,6 +6,7 @@ use App\Core\Database;
 use App\Helpers\SEO;
 use App\Helpers\Language;
 use App\Models\Setting;
+use App\Models\Language as LanguageModel;
 
 class AboutController
 {
@@ -16,14 +17,17 @@ class AboutController
             ->setDescription('Learn about Mohamed Elhabib — engineering philosophy, infrastructure mindset, and professional journey.');
 
         $settings = [];
+        $languages = [];
         try {
             $db = Database::getInstance();
             $allSettings = $db->fetchAll("SELECT * FROM settings WHERE group_name = 'about' OR group_name = 'social'");
             foreach ($allSettings as $s) {
                 $settings[$s['key']] = $s['value'];
             }
+            $languages = LanguageModel::findAll();
         } catch (\Exception $e) {
             $settings = [];
+            $languages = [];
         }
 
         $locale = Language::getLocale();

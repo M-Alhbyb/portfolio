@@ -1,0 +1,7 @@
+Elhabib Portfolio — Personal Portfolio Website & CMS Dashboard
+
+A personal portfolio website and admin CMS for Mohamed Elhabib. The public site features a glassmorphism-dark homepage with hero section, case studies grid, infrastructure/DevOps visual section, experience timeline, bilingual blog (English/French), about page, and contact form. The CMS provides full CRUD for all content entities, authentication with session security, image uploads, content export, and SEO management.
+
+Tech stack: Flat PHP (no frameworks), TailwindCSS v3, Alpine.js v3, PostgreSQL via PDO.
+
+Target platform: Linux VPS (Nginx).

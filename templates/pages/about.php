@@ -89,10 +89,35 @@
                 </div>
             </section>
 
-            <!-- Learning Journey -->
+            <!-- Languages -->
+            <?php if (!empty($languages)): ?>
             <section>
                 <div class="flex items-center gap-3 mb-4">
                     <span class="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
+                    <h2 class="text-xl font-semibold text-white"><?= \App\Helpers\Language::t('about.languages') ?></h2>
+                </div>
+                <div class="glass-card rounded-xl p-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <?php foreach ($languages as $l): ?>
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-sm text-white"><?= htmlspecialchars($l['name']) ?></span>
+                                <span class="text-xs text-gray-500"><?= (int) $l['proficiency'] ?>%</span>
+                            </div>
+                            <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                                <div class="h-full rounded-full bg-gradient-to-r from-green-500 to-emerald-400 transition-all duration-1000" style="width: <?= (int) $l['proficiency'] ?>%"></div>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </section>
+            <?php endif; ?>
+
+            <!-- Learning Journey -->
+            <section>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_8px_rgba(59,130,246,0.6)]"></span>
                     <h2 class="text-xl font-semibold text-white"><?= \App\Helpers\Language::t('about.journey') ?></h2>
                 </div>
                 <div class="glass-card rounded-xl p-6">

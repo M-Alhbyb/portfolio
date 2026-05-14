@@ -112,6 +112,15 @@ CREATE TABLE IF NOT EXISTS skills (
 
 CREATE INDEX IF NOT EXISTS idx_skills_category ON skills(category);
 
+-- Languages
+CREATE TABLE IF NOT EXISTS languages (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    proficiency INTEGER NOT NULL CHECK (proficiency >= 1 AND proficiency <= 100),
+    sort_order INTEGER DEFAULT 0,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
 -- Timeline entries (experience & education)
 CREATE TABLE IF NOT EXISTS timeline (
     id SERIAL PRIMARY KEY,

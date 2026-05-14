@@ -84,6 +84,7 @@ return [
     'about.philosophy' => 'فلسفة الهندسة',
     'about.mindset' => 'عقلية البنية التحتية',
     'about.journey' => 'رحلة التعلم',
+    'about.languages' => 'اللغات',
     'about.volunteering' => 'التطوع والمجتمع',
 
     // Footer

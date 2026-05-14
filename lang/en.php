@@ -84,6 +84,7 @@ return [
     'about.philosophy' => 'Engineering Philosophy',
     'about.mindset' => 'Infrastructure Mindset',
     'about.journey' => 'Learning Journey',
+    'about.languages' => 'Languages',
     'about.volunteering' => 'Volunteering & Community',
 
     // Footer

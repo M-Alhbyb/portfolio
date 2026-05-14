@@ -30,3 +30,10 @@ INSERT INTO timeline (type, period, title, organization, description, sort_order
     ('experience', '2018 - 2020', 'Junior Developer', 'Software Development', 'Contributed to feature development, wrote unit tests, and participated in code reviews.', 4),
     ('education', '2014 - 2018', 'B.Sc. Computer Engineering', 'University', 'Focused on software engineering, algorithms, and distributed systems.', 1)
 ON CONFLICT DO NOTHING;
+
+-- Languages seed data
+INSERT INTO languages (name, proficiency, sort_order) VALUES
+    ('English', 95, 1),
+    ('Arabic', 100, 2),
+    ('French', 60, 3)
+ON CONFLICT DO NOTHING;
