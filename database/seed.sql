@@ -3,7 +3,7 @@
 -- Password should be changed on first login
 
 INSERT INTO users (username, email, password_hash, display_name)
-VALUES ('admin', 'admin@elhabib.dev', '$2y$12$LJ3m4ys3Lk0TSwHnbfOMi.RXK8GQ7HzQ7jYHqKX1vYR5VxO5KpJOy', 'Admin')
+VALUES ('admin', 'admin@elhabib.dev', '$2y$12$rxMvgE3jO5t6PSVCodwC.e4sMf9fLYuQoHOVZmp3bSe2JNjq.0BPq', 'Admin')
 ON CONFLICT (username) DO NOTHING;
 
 -- Default settings

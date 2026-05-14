@@ -27,6 +27,7 @@
                     <option value="Native">Native</option>
                     <option value="Fluent">Fluent</option>
                     <option value="Advanced">Advanced</option>
+                    <option value="Upper Intermediate">Upper Intermediate</option>
                     <option value="Intermediate" selected>Intermediate</option>
                     <option value="Beginner">Beginner</option>
                 </select>
@@ -72,6 +73,7 @@
                                 <option value="Native" <?= $l['proficiency'] === 'Native' ? 'selected' : '' ?>>Native</option>
                                 <option value="Fluent" <?= $l['proficiency'] === 'Fluent' ? 'selected' : '' ?>>Fluent</option>
                                 <option value="Advanced" <?= $l['proficiency'] === 'Advanced' ? 'selected' : '' ?>>Advanced</option>
+                                <option value="Upper Intermediate" <?= $l['proficiency'] === 'Upper Intermediate' ? 'selected' : '' ?>>Upper Intermediate</option>
                                 <option value="Intermediate" <?= $l['proficiency'] === 'Intermediate' ? 'selected' : '' ?>>Intermediate</option>
                                 <option value="Beginner" <?= $l['proficiency'] === 'Beginner' ? 'selected' : '' ?>>Beginner</option>
                             </select>

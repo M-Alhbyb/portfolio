@@ -29,7 +29,7 @@ class LanguageController
         Auth::requireLogin();
         if (!Session::validateCsrfToken($_POST['csrf_token'] ?? '')) die('Invalid CSRF token');
 
-        $validLevels = ['Native', 'Fluent', 'Advanced', 'Intermediate', 'Beginner'];
+        $validLevels = ['Native', 'Fluent', 'Advanced', 'Upper Intermediate', 'Intermediate', 'Beginner'];
 
         $data = [
             'name' => Validation::sanitize($_POST['name'] ?? ''),
@@ -56,7 +56,7 @@ class LanguageController
         $id = (int) ($params['id'] ?? 0);
         if (!Session::validateCsrfToken($_POST['csrf_token'] ?? '')) die('Invalid CSRF token');
 
-        $validLevels = ['Native', 'Fluent', 'Advanced', 'Intermediate', 'Beginner'];
+        $validLevels = ['Native', 'Fluent', 'Advanced', 'Upper Intermediate', 'Intermediate', 'Beginner'];
 
         $data = [
             'name' => Validation::sanitize($_POST['name'] ?? ''),
