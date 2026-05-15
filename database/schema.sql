@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS projects (
     challenges TEXT,
     outcomes TEXT,
     thumbnail VARCHAR(255),
+    link VARCHAR(255),
     status VARCHAR(20) NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'published')),
     featured BOOLEAN DEFAULT FALSE,
     sort_order INTEGER DEFAULT 0,

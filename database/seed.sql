@@ -6,10 +6,10 @@ VALUES ('admin', 'admin@elhabib.dev', '$2y$12$rxMvgE3jO5t6PSVCodwC.e4sMf9fLYuQoH
 ON CONFLICT (username) DO NOTHING;
 
 INSERT INTO skills (name, category, proficiency, icon, sort_order) VALUES
-('Python', 'Backend', 92, NULL, 1),
-('Django', 'Backend', 90, NULL, 2),
-('FastAPI', 'Backend', 88, NULL, 3),
-('Django REST Framework', 'Backend', 87, NULL, 4),
+('Python', 'Backend', 90, NULL, 1),
+('Django', 'Backend', 85, NULL, 2),
+('FastAPI', 'Backend', 75, NULL, 3),
+('Django REST Framework', 'Backend', 80, NULL, 4),
 ('PostgreSQL', 'Database', 86, NULL, 5),
 ('Redis', 'Database', 82, NULL, 6),
 ('Docker', 'DevOps', 88, NULL, 7),
@@ -25,42 +25,42 @@ INSERT INTO skills (name, category, proficiency, icon, sort_order) VALUES
 ('HTMX', 'Frontend', 80, NULL, 17),
 ('Alpine.js', 'Frontend', 75, NULL, 18),
 ('JavaScript', 'Frontend', 82, NULL, 19),
-('PHP', 'Backend', 72, NULL, 20),
-('C', 'Backend', 55, NULL, 21),
+('PHP', 'Backend', 60, NULL, 20),
+('C', 'Backend', 40, NULL, 21),
 ('C++', 'Backend', 50, NULL, 22),
 ('SQL', 'Database', 86, NULL, 23),
 ('Bash Scripting', 'Tools', 84, NULL, 24),
 ('Celery', 'Backend', 83, NULL, 25),
 ('React Concepts', 'Frontend', 65, NULL, 26),
 ('Vue.js Concepts', 'Frontend', 60, NULL, 27),
-('Figma', 'Tools', 72, NULL, 28),
+('Figma', 'Tools', 60, NULL, 28),
 ('Canva', 'Tools', 78, NULL, 29),
 ('Postman', 'Tools', 85, NULL, 30)
 ON CONFLICT DO NOTHING;
 
 INSERT INTO timeline (type, period, title, organization, description, place, work_type, link, logo, sort_order) VALUES
-('experience', 'Dec 2025 - Present', 'Full Stack Web Developer', 'Masirat Kum Company', 'Led core platform development serving 500+ users using Python and Django, streamlined DevOps workflows reducing deployment time by 60%, optimized PostgreSQL and Redis performance cutting query latency by 40%, and incorporated AI-powered platform features.', '', 'Remote', 'https://masiratkum.com', NULL, 1),
-('experience', 'Jan 2026 - Present', 'Infrastructure & DevOps Lead', 'Al Baker Group', 'Directed infrastructure recovery operations in Qatar, migrated 28 breached websites to AWS infrastructure, secured +25 production systems, and coordinated technical crisis management for an enterprise portfolio.', 'Qatar', 'On-site', 'https://albakergroup.com', NULL, 2),
-('experience', 'Nov 2025 - Jan 2026', 'Junior Full Stack Developer', 'Elexplatform.online', 'Completed a full-stack training project gaining hands-on experience with Django, deployment workflows, and asynchronous backend architecture.', '', 'Remote', 'https://elexplatform.online', NULL, 3),
-('experience', 'Sept 2025 - Present', 'IT Intern', 'Esh3ark', 'Gained hands-on experience in FinTech environments, studied system maintenance and web security protocols, and learned SEO optimization techniques in a production setting.', '', 'Remote', 'https://esh3ark.com', NULL, 4),
+('experience', 'Dec 2025 - Present', 'Full Stack Web Developer', 'Masirat Kum Company', 'Led core platform development serving 500+ users using Python and Django, streamlined DevOps workflows reducing deployment time by 60%, optimized PostgreSQL and Redis performance cutting query latency by 40%, and incorporated AI-powered platform features.', 'Riyadh, Saudi Arabic', 'Remote', 'https://cevehat.com', NULL, 1),
+('experience', 'Jan 2026 - Present', 'Infrastructure & DevOps Lead', 'Finjan Investment LLC.', 'Directed infrastructure recovery operations in Qatar, migrated 28 breached websites to AWS infrastructure, secured +25 production systems, and coordinated technical crisis management for an enterprise portfolio.', 'Doha, Qatar', 'Remote', 'https://finjan.vc', NULL, 2),
+('experience', 'Nov 2025 - Jan 2026', 'Junior Full Stack Developer', 'Elexplatform.online', 'Completed a full-stack training project gaining hands-on experience with Django, deployment workflows, and asynchronous backend architecture.', 'Portsudan, Sudan.', 'On-site', 'https://elexplatform.online', NULL, 3),
+('experience', 'Sept 2025 - Present', 'IT Intern', 'Esh3ark', 'Gained hands-on experience in FinTech environments, studied system maintenance and web security protocols, and learned SEO optimization techniques in a production setting.', 'Portsudan, Sudan.', 'Hybrid', 'https://esh3ark.com', NULL, 4),
 ('experience', 'Sep 2025 - Present', 'Freelance Web Developer & Systems Administrator', 'Independent', 'Developed POS systems and inventory platforms for 5+ businesses, and administered Linux infrastructure and production hosting across 10+ servers.', '', 'Remote', NULL, NULL, 5),
-('education', '2026 - Present', 'Bachelor of Information Technology', 'Sudan Open University', 'Currently studying Information Technology with focus on software systems and technical infrastructure.', 'Sudan', '', 'https://sudanopen.edu.sd', NULL, 6),
+('education', '2026 - Present', 'Bachelor of Information Technology', 'Sudan Open University', 'Currently studying Information Technology with focus on software systems and technical infrastructure.', 'Sudan', '', 'https://www.ous.edu.sd/', NULL, 6),
 ('education', '2019 - 2024', 'Bachelor of Arabic Language and Literature', 'Omdurman Islamic University', 'Graduated with honors and excellent academic performance.', 'Omdurman, Sudan', '', 'https://oiu.edu.sd', NULL, 7)
 ON CONFLICT DO NOTHING;
 
 INSERT INTO volunteering (title, organization, description, place, start_date, end_date, link, sort_order) VALUES
-('Field Teams Coordinator', 'Takaful Charity Organization', 'Graduate of the Leaders Preparation Program, 4th batch, completing training in leadership, institutional work, and project management. Managed and coordinated 5 field teams within the 2023 Ramadan Bag Project as Omdurman Schools Supervisor. Prepared daily reports on expenses, inputs, and field work outcomes. Designed media materials and publications for projects and activities. Supervised field teams, resolved on-ground issues, and coordinated with senior management. Oversaw 30+ charity kitchens within the "Qudrat Sabeel" project, serving over 1,500 families daily during Ramadan. Managed two field teams and coordinated with project officials while writing operational reports. Responsible for the "Farhat Al-Eid" project in Khartoum State, contributing to the distribution of sacrifices and aid to 700+ families.', 'Sudan', '2021', 'Present', NULL, 1),
+('Co-Founder & Technical Lead', 'Swaed Aldad Charity Foundation', 'Participated in strategic planning, volunteer coordination, and humanitarian initiatives serving underprivileged communities.', 'Sudan', '2022', 'Present', 'https://swaedaldad.org', 1),
 ('Co-Founder & Secretary-General', 'Swaed Aldad Charity Foundation', 'Among the founders of the association aimed at supporting financially struggling students at the College of Arabic Language. Served as Secretary-General, contributing to planning and organizational management of initiatives. Managed the Winter Clothing Project, distributing hundreds of clothing pieces to needy families. Supervised the Food Project and contributed to report writing and field work organization. Contributed to fundraising and planning successful support campaigns that benefited 100+ families. Represented the association and performed leadership duties as deputy to the association president when needed.', 'Sudan', '2022', 'Present', 'https://swaedaldad.org', 2),
-('Media & Organizing Volunteer', 'Khatwa Charity Foundation', 'Participated in media and organizational activities of the foundation at Omdurman Islamic University. Contributed to event management and graphic design for activities and initiatives.', 'Omdurman, Sudan', '2021', '2021', NULL, 3),
-('Deputy Media Officer', 'Arabic Language College Committee', 'Elected as Deputy Media Officer. Designed media materials for student activities. Contributed to organizing student reception, cultural activities, and the college sports league.', 'Omdurman Islamic University', '2022', '2022', NULL, 4)
+('Media & Organizing Volunteer', 'Khatwa Charity Foundation', 'Participated in media and organizational activities of the foundation at Omdurman Islamic University. Contributed to event management and graphic design for activities and initiatives.', 'Omdurman, Sudan', '2022', '2022', NULL, 3),
+('Deputy Media Officer', 'Arabic Language College Committee', 'Elected as Deputy Media Officer. Designed media materials for student activities. Contributed to organizing student reception, cultural activities, and the college sports league.', 'Omdurman Islamic University', '2022', '2023', NULL, 4)
 ON CONFLICT DO NOTHING;
 
 INSERT INTO languages (name, proficiency, sort_order) VALUES
-('English', 'Advanced', 1),
+('English', 'Upper Intermediate', 1),
 ('Arabic', 'Native', 2)
 ON CONFLICT DO NOTHING;
 
-INSERT INTO projects (user_id, title, slug, short_description, content, tech_stack, architecture_details, deployment_notes, challenges, outcomes, thumbnail, status, featured, sort_order, created_at) VALUES
+INSERT INTO projects (user_id, title, slug, short_description, content, tech_stack, architecture_details, deployment_notes, challenges, outcomes, thumbnail, link, status, featured, sort_order, created_at) VALUES
 (
     1,
     'Enterprise Recovery & Infrastructure Migration',
@@ -99,6 +99,7 @@ INSERT INTO projects (user_id, title, slug, short_description, content, tech_sta
     'Managing security breaches, restoring corrupted systems, handling urgent migrations, and maintaining service continuity under pressure.',
     'Successfully recovered 28 production websites and stabilized critical business infrastructure.',
     NULL,
+    NULL,
     'published',
     true,
     1,
@@ -136,6 +137,7 @@ INSERT INTO projects (user_id, title, slug, short_description, content, tech_sta
     'Maintaining responsiveness during concurrent operations and building scalable asynchronous workflows.',
     'Delivered a stable educational platform supporting 1K+ active users with scalable backend infrastructure.',
     NULL,
+    NULL,
     'published',
     true,
     2,
@@ -169,6 +171,7 @@ INSERT INTO projects (user_id, title, slug, short_description, content, tech_sta
     'Self-managed Linux hosting environments with secure deployment workflows and database optimization.',
     'Handling real-time inventory consistency and ensuring system reliability for business-critical operations.',
     'Delivered practical systems for inventory management and sales operations.',
+    NULL,
     NULL,
     'published',
     false,
@@ -211,6 +214,7 @@ INSERT INTO projects (user_id, title, slug, short_description, content, tech_sta
     'Balancing uptime, security, and scalability across multiple client systems.',
     'Maintained stable hosting operations for multiple production services.',
     NULL,
+    NULL,
     'published',
     false,
     4,
@@ -232,6 +236,7 @@ INSERT INTO posts (user_id, title, slug, content, excerpt, featured_image, statu
 <p>The experience strengthened my ability to work under pressure while maintaining technical precision.</p>',
     'Lessons learned from recovering and migrating compromised production systems.',
     NULL,
+    NULL,
     'published',
     'en',
     NOW()
@@ -246,6 +251,7 @@ INSERT INTO posts (user_id, title, slug, content, excerpt, featured_image, statu
 
 <p>I use Celery, Redis, PostgreSQL, Docker, and Linux infrastructure to build scalable backend systems focused on reliability and maintainability.</p>',
     'Practical backend architecture patterns for scalable Django applications.',
+    NULL,
     NULL,
     'published',
     'en',
@@ -262,6 +268,7 @@ INSERT INTO posts (user_id, title, slug, content, excerpt, featured_image, statu
 <p>Using Linux improved my understanding of infrastructure, deployment systems, and backend operations.</p>',
     'How Linux improved my workflow as a full-stack developer and DevOps engineer.',
     NULL,
+    NULL,
     'published',
     'en',
     NOW()
@@ -276,6 +283,7 @@ INSERT INTO posts (user_id, title, slug, content, excerpt, featured_image, statu
 
 <p>This architecture improves user experience and system performance under load.</p>',
     'Improving backend responsiveness using asynchronous task processing.',
+    NULL,
     NULL,
     'published',
     'en',

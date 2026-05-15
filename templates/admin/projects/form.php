@@ -49,6 +49,11 @@
                        class="w-full px-4 py-2.5 rounded-lg bg-gray-800/50 border border-gray-700 text-white focus:border-blue-500">
             </div>
             <div class="md:col-span-2">
+                <label class="block text-sm text-gray-300 mb-1">Link (URL)</label>
+                <input type="url" name="link" value="<?= htmlspecialchars($project['link'] ?? '') ?>"
+                       class="w-full px-4 py-2.5 rounded-lg bg-gray-800/50 border border-gray-700 text-white focus:border-blue-500">
+            </div>
+            <div class="md:col-span-2">
                 <label class="flex items-center gap-2 text-sm text-gray-300">
                     <input type="checkbox" name="featured" value="1" <?= !empty($project['featured']) ? 'checked' : '' ?>
                            class="rounded bg-gray-800 border-gray-700 text-blue-500">

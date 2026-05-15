@@ -30,6 +30,8 @@ if (!in_array('timeline', \$tables)) {
     \$pdo->exec(\"ALTER TABLE timeline ADD COLUMN IF NOT EXISTS link VARCHAR(255)\");
     \$pdo->exec(\"ALTER TABLE timeline ADD COLUMN IF NOT EXISTS logo VARCHAR(255)\");
 }
+// Add link column to projects if missing
+\$pdo->exec(\"ALTER TABLE projects ADD COLUMN IF NOT EXISTS link VARCHAR(255)\");
 if (!in_array('languages', \$tables)) {
     \$pdo->exec(\"CREATE TABLE IF NOT EXISTS languages (
         id SERIAL PRIMARY KEY,

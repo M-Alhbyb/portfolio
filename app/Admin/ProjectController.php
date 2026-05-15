@@ -135,6 +135,7 @@ class ProjectController
             'deployment_notes' => $input['deployment_notes'] ?? '',
             'challenges' => $input['challenges'] ?? '',
             'outcomes' => $input['outcomes'] ?? '',
+            'link' => Validation::sanitize($input['link'] ?? ''),
             'status' => in_array($input['status'] ?? '', ['draft', 'published']) ? $input['status'] : 'draft',
             'featured' => $input['featured'] ?? '',
             'sort_order' => (int) ($input['sort_order'] ?? 0),
