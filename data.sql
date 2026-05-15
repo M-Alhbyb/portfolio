@@ -45,7 +45,16 @@ INSERT INTO skills (
 (27, 'ERP Systems', 'Backend', 76, NULL, 27),
 (28, 'POS Systems', 'Backend', 82, NULL, 28),
 (29, 'API Integration', 'Backend', 86, NULL, 29),
-(30, 'AI Integration', 'Backend', 72, NULL, 30)
+(30, 'AI Integration', 'Backend', 72, NULL, 30),
+(31, 'Analytical Thinking', 'Soft', 88, NULL, 31),
+(32, 'Team Leadership', 'Soft', 82, NULL, 32),
+(33, 'Communication Skills', 'Soft', 90, NULL, 33),
+(34, 'Project Coordination', 'Soft', 85, NULL, 34),
+(35, 'Adaptability', 'Soft', 90, NULL, 35),
+(36, 'Critical Thinking', 'Soft', 88, NULL, 36),
+(37, 'Attention to Detail', 'Soft', 92, NULL, 37),
+(38, 'Client Communication', 'Soft', 88, NULL, 38),
+(39, 'Fast Learning', 'Soft', 95, NULL, 39)
 ON CONFLICT DO NOTHING;
 
 INSERT INTO timeline (
