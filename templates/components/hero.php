@@ -61,7 +61,7 @@
                 <div class="relative flex flex-col items-center">
                     <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl blur-2xl opacity-20"></div>
                     <img src="/assets/images/photo.webp" alt="Mohamed Elhabib"
-                         class="relative w-72 h-72 lg:w-80 lg:h-80 object-cover rounded-2xl shadow-2xl">
+                         class="relative w-72 lg:w-80 object-cover object-top rounded-2xl shadow-2xl aspect-[4/5]">
                     <div class="w-3/4 h-1.5 mt-3 rounded-full border border-blue-500/20 bg-blue-500/5 shadow-lg shadow-blue-500/10"></div>
                 </div>
             </div>
