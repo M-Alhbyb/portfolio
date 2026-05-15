@@ -25,6 +25,10 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
+p {
+  text-align: justify;
+}
+
 .glass {
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
