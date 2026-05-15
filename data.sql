@@ -190,10 +190,10 @@ INSERT INTO projects (
     1,
     'EZOO POS System',
     'ezoo-pos-system',
-    'Enterprise-grade POS backend focused on financial accuracy, inventory management, and asynchronous operations using FastAPI and PostgreSQL.',
+    'POS and inventory backend built for Rayon Energy, a solar equipment and electrical supplies company, focused on financial accuracy, stock management, and asynchronous operations using FastAPI and PostgreSQL.',
     '**Repository:** [GitHub - M-Alhbyb/ezoo_pos](https://github.com/M-Alhbyb/ezoo_pos)
 
-EZOO POS is a backend-focused point-of-sale system designed for retail environments requiring reliable transaction handling and strict financial accuracy.
+EZOO POS is a backend-focused point-of-sale and inventory system built for Rayon Energy, a company specializing in solar equipment and electrical supplies.
 
 The system was developed using FastAPI with asynchronous database operations to support scalable performance and concurrent usage scenarios.
 
@@ -211,7 +211,7 @@ The backend architecture emphasizes explicit business rules, data consistency, m
     'https://github.com/M-Alhbyb/ezoo_pos',
     'published',
     true,
-    1,
+    5,
     NOW()
 ),
 (
@@ -238,7 +238,7 @@ The application was deployed and actively used in a production environment, prov
     NULL,
     'published',
     true,
-    2,
+    3,
     NOW()
 ),
 (
@@ -265,7 +265,7 @@ The backend uses Django with Celery and Redis for asynchronous task processing a
     'https://github.com/M-Alhbyb/Django_Inventory_System',
     'published',
     true,
-    3,
+    6,
     NOW()
 ),
 (
@@ -290,8 +290,8 @@ The system was deployed publicly and structured using modular Django application
     NULL,
     'https://django-e-commerce-app-34ro.onrender.com',
     'published',
-    true,
-    4,
+    false,
+    7,
     NOW()
 ),
 (
@@ -316,7 +316,7 @@ The system also includes webhook handling and operational monitoring tools for c
     'https://github.com/M-Alhbyb/jitsi-dashboard',
     'published',
     false,
-    5,
+    8,
     NOW()
 ),
 (
@@ -342,7 +342,7 @@ The project demonstrates server-driven UI patterns and lightweight reactive work
     'https://pasha-finance-app.onrender.com',
     'published',
     false,
-    6,
+    9,
     NOW()
 ),
 (
@@ -400,7 +400,7 @@ Created scalable infrastructure for long-term platform expansion',
     'https://etamkeen.net',
     'published',
     true,
-    1,
+    2,
     NOW()
 ),
 (
@@ -457,7 +457,7 @@ Delivered scalable multi-role dashboards and real-time communication systems',
     'https://manfith.com',
     'published',
     true,
-    2,
+    4,
     NOW()
 ),
 (
@@ -506,7 +506,7 @@ Measurable Outcomes:
     'https://asiabuildings.sa/',
     'published',
     false,
-    7,
+    10,
     NOW()
 ),
 (
@@ -559,8 +559,8 @@ Measurable Outcomes:
     NULL,
     'https://bahnhofligrill.ch/',
     'published',
-    false,
-    8,
+    true,
+    1,
     NOW()
 )
 ON CONFLICT DO NOTHING;

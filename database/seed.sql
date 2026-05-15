@@ -65,8 +65,8 @@ INSERT INTO projects (user_id, title, slug, short_description, content, tech_sta
     1,
     'EZOO POS System',
     'ezoo-pos-system',
-    'Enterprise-grade POS backend focused on financial accuracy, inventory management, and asynchronous operations using FastAPI and PostgreSQL.',
-    E'**Repository:** [GitHub - M-Alhbyb/ezoo_pos](https://github.com/M-Alhbyb/ezoo_pos)\n\nEZOO POS is a backend-focused point-of-sale system designed for retail environments requiring reliable transaction handling and strict financial accuracy.\n\nThe system was developed using FastAPI with asynchronous database operations to support scalable performance and concurrent usage scenarios.\n\nA major focus during development was preventing financial precision issues by using Decimal arithmetic instead of floating-point calculations.\n\nThe project includes inventory management, transaction processing, fee calculations, VAT support, immutable sales records, and structured validation using Pydantic schemas.\n\nThe backend architecture emphasizes explicit business rules, data consistency, maintainability, and backend authority over calculations and validations.',
+    'POS and inventory backend built for Rayon Energy, a solar equipment and electrical supplies company, focused on financial accuracy, stock management, and asynchronous operations using FastAPI and PostgreSQL.',
+    E'**Repository:** [GitHub - M-Alhbyb/ezoo_pos](https://github.com/M-Alhbyb/ezoo_pos)\n\nEZOO POS is a backend-focused point-of-sale and inventory system built for Rayon Energy, a company specializing in solar equipment and electrical supplies.\n\nThe system was developed using FastAPI with asynchronous database operations to support scalable performance and concurrent usage scenarios.\n\nA major focus during development was preventing financial precision issues by using Decimal arithmetic instead of floating-point calculations.\n\nThe project includes inventory management, transaction processing, fee calculations, VAT support, immutable sales records, and structured validation using Pydantic schemas.\n\nThe backend architecture emphasizes explicit business rules, data consistency, maintainability, and backend authority over calculations and validations.',
     '["FastAPI","Python","PostgreSQL","SQLAlchemy","Alembic","Pydantic","WebSockets","Pytest"]',
     'Modular FastAPI architecture with separated API, schema, model, and service layers. PostgreSQL as the primary source of truth for inventory and financial operations. Async SQLAlchemy integration using asyncpg. Alembic migration system for schema versioning. Decimal-based financial calculations for transaction precision. WebSocket-ready architecture for future real-time POS synchronization.',
     'Backend-first architecture focused on reliability and maintainability. Built using PostgreSQL and Alembic for long-term schema consistency. Designed with scalability and testability as core priorities.',
@@ -76,7 +76,7 @@ INSERT INTO projects (user_id, title, slug, short_description, content, tech_sta
     'https://github.com/M-Alhbyb/ezoo_pos',
     'published',
     true,
-    1,
+    5,
     NOW()
 ),
 (
@@ -94,7 +94,7 @@ INSERT INTO projects (user_id, title, slug, short_description, content, tech_sta
     NULL,
     'published',
     true,
-    2,
+    3,
     NOW()
 ),
 (
@@ -112,7 +112,7 @@ INSERT INTO projects (user_id, title, slug, short_description, content, tech_sta
     'https://github.com/M-Alhbyb/Django_Inventory_System',
     'published',
     true,
-    3,
+    6,
     NOW()
 ),
 (
@@ -129,8 +129,8 @@ INSERT INTO projects (user_id, title, slug, short_description, content, tech_sta
     NULL,
     'https://django-e-commerce-app-34ro.onrender.com',
     'published',
-    true,
-    4,
+    false,
+    7,
     NOW()
 ),
 (
@@ -148,7 +148,7 @@ INSERT INTO projects (user_id, title, slug, short_description, content, tech_sta
     'https://github.com/M-Alhbyb/jitsi-dashboard',
     'published',
     false,
-    5,
+    8,
     NOW()
 ),
 (
@@ -166,7 +166,7 @@ INSERT INTO projects (user_id, title, slug, short_description, content, tech_sta
     'https://pasha-finance-app.onrender.com',
     'published',
     false,
-    6,
+    9,
     NOW()
 ),
 (
@@ -184,7 +184,7 @@ INSERT INTO projects (user_id, title, slug, short_description, content, tech_sta
     'https://etamkeen.net',
     'published',
     true,
-    1,
+    2,
     NOW()
 ),
 (
@@ -202,7 +202,7 @@ INSERT INTO projects (user_id, title, slug, short_description, content, tech_sta
     'https://manfith.com',
     'published',
     true,
-    2,
+    4,
     NOW()
 ),
 (
@@ -220,7 +220,7 @@ INSERT INTO projects (user_id, title, slug, short_description, content, tech_sta
     'https://asiabuildings.sa/',
     'published',
     false,
-    7,
+    10,
     NOW()
 ),
 (
@@ -237,8 +237,8 @@ INSERT INTO projects (user_id, title, slug, short_description, content, tech_sta
     NULL,
     'https://bahnhofligrill.ch/',
     'published',
-    false,
-    8,
+    true,
+    1,
     NOW()
 )
 ON CONFLICT DO NOTHING;
