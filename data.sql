@@ -344,6 +344,170 @@ The project demonstrates server-driven UI patterns and lightweight reactive work
     false,
     6,
     NOW()
+),
+(
+    7,
+    1,
+    'ETamkeen365',
+    'etamkeen365',
+    'Adaptive intervention and family-support platform for children with developmental and behavioral challenges using deterministic assessment and planning systems.',
+    'ETamkeen365 is an adaptive intervention and caregiver-support platform designed for children with developmental, behavioral, cognitive, sensory, and learning challenges.
+
+The platform helps caregivers, specialists, and administrators collaborate through structured assessments, adaptive intervention plans, progress tracking, reassessment workflows, and operational monitoring.
+
+The system was intentionally designed using a deterministic-first architecture where progression logic, assessments, scoring, and intervention decisions are rule-based and auditable before any optional AI enhancement layer.
+
+The platform supports complete intervention lifecycles including onboarding, assessments, functional age estimation, adaptive plan generation, daily intervention execution, reassessment scheduling, adherence monitoring, notifications, and operational analytics.
+
+Architecture Details:
+
+Modular Django monolith architecture with 20+ domain modules
+Django REST Framework backend with service-layer architecture
+React + TypeScript frontend with modular dashboard systems
+PostgreSQL database with lifecycle-safe state transitions
+Celery and Redis for deterministic scheduling and operational tasks
+Zustand state management for frontend workflows
+Ownership-first permission architecture and append-only audit logs
+Arabic RTL support with responsive dashboard interfaces
+
+Challenges Solved:
+
+Designing deterministic intervention workflows instead of unsafe autonomous AI behavior
+Managing adaptive progression while preserving explainability and operational safety
+Building reassessment and adherence systems with lifecycle-safe transitions
+Structuring operational recovery and auditability systems
+Handling complex caregiver, specialist, and administrator workflows in one platform
+
+Deployment & Process Notes:
+
+Designed for production-readiness and operational rollout
+Focused on maintainability, auditability, and deterministic behavior
+Built using gradual rollout and rollback-first operational philosophy
+Security hardening and lifecycle testing integrated throughout development
+
+Measurable Outcomes:
+
+Built a production-oriented adaptive intervention platform
+Implemented complete reassessment and adherence tracking systems
+Delivered deterministic operational workflows suitable for real-world caregiving environments
+Created scalable infrastructure for long-term platform expansion',
+    '["Django","Django REST Framework","React","TypeScript","PostgreSQL","Celery","Redis","Zustand"]',
+    'Modular Django monolith architecture with 20+ domain modules. Django REST Framework backend with service-layer architecture. React + TypeScript frontend with modular dashboard systems. PostgreSQL database with lifecycle-safe state transitions. Celery and Redis for deterministic scheduling and operational tasks. Zustand state management for frontend workflows. Ownership-first permission architecture and append-only audit logs. Arabic RTL support with responsive dashboard interfaces.',
+    'Designed for production-readiness and operational rollout. Focused on maintainability, auditability, and deterministic behavior. Built using gradual rollout and rollback-first operational philosophy. Security hardening and lifecycle testing integrated throughout development.',
+    'Designing deterministic intervention workflows instead of unsafe autonomous AI behavior. Managing adaptive progression while preserving explainability and operational safety. Building reassessment and adherence systems with lifecycle-safe transitions. Structuring operational recovery and auditability systems. Handling complex caregiver, specialist, and administrator workflows in one platform.',
+    'Built a production-oriented adaptive intervention platform. Implemented complete reassessment and adherence tracking systems. Delivered deterministic operational workflows suitable for real-world caregiving environments. Created scalable infrastructure for long-term platform expansion.',
+    NULL,
+    'https://etamkeen.net',
+    'published',
+    true,
+    1,
+    NOW()
+),
+(
+    8,
+    1,
+    'Manfith Logistics Platform',
+    'manfith-logistics-platform',
+    'Saudi logistics container management platform connecting cargo owners and logistics service providers through a unified digital marketplace.',
+    'Manfith is a large-scale logistics platform built for the Saudi market to connect cargo owners with customs clearance offices, transportation companies, storage yards, and logistics providers.
+
+The system centralizes logistics workflows across sea ports, airports, and land crossings through a unified bilingual platform supporting operational management, negotiations, contracts, and real-time communication.
+
+The project was structured as a monorepo containing backend APIs, a marketing website, and a multi-role operational dashboard.
+
+The platform includes real-time chat, notifications, OTP authentication, multilingual support, analytics dashboards, employee management, and operational reporting.
+
+Architecture Details:
+
+Monorepo architecture with separated backend, website, and dashboard applications
+Express.js backend with Sequelize ORM and MySQL database
+Vue 3 frontend architecture using Vite and TailwindCSS
+Socket.io real-time communication system
+JWT authentication with OTP email verification workflows
+Role-based access control with granular permissions
+CI/CD automation using GitHub Actions and PM2 deployment pipelines
+Arabic-first localization with RTL support
+
+Challenges Solved:
+
+Managing large operational workflows across multiple logistics providers
+Building bilingual Arabic/English interfaces with RTL support
+Implementing real-time communication and notifications
+Structuring scalable multi-role operational dashboards
+Designing unified workflows for vendors, clients, and administrators
+
+Deployment & Process Notes:
+
+CI/CD deployment pipelines using GitHub Actions
+PM2-managed production backend infrastructure
+Multi-application deployment architecture
+Built for real-world operational logistics workflows
+
+Measurable Outcomes:
+
+Centralized logistics workflows into a unified platform
+Enabled operational coordination between multiple logistics actors
+Delivered scalable multi-role dashboards and real-time communication systems',
+    '["Node.js","Express.js","MySQL","Sequelize","Vue 3","TailwindCSS","Socket.io","JWT"]',
+    'Monorepo architecture with separated backend, website, and dashboard applications. Express.js backend with Sequelize ORM and MySQL database. Vue 3 frontend architecture using Vite and TailwindCSS. Socket.io real-time communication system. JWT authentication with OTP email verification workflows. Role-based access control with granular permissions. CI/CD automation using GitHub Actions and PM2 deployment pipelines. Arabic-first localization with RTL support.',
+    'CI/CD deployment pipelines using GitHub Actions. PM2-managed production backend infrastructure. Multi-application deployment architecture. Built for real-world operational logistics workflows.',
+    'Managing large operational workflows across multiple logistics providers. Building bilingual Arabic/English interfaces with RTL support. Implementing real-time communication and notifications. Structuring scalable multi-role operational dashboards. Designing unified workflows for vendors, clients, and administrators.',
+    'Centralized logistics workflows into a unified platform. Enabled operational coordination between multiple logistics actors. Delivered scalable multi-role dashboards and real-time communication systems.',
+    NULL,
+    'https://manfith.com',
+    'published',
+    true,
+    2,
+    NOW()
+),
+(
+    9,
+    1,
+    'Asia Buildings Platform',
+    'asia-buildings-platform',
+    'Business platform maintenance and optimization work including debugging, SEO improvements, and operational enhancements for a real company website.',
+    'Asia Buildings is a production business platform where I worked on debugging, SEO optimization, and operational improvements for a real company environment.
+
+The work focused on identifying and resolving frontend and backend issues, improving application stability, enhancing search engine visibility, and refining overall site performance and usability.
+
+The project involved working within an existing Laravel and React codebase while maintaining compatibility with production workflows and live business operations.
+
+Architecture Details:
+
+* Laravel backend with React frontend architecture
+* Existing production business platform workflows
+* SEO-focused frontend and metadata improvements
+* Debugging and issue resolution across frontend and backend layers
+
+Challenges Solved:
+
+* Diagnosing and fixing production issues in an active system
+* Improving SEO structure and search visibility
+* Maintaining stability while applying fixes to live operational workflows
+* Working within an existing large codebase efficiently
+
+Deployment & Process Notes:
+
+* Worked directly on a live production platform
+* Focused on operational stability and incremental improvements
+* Applied debugging and SEO optimizations without disrupting business workflows
+
+Measurable Outcomes:
+
+* Improved platform stability and issue resolution
+* Enhanced SEO structure and discoverability
+* Contributed to maintaining production business operations',
+    '["Laravel","React","SEO","MySQL"]',
+    'Laravel backend with React frontend architecture. Existing production business platform workflows. SEO-focused frontend and metadata improvements. Debugging and issue resolution across frontend and backend layers.',
+    'Worked directly on a live production platform. Focused on operational stability and incremental improvements. Applied debugging and SEO optimizations without disrupting business workflows.',
+    'Diagnosing and fixing production issues in an active system. Improving SEO structure and search visibility. Maintaining stability while applying fixes to live operational workflows. Working within an existing large codebase efficiently.',
+    'Improved platform stability and issue resolution. Enhanced SEO structure and discoverability. Contributed to maintaining production business operations.',
+    NULL,
+    'https://asiabuildings.sa/',
+    'published',
+    false,
+    7,
+    NOW()
 )
 ON CONFLICT DO NOTHING;
 
