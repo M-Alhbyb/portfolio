@@ -508,6 +508,60 @@ Measurable Outcomes:
     false,
     7,
     NOW()
+),
+(
+    10,
+    1,
+    'Bahnhofli Grill Ordering & Delivery Platform',
+    'bahnhofli-grill-platform',
+    'Restaurant ordering and POS platform with delivery and pickup management workflows built using the MERN stack.',
+    'Bahnhofli Grill is a production restaurant platform supporting online ordering, POS operations, delivery management, and pickup workflows for a real restaurant business.
+
+The project included ecommerce ordering functionality where customers place orders online and either request delivery or pick up orders directly from the restaurant.
+
+My work focused on debugging existing operational workflows and implementing new delivery and pickup management systems across both frontend and backend services.
+
+The platform was built using the MERN stack with Docker-based deployment workflows.
+
+Architecture Details:
+
+* MERN stack architecture with separated frontend and backend services
+* MongoDB database for order and operational data
+* React frontend for customer ordering workflows
+* Express.js and Node.js backend APIs
+* Docker-based containerized development and deployment workflows
+* Operational order management and delivery tracking systems
+
+Challenges Solved:
+
+* Fixing production issues in active restaurant workflows
+* Designing delivery and pickup operational logic
+* Maintaining stable order processing while extending platform functionality
+* Coordinating frontend and backend updates across ecommerce workflows
+
+Deployment & Process Notes:
+
+* Worked on a live production restaurant platform
+* Focused on operational reliability and workflow stability
+* Added new business features while preserving existing order systems
+* Used Docker-based workflows for environment consistency
+
+Measurable Outcomes:
+
+* Expanded the platform with delivery and pickup management capabilities
+* Improved operational ordering workflows for restaurant staff and customers
+* Resolved production bugs affecting ecommerce and POS operations',
+    '["MongoDB","Express.js","React","Node.js","Docker"]',
+    'MERN stack architecture with separated frontend and backend services. MongoDB database for order and operational data. React frontend for customer ordering workflows. Express.js and Node.js backend APIs. Docker-based containerized development and deployment workflows. Operational order management and delivery tracking systems.',
+    'Worked on a live production restaurant platform. Focused on operational reliability and workflow stability. Added new business features while preserving existing order systems. Used Docker-based workflows for environment consistency.',
+    'Fixing production issues in active restaurant workflows. Designing delivery and pickup operational logic. Maintaining stable order processing while extending platform functionality. Coordinating frontend and backend updates across ecommerce workflows.',
+    'Expanded the platform with delivery and pickup management capabilities. Improved operational ordering workflows for restaurant staff and customers. Resolved production bugs affecting ecommerce and POS operations.',
+    NULL,
+    'https://bahnhofligrill.ch/',
+    'published',
+    false,
+    8,
+    NOW()
 )
 ON CONFLICT DO NOTHING;
 
