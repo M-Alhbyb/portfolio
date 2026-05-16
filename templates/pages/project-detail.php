@@ -56,19 +56,62 @@ use App\Helpers\Markdown;
 </section>
 
 <?php if (!empty($images)): ?>
-<section class="py-8">
+<?php $galleryJson = htmlspecialchars(json_encode(array_map(function($img) use ($project) {
+    return ['src' => '/' . $img['filepath'], 'alt' => $img['alt_text'] ?: $project['title']];
+}, $images)), ENT_QUOTES, 'UTF-8'); ?>
+<section class="py-8" x-data="gallery" data-images='<?= $galleryJson ?>' @keydown.window="onKeydown">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <?php foreach ($images as $image): ?>
-                <div class="glass-card rounded-lg overflow-hidden group">
-                    <img src="/<?= htmlspecialchars($image['filepath']) ?>"
-                         alt="<?= htmlspecialchars($image['alt_text'] ?: $project['title']) ?>"
-                         loading="lazy"
-                         class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+        <div class="flex items-center gap-3 mb-8">
+            <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <h2 class="text-xl font-semibold gradient-text"><?= \App\Helpers\Language::t('projects.gallery') ?></h2>
+        </div>
+
+        <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
+            <?php foreach ($images as $i => $image): ?>
+                <div class="break-inside-avoid <?= $i === 0 ? 'lg:col-span-2' : '' ?>">
+                    <button type="button" @click="openViewer(<?= $i ?>)" class="glass-card rounded-lg overflow-hidden group w-full text-left">
+                        <img src="/<?= htmlspecialchars($image['filepath']) ?>"
+                             alt="<?= htmlspecialchars($image['alt_text'] ?: $project['title']) ?>"
+                             loading="lazy"
+                             class="w-full <?= $i % 3 === 0 ? 'aspect-[4/3]' : ($i % 3 === 1 ? 'aspect-square' : 'aspect-[3/4]') ?> object-cover group-hover:scale-105 transition-transform duration-300">
+                    </button>
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
+
+    <template x-teleport="body">
+        <div x-show="open" x-cloak
+             class="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+             @click.self="closeViewer">
+            <button @click="closeViewer" class="absolute top-4 right-4 text-white/70 hover:text-white transition-colors z-10">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <button @click="prev" class="absolute left-4 text-white/70 hover:text-white transition-colors z-10">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+            </button>
+
+            <template x-if="images[currentIndex]">
+                <img :src="images[currentIndex].src" :alt="images[currentIndex].alt"
+                     class="max-h-[90vh] max-w-[90vw] object-contain rounded-lg">
+            </template>
+
+            <button @click="next" class="absolute right-4 text-white/70 hover:text-white transition-colors z-10">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+            </button>
+
+            <div class="absolute bottom-4 text-white/50 text-sm" x-text="`${currentIndex + 1} / ${images.length}`"></div>
+        </div>
+    </template>
 </section>
 <?php endif; ?>
 

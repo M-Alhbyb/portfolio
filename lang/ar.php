@@ -37,6 +37,7 @@ return [
     'projects.architecture' => 'البنية',
     'projects.deployment' => 'النشر',
     'projects.back' => 'العودة إلى المشاريع',
+    'projects.gallery' => 'معرض الصور',
 
     // Blog
     'blog.title' => 'المدونة',

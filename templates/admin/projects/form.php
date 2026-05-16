@@ -101,10 +101,27 @@
         <?php if (!empty($images)): ?>
         <div>
             <label class="block text-sm text-gray-300 mb-2">Gallery Images</label>
-            <div class="grid grid-cols-4 sm:grid-cols-6 gap-2">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <?php foreach ($images as $img): ?>
-                <div class="aspect-square rounded-lg overflow-hidden bg-gray-800">
-                    <img src="/<?= htmlspecialchars($img['filepath']) ?>" alt="" class="w-full h-full object-cover" loading="lazy">
+                <div class="glass-card rounded-lg p-3">
+                    <input type="hidden" name="existing_images[<?= (int) $img['id'] ?>][id]" value="<?= (int) $img['id'] ?>">
+                    <div class="aspect-video rounded-lg overflow-hidden bg-gray-800 mb-2">
+                        <img src="/<?= htmlspecialchars($img['filepath']) ?>" alt="" class="w-full h-full object-cover" loading="lazy">
+                    </div>
+                    <div class="space-y-2">
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-0.5">Alt Text</label>
+                            <input type="text" name="existing_images[<?= (int) $img['id'] ?>][alt_text]"
+                                   value="<?= htmlspecialchars($img['alt_text'] ?? '') ?>"
+                                   class="w-full px-2 py-1 text-xs rounded bg-gray-800/50 border border-gray-700 text-white focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-400 mb-0.5">Sort Order</label>
+                            <input type="number" name="existing_images[<?= (int) $img['id'] ?>][sort_order]"
+                                   value="<?= (int) ($img['sort_order'] ?? 0) ?>"
+                                   class="w-full px-2 py-1 text-xs rounded bg-gray-800/50 border border-gray-700 text-white focus:border-blue-500">
+                        </div>
+                    </div>
                 </div>
                 <?php endforeach; ?>
             </div>

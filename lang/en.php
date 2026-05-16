@@ -37,6 +37,7 @@ return [
     'projects.architecture' => 'Architecture',
     'projects.deployment' => 'Deployment',
     'projects.back' => 'Back to Projects',
+    'projects.gallery' => 'Gallery',
 
     // Blog
     'blog.title' => 'Blog',

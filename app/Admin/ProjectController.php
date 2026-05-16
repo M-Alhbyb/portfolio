@@ -108,6 +108,7 @@ class ProjectController
 
         Project::update($id, $data);
         $this->handleGallery($id);
+        $this->updateExistingImages();
 
         header('Location: /admin/projects');
         exit;
@@ -174,6 +175,20 @@ class ProjectController
                     'created_at' => date('Y-m-d H:i:s'),
                 ]);
             }
+        }
+    }
+
+    private function updateExistingImages(): void
+    {
+        if (empty($_POST['existing_images'])) return;
+
+        foreach ($_POST['existing_images'] as $id => $data) {
+            $id = (int) $id;
+            if ($id <= 0) continue;
+            ProjectImage::update($id, [
+                'alt_text' => Validation::sanitize($data['alt_text'] ?? ''),
+                'sort_order' => (int) ($data['sort_order'] ?? 0),
+            ]);
         }
     }
 

@@ -27,6 +27,12 @@ class ProjectImage
         return $db->insert('project_images', $data);
     }
 
+    public static function update(int $id, array $data): int
+    {
+        $db = Database::getInstance();
+        return $db->update('project_images', $data, 'id = ?', [$id]);
+    }
+
     public static function delete(int $id): int
     {
         $db = Database::getInstance();
