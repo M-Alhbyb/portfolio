@@ -15,8 +15,8 @@ class HomeController
     public function index(array $params = []): void
     {
         $seo = new SEO();
-        $seo->setTitle('Mohamed Elhabib - Engineering Portfolio')
-            ->setDescription('Portfolio of Mohamed Elhabib, showcasing engineering projects, DevOps infrastructure, and technical expertise.');
+        $seo->setTitle('Mohamed Elhabib - Full Stack & AI Developer')
+            ->setDescription('Portfolio of Mohamed Elhabib, showcasing full-stack web development projects, AI solutions, and technical expertise.');
 
         $featuredProjects = Project::findFeatured(6);
         $recentPosts = Post::findRecent(3);

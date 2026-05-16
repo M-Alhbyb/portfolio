@@ -51,7 +51,7 @@
                     </div>
                     <div class="mt-2 text-sm font-mono text-gray-400">
                         <div><span class="text-blue-400">status:</span> <span class="text-green-400">active</span></div>
-                        <div><span class="text-blue-400">focus:</span> <span class="text-cyan-400">DevOps &amp; Infrastructure</span></div>
+                        <div><span class="text-blue-400">focus:</span> <span class="text-cyan-400">Full Stack &amp; AI</span></div>
                         <div><span class="text-blue-400">uptime:</span> <span class="text-yellow-400">99.9%</span></div>
                     </div>
                 </div>

@@ -61,25 +61,25 @@
                         </svg>
                     </div>
                     <h3 class="text-sm font-semibold text-white mb-2"><?= \App\Helpers\Language::t('infra.cloud') ?></h3>
-                    <p class="text-xs text-gray-400">AWS, GCP, DigitalOcean</p>
+                    <p class="text-xs text-gray-400">React, Vue, TailwindCSS, Alpine.js</p>
                 </div>
                 <div class="glass-card rounded-lg p-5 text-center">
-                    <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-red-500/10 flex items-center justify-center">
-                        <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-green-500/10 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
                         </svg>
                     </div>
                     <h3 class="text-sm font-semibold text-white mb-2"><?= \App\Helpers\Language::t('infra.containers') ?></h3>
-                    <p class="text-xs text-gray-400">Docker, K8s, Terraform</p>
+                    <p class="text-xs text-gray-400">PHP, Node.js, APIs, Databases</p>
                 </div>
                 <div class="glass-card rounded-lg p-5 text-center">
-                    <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-cyan-500/10 flex items-center justify-center">
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-purple-500/10 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
                         </svg>
                     </div>
                     <h3 class="text-sm font-semibold text-white mb-2"><?= \App\Helpers\Language::t('infra.ci_cd') ?></h3>
-                    <p class="text-xs text-gray-400">GitHub Actions, Jenkins</p>
+                    <p class="text-xs text-gray-400">LLMs, NLP, RAG, Fine-tuning</p>
                 </div>
             </div>
         </div>

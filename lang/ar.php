@@ -10,10 +10,10 @@ return [
 
     // Hero
     'hero.greeting' => 'مرحباً، أنا',
-    'hero.role' => 'قائد الهندسة والعمليات',
+    'hero.role' => 'مطور Full Stack والذكاء الاصطناعي',
     'hero.i_am' => 'أنا',
-    'hero.description' => 'أقوم بتصميم وبناء ونشر أنظمة مرنة. من الخوادم المادية إلى السحابة، أسد الفجوة بين التطوير والبنية التحتية.',
-    'hero.tagline' => 'أقوم بتصميم وبناء ونشر أنظمة مرنة. من الخوادم المادية إلى السحابة، أسد الفجوة بين التطوير والبنية التحتية.',
+    'hero.description' => 'أبني تطبيقات ويب كاملة حديثة وأصنع حلول ذكاء اصطناعي ذكية. من واجهات مستخدم مثالية إلى خوادم قابلة للتوسع ونماذج تعلم آلي.',
+    'hero.tagline' => 'أبني تطبيقات ويب كاملة حديثة وأصنع حلول ذكاء اصطناعي ذكية. من واجهات مستخدم مثالية إلى خوادم قابلة للتوسع ونماذج تعلم آلي.',
     'hero.cta_projects' => 'عرض المشاريع',
     'hero.view_projects' => 'عرض المشاريع',
     'hero.cta_contact' => 'تواصل معي',
@@ -49,12 +49,12 @@ return [
     'blog.share' => 'مشاركة',
     'blog.all' => 'الكل',
 
-    // Infrastructure
-    'infra.title' => 'البنية التحتية والعمليات',
-    'infra.subtitle' => 'القدرات الهندسية',
-    'infra.cloud' => 'المنصات السحابية',
-    'infra.containers' => 'الحاويات',
-    'infra.ci_cd' => 'التكامل والنشر',
+    // Infrastructure (now Full Stack & AI)
+    'infra.title' => 'Full Stack والذكاء الاصطناعي',
+    'infra.subtitle' => 'القدرات الأساسية',
+    'infra.cloud' => 'تطوير الواجهات الأمامية',
+    'infra.containers' => 'تطوير الخوادم',
+    'infra.ci_cd' => 'الذكاء الاصطناعي والتعلم الآلي',
 
     // Timeline
     'timeline.title' => 'الخبرة والتعليم',
@@ -87,13 +87,13 @@ return [
     'about.subtitle' => 'من أنا',
     'about.story' => 'قصتي',
     'about.philosophy' => 'فلسفة الهندسة',
-    'about.mindset' => 'عقلية البنية التحتية',
+    'about.mindset' => 'عقلية هندسية',
     'about.journey' => 'رحلة التعلم',
     'about.languages' => 'اللغات',
     'about.volunteering' => 'التطوع والمجتمع',
 
     // Footer
-    'footer.tagline' => 'بناء أنظمة مرنة وصنع المستقبل، نشر تلو الآخر.',
+    'footer.tagline' => 'بناء تجارب ويب حديثة وحلول ذكاء اصطناعي، مشروع تلو الآخر.',
     'footer.quick_links' => 'روابط سريعة',
     'footer.connect' => 'تواصل',
     'footer.rights' => 'جميع الحقوق محفوظة.',

@@ -10,10 +10,10 @@ return [
 
     // Hero
     'hero.greeting' => 'Hello, I\'m',
-    'hero.role' => 'Engineering & DevOps Leader',
+    'hero.role' => 'Full Stack & AI Developer',
     'hero.i_am' => 'I\'m',
-    'hero.description' => 'I architect, build, and deploy resilient systems. From bare metal to cloud-native, I bridge the gap between development and infrastructure.',
-    'hero.tagline' => 'I architect, build, and deploy resilient systems. From bare metal to cloud-native, I bridge the gap between development and infrastructure.',
+    'hero.description' => 'I build modern full-stack web applications and craft intelligent AI solutions. From pixel-perfect UIs to scalable backends and machine learning models.',
+    'hero.tagline' => 'I build modern full-stack web applications and craft intelligent AI solutions. From pixel-perfect UIs to scalable backends and machine learning models.',
     'hero.cta_projects' => 'View Projects',
     'hero.view_projects' => 'View Projects',
     'hero.cta_contact' => 'Get In Touch',
@@ -49,12 +49,12 @@ return [
     'blog.share' => 'Share',
     'blog.all' => 'All',
 
-    // Infrastructure
-    'infra.title' => 'Infrastructure & DevOps',
-    'infra.subtitle' => 'engineering capability',
-    'infra.cloud' => 'Cloud Platforms',
-    'infra.containers' => 'Containerization',
-    'infra.ci_cd' => 'CI/CD',
+    // Infrastructure (now Full Stack & AI)
+    'infra.title' => 'Full Stack & AI',
+    'infra.subtitle' => 'core capabilities',
+    'infra.cloud' => 'Frontend Development',
+    'infra.containers' => 'Backend Development',
+    'infra.ci_cd' => 'AI & Machine Learning',
 
     // Timeline
     'timeline.title' => 'Experience & Education',
@@ -87,13 +87,13 @@ return [
     'about.subtitle' => 'who I am',
     'about.story' => 'My Story',
     'about.philosophy' => 'Engineering Philosophy',
-    'about.mindset' => 'Infrastructure Mindset',
+    'about.mindset' => 'Engineering Mindset',
     'about.journey' => 'Learning Journey',
     'about.languages' => 'Languages',
     'about.volunteering' => 'Volunteering & Community',
 
     // Footer
-    'footer.tagline' => 'Engineering resilient systems and building the future, one deployment at a time.',
+    'footer.tagline' => 'Building modern web experiences and intelligent AI solutions, one project at a time.',
     'footer.quick_links' => 'Quick Links',
     'footer.connect' => 'Connect',
     'footer.rights' => 'All rights reserved.',
