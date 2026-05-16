@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-cd "$(dirname "$0")"
+cd /var/www/m-elhabib.pro
 
 echo "Pulling latest changes..."
 git pull origin main
