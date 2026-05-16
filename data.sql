@@ -61,15 +61,15 @@ INSERT INTO skills (
 (22, 'Redis', 'DevOps', 82, NULL, 4),
 (23, 'Alembic', 'DevOps', 70, NULL, 5),
 -- Soft
-(31, 'Analytical Thinking', 'Soft', 88, NULL, 1),
-(32, 'Team Leadership', 'Soft', 82, NULL, 2),
-(33, 'Communication Skills', 'Soft', 90, NULL, 3),
-(34, 'Project Coordination', 'Soft', 85, NULL, 4),
-(35, 'Adaptability', 'Soft', 90, NULL, 5),
-(36, 'Critical Thinking', 'Soft', 88, NULL, 6),
-(37, 'Attention to Detail', 'Soft', 92, NULL, 7),
-(38, 'Client Communication', 'Soft', 88, NULL, 8),
-(39, 'Fast Learning', 'Soft', 95, NULL, 9)
+(31, 'Analytical Thinking', 'Soft Skills', 88, NULL, 1),
+(32, 'Team Leadership', 'Soft Skills', 82, NULL, 2),
+(33, 'Communication Skills', 'Soft Skills', 90, NULL, 3),
+(34, 'Project Coordination', 'Soft Skills', 85, NULL, 4),
+(35, 'Adaptability', 'Soft Skills', 90, NULL, 5),
+(36, 'Critical Thinking', 'Soft Skills', 88, NULL, 6),
+(37, 'Attention to Detail', 'Soft Skills', 92, NULL, 7),
+(38, 'Client Communication', 'Soft Skills', 88, NULL, 8),
+(39, 'Fast Learning', 'Soft Skills', 95, NULL, 9)
 ON CONFLICT DO NOTHING;
 
 INSERT INTO timeline (

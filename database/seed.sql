@@ -51,15 +51,15 @@ INSERT INTO skills (name, category, proficiency, icon, sort_order) VALUES
 ('Redis', 'DevOps', 82, NULL, 4),
 ('Alembic', 'DevOps', 70, NULL, 5),
 -- Soft
-('Analytical Thinking', 'Soft', 88, NULL, 1),
-('Team Leadership', 'Soft', 82, NULL, 2),
-('Communication Skills', 'Soft', 90, NULL, 3),
-('Project Coordination', 'Soft', 85, NULL, 4),
-('Adaptability', 'Soft', 90, NULL, 5),
-('Critical Thinking', 'Soft', 88, NULL, 6),
-('Attention to Detail', 'Soft', 92, NULL, 7),
-('Client Communication', 'Soft', 88, NULL, 8),
-('Fast Learning', 'Soft', 95, NULL, 9)
+('Analytical Thinking', 'Soft Skills', 88, NULL, 1),
+('Team Leadership', 'Soft Skills', 82, NULL, 2),
+('Communication Skills', 'Soft Skills', 90, NULL, 3),
+('Project Coordination', 'Soft Skills', 85, NULL, 4),
+('Adaptability', 'Soft Skills', 90, NULL, 5),
+('Critical Thinking', 'Soft Skills', 88, NULL, 6),
+('Attention to Detail', 'Soft Skills', 92, NULL, 7),
+('Client Communication', 'Soft Skills', 88, NULL, 8),
+('Fast Learning', 'Soft Skills', 95, NULL, 9)
 ON CONFLICT DO NOTHING;
 
 INSERT INTO timeline (type, period, title, organization, description, place, work_type, link, logo, sort_order) VALUES
