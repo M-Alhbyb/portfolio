@@ -13,7 +13,7 @@ class SkillController
     {
         Auth::requireLogin();
         $skills = Skill::findAll();
-        $categories = ['Backend', 'Frontend', 'DevOps', 'Cloud', 'Database', 'Tools', 'Other'];
+        $categories = ['AI & Automation', 'Architecture & Concepts', 'Backend', 'Frontend', 'DevOps', 'Cloud', 'Database', 'Tools', 'Other'];
 
         $error = Session::flash('skill_error');
         $success = Session::flash('skill_success');
