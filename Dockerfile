@@ -12,7 +12,7 @@ RUN npm run build:css
 # PHP runtime (alpine, built-in server)
 FROM php:8.4-cli-alpine
 
-RUN apk add --no-cache libzip-dev unzip curl bash && \
+RUN apk add --no-cache libzip-dev sqlite-dev unzip curl bash && \
     docker-php-ext-install pdo_sqlite && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
