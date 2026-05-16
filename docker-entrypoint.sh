@@ -20,8 +20,10 @@ if [ ! -f /app/database/portfolio.sqlite ]; then
         \$pdo->exec('PRAGMA foreign_keys=ON');
         \$sql = file_get_contents('/app/database/schema.sql');
         \$pdo->exec(\$sql);
+        \$seed = file_get_contents('/app/database/seed.sql');
+        \$pdo->exec(\$seed);
     "
-    echo "Schema created."
+    echo "Database initialized with schema and seed data."
 fi
 
 exec "$@"
