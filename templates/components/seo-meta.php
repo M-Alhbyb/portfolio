@@ -1,6 +1,6 @@
 <?php
-$title = $title ?? 'Mohamed Elhabib - Engineering Portfolio';
-$description = $description ?? 'Portfolio of Mohamed Elhabib, showcasing engineering projects, DevOps infrastructure, and technical expertise.';
+$title = $title ?? 'MohamedElhabib Mohamed - Engineering Portfolio';
+$description = $description ?? 'Portfolio of MohamedElhabib Mohamed, showcasing engineering projects, DevOps infrastructure, and technical expertise.';
 $ogTitle = $ogTitle ?? $title;
 $ogDescription = $ogDescription ?? $description;
 $ogImage = $ogImage ?? null;

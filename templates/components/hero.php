@@ -22,7 +22,7 @@
                 <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 leading-tight">
                     <span class="text-white"><?= \App\Helpers\Language::t('hero.i_am') ?></span>
                     <br>
-                    <span class="gradient-text">Mohamed Elhabib</span>
+                    <span class="gradient-text">MohamedElhabib Mohamed</span>
                 </h1>
 
                 <p class="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl">
@@ -60,7 +60,7 @@
             <div class="hidden md:block flex-shrink-0">
                 <div class="relative flex flex-col items-center">
                     <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl blur-2xl opacity-20"></div>
-                    <img src="/assets/images/photo.webp" alt="Mohamed Elhabib"
+                    <img src="/assets/images/photo.webp" alt="MohamedElhabib Mohamed"
                          class="relative w-72 lg:w-80 object-cover object-top rounded-2xl shadow-2xl aspect-[4/5]">
                     <div class="w-3/4 h-1.5 mt-3 rounded-full border border-blue-500/20 bg-blue-500/5 shadow-lg shadow-blue-500/10"></div>
                 </div>

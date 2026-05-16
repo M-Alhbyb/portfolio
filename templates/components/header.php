@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <a href="/" class="flex items-center group">
-                <img src="/assets/images/logo.png" alt="Mohamed Elhabib" class="h-8 w-auto">
+                <img src="/assets/images/logo.png" alt="MohamedElhabib Mohamed" class="h-8 w-auto">
             </a>
 
             <nav class="hidden md:flex items-center gap-x-6">

@@ -19,7 +19,7 @@
                 </div>
                 <div class="glass-card rounded-xl p-6">
                     <p class="text-sm text-gray-300 leading-relaxed">
-                        I'm Mohamed Elhabib, a Senior DevOps Engineer and Full Stack Developer with a passion for building resilient, scalable systems. My journey in technology started with a curiosity about how things work, which led me to pursue a degree in Computer Engineering.
+                        I'm MohamedElhabib Mohamed, a Full Stack Developer and AI Engineer with a passion for building resilient, scalable systems. My journey in technology started with a curiosity about how things work, which led me to pursue a degree in Computer Engineering.
                     </p>
                     <p class="text-sm text-gray-300 leading-relaxed mt-4">
                         Over the years, I've worked across the full stack — from designing cloud infrastructure and CI/CD pipelines to developing web applications and microservices. I believe in automation, clean architecture, and measurable outcomes.

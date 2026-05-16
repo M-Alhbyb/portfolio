@@ -521,7 +521,7 @@ This architecture improves user experience and system performance under load.',
 ;
 
 INSERT OR IGNORE INTO settings (key, value, group_name, locale) VALUES
-('site_title', 'Mohamed Elhabib | Backend Engineer & Systems Architect', 'general', 'en'),
+('site_title', 'MohamedElhabib Mohamed | Full Stack & AI Developer', 'general', 'en'),
 ('site_description', 'Backend-heavy full stack developer building real systems -- financial platforms, ERP solutions, POS systems, and AI-powered tools.', 'general', 'en'),
 ('hero_title_en', 'Building Real Systems That Solve Business Problems', 'hero', 'en'),
 ('hero_title_ar', 'أبني أنظمة حقيقية تحل مشاكل الأعمال', 'hero', 'ar'),
@@ -529,5 +529,5 @@ INSERT OR IGNORE INTO settings (key, value, group_name, locale) VALUES
 ('hero_subtitle_ar', 'مهندس backend متخصص في الأنظمة المالية، هندسة ERP، واجهات برمجية قابلة للتوسع، ومنصات ذكاء اصطناعي.', 'hero', 'ar'),
 ('social_github', 'https://github.com/M-Alhbyb', 'social', 'en'),
 ('social_linkedin', 'https://linkedin.com/in/m-elhabib', 'social', 'en'),
-('social_email', 'mohamed.elhabib@gmail.com', 'social', 'en')
+('social_email', 'mohammedalhbyb@gmail.com', 'social', 'en')
 ;

@@ -677,7 +677,7 @@ INSERT OR IGNORE INTO settings (
     group_name,
     locale
 ) VALUES
-(1, 'site_title', 'Mohamed Elhabib | Backend Engineer &amp; Systems Architect', 'general', 'en'),
+(1, 'site_title', 'MohamedElhabib Mohamed | Full Stack &amp; AI Developer', 'general', 'en'),
 (2, 'site_description', 'Backend-heavy full stack developer building real systems -- financial platforms, ERP solutions, POS systems, and AI-powered tools.', 'general', 'en'),
 (3, 'hero_title_en', 'Building Real Systems That Solve Business Problems', 'hero', 'en'),
 (4, 'hero_title_ar', 'أبني أنظمة حقيقية تحل مشاكل الأعمال', 'hero', 'ar'),
@@ -685,7 +685,7 @@ INSERT OR IGNORE INTO settings (
 (6, 'hero_subtitle_ar', 'مهندس backend متخصص في الأنظمة المالية، هندسة ERP، واجهات برمجية قابلة للتوسع، ومنصات ذكاء اصطناعي.', 'hero', 'ar'),
 (7, 'social_github', 'https://github.com/M-Alhbyb', 'social', 'en'),
 (8, 'social_linkedin', 'https://linkedin.com/in/m-elhabib', 'social', 'en'),
-(9, 'social_email', 'mohamed.elhabib@gmail.com', 'social', 'en')
+(9, 'social_email', 'mohammedalhbyb@gmail.com', 'social', 'en')
 ;
 
 COMMIT;

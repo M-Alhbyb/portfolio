@@ -12,7 +12,7 @@ class ProjectController
     public function index(array $params = []): void
     {
         $seo = new SEO();
-        $seo->setTitle('Projects - Mohamed Elhabib')
+        $seo->setTitle('Projects - MohamedElhabib Mohamed')
             ->setDescription('Engineering case studies showcasing architecture, implementation, and deployment.');
 
         $page = (int) ($_GET['page'] ?? 1);
@@ -42,7 +42,7 @@ class ProjectController
         }
 
         $seo = new SEO();
-        $seo->setTitle($project['title'] . ' - Mohamed Elhabib')
+        $seo->setTitle($project['title'] . ' - MohamedElhabib Mohamed')
             ->setDescription($project['short_description'] ?? '')
             ->setOgType('article');
 

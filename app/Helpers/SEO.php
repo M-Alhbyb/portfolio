@@ -5,8 +5,8 @@ namespace App\Helpers;
 class SEO
 {
     private array $data = [
-        'title' => 'Mohamed Elhabib - Engineering Portfolio',
-        'description' => 'Portfolio of Mohamed Elhabib, showcasing engineering projects, DevOps infrastructure, and technical expertise.',
+        'title' => 'MohamedElhabib Mohamed - Engineering Portfolio',
+        'description' => 'Portfolio of MohamedElhabib Mohamed, showcasing engineering projects, DevOps infrastructure, and technical expertise.',
         'og_title' => null,
         'og_description' => null,
         'og_image' => null,

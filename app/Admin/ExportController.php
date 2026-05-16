@@ -51,8 +51,8 @@ class ExportController
 
         $db = Database::getInstance();
 
-        $name = 'Mohamed Elhabib';
-        $email = 'mohamed.elhabib@gmail.com';
+        $name = 'MohamedElhabib Mohamed';
+        $email = 'mohammedalhbyb@gmail.com';
         $phone = 'wa.me/249111696468';
         $location = '';
         $github = 'https://github.com/M-Alhbyb';

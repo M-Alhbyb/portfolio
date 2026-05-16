@@ -13,8 +13,8 @@ class AboutController
     public function index(array $params = []): void
     {
         $seo = new SEO();
-        $seo->setTitle('About - Mohamed Elhabib')
-            ->setDescription('Learn about Mohamed Elhabib — engineering philosophy, infrastructure mindset, and professional journey.');
+        $seo->setTitle('About - MohamedElhabib Mohamed')
+            ->setDescription('Learn about MohamedElhabib Mohamed — engineering philosophy, infrastructure mindset, and professional journey.');
 
         $settings = [];
         $languages = [];

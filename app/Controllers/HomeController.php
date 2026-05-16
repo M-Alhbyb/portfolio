@@ -15,8 +15,8 @@ class HomeController
     public function index(array $params = []): void
     {
         $seo = new SEO();
-        $seo->setTitle('Mohamed Elhabib - Full Stack & AI Developer')
-            ->setDescription('Portfolio of Mohamed Elhabib, showcasing full-stack web development projects, AI solutions, and technical expertise.');
+        $seo->setTitle('MohamedElhabib Mohamed - Full Stack & AI Developer')
+            ->setDescription('Portfolio of MohamedElhabib Mohamed, showcasing full-stack web development projects, AI solutions, and technical expertise.');
 
         $featuredProjects = Project::findFeatured(6);
         $recentPosts = Post::findRecent(3);
@@ -63,7 +63,7 @@ class HomeController
     private function getContactInfo(): array
     {
         return [
-            'email' => 'mohamed.elhabib@gmail.com',
+            'email' => 'mohammedalhbyb@gmail.com',
             'github' => 'https://github.com/M-Alhbyb',
             'linkedin' => 'https://linkedin.com/in/m-elhabib',
             'whatsapp' => 'wa.me/249111696468',

@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-                <h3 class="text-lg font-semibold gradient-text mb-3">Mohamed Elhabib</h3>
+                <h3 class="text-lg font-semibold gradient-text mb-3">MohamedElhabib Mohamed</h3>
                 <p class="text-sm text-gray-400 leading-relaxed">
                     <?= \App\Helpers\Language::t('footer.tagline') ?>
                 </p>
@@ -39,7 +39,7 @@
 
         <div class="mt-10 pt-6 border-t border-gray-800 text-center">
             <p class="text-xs text-gray-500">
-                &copy; <?= date('Y') ?> Mohamed Elhabib. <?= \App\Helpers\Language::t('footer.rights') ?>
+                &copy; <?= date('Y') ?> MohamedElhabib Mohamed. <?= \App\Helpers\Language::t('footer.rights') ?>
             </p>
         </div>
     </div>

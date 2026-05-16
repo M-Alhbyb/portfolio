@@ -13,8 +13,8 @@ class ContactController
     public function index(array $params = []): void
     {
         $seo = new SEO();
-        $seo->setTitle('Contact - Mohamed Elhabib')
-            ->setDescription('Get in touch with Mohamed Elhabib for collaboration, opportunities, or inquiries.');
+        $seo->setTitle('Contact - MohamedElhabib Mohamed')
+            ->setDescription('Get in touch with MohamedElhabib Mohamed for collaboration, opportunities, or inquiries.');
 
         $locale = Language::getLocale();
         $dir = Language::dir();

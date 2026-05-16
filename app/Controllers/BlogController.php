@@ -17,8 +17,8 @@ class BlogController
     public function index(array $params = []): void
     {
         $seo = new SEO();
-        $seo->setTitle('Blog - Mohamed Elhabib')
-            ->setDescription('Engineering insights, tutorials, and thoughts from Mohamed Elhabib.');
+        $seo->setTitle('Blog - MohamedElhabib Mohamed')
+            ->setDescription('Engineering insights, tutorials, and thoughts from MohamedElhabib Mohamed.');
 
         $page = (int) ($_GET['page'] ?? 1);
         if ($page < 1) $page = 1;
@@ -90,7 +90,7 @@ class BlogController
         $seo = new SEO();
         $metaTitle = $post['meta_title'] ?: $post['title'];
         $metaDescription = $post['meta_description'] ?: ($post['excerpt'] ?: '');
-        $seo->setTitle($metaTitle . ' - Mohamed Elhabib')
+        $seo->setTitle($metaTitle . ' - MohamedElhabib Mohamed')
             ->setDescription($metaDescription)
             ->setOgType('article');
 
