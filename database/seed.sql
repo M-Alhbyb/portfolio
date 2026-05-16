@@ -469,7 +469,6 @@ The process included server hardening, malware cleanup, database recovery, AWS m
 The experience strengthened my ability to work under pressure while maintaining technical precision.',
     'Lessons learned from recovering and migrating compromised production systems.',
     NULL,
-    NULL,
     'published',
     'en',
     CURRENT_TIMESTAMP
@@ -484,7 +483,6 @@ Modern Django systems require clean architecture, asynchronous workflows, optimi
 
 I use Celery, Redis, PostgreSQL, Docker, and Linux infrastructure to build scalable backend systems focused on reliability and maintainability.',
     'Practical backend architecture patterns for scalable Django applications.',
-    NULL,
     NULL,
     'published',
     'en',
@@ -501,7 +499,6 @@ Linux provides flexibility, control, and performance for modern development work
 Using Linux improved my understanding of infrastructure, deployment systems, and backend operations.',
     'How Linux improved my workflow as a full-stack developer and DevOps engineer.',
     NULL,
-    NULL,
     'published',
     'en',
     CURRENT_TIMESTAMP
@@ -516,7 +513,6 @@ Asynchronous task queues improve application responsiveness and scalability. I u
 
 This architecture improves user experience and system performance under load.',
     'Improving backend responsiveness using asynchronous task processing.',
-    NULL,
     NULL,
     'published',
     'en',
