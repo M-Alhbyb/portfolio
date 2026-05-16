@@ -1,24 +1,24 @@
 -- Elhabib Portfolio - Database Schema
--- PostgreSQL
+-- SQLite
 
 -- Users table (admin authentication)
 CREATE TABLE IF NOT EXISTS users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
-    display_name VARCHAR(100) NOT NULL,
-    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMP,
-    last_login TIMESTAMP
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT UNIQUE NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    password_hash TEXT NOT NULL,
+    display_name TEXT NOT NULL,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT,
+    last_login TEXT
 );
 
 -- Projects table (engineering case studies)
 CREATE TABLE IF NOT EXISTS projects (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    title VARCHAR(200) NOT NULL,
-    slug VARCHAR(200) UNIQUE NOT NULL,
+    title TEXT NOT NULL,
+    slug TEXT UNIQUE NOT NULL,
     short_description TEXT NOT NULL,
     content TEXT NOT NULL,
     tech_stack TEXT,
@@ -26,52 +26,52 @@ CREATE TABLE IF NOT EXISTS projects (
     deployment_notes TEXT,
     challenges TEXT,
     outcomes TEXT,
-    thumbnail VARCHAR(255),
-    link VARCHAR(255),
-    status VARCHAR(20) NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'published')),
-    featured BOOLEAN DEFAULT FALSE,
+    thumbnail TEXT,
+    link TEXT,
+    status TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'published')),
+    featured INTEGER DEFAULT 0,
     sort_order INTEGER DEFAULT 0,
-    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMP,
-    published_at TIMESTAMP
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT,
+    published_at TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_projects_status ON projects(status);
-CREATE INDEX IF NOT EXISTS idx_projects_featured ON projects(featured) WHERE featured = TRUE;
+CREATE INDEX IF NOT EXISTS idx_projects_featured ON projects(featured) WHERE featured = 1;
 CREATE INDEX IF NOT EXISTS idx_projects_slug ON projects(slug);
 
 -- Project images (gallery)
 CREATE TABLE IF NOT EXISTS project_images (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     project_id INTEGER NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
-    filename VARCHAR(255) NOT NULL,
-    filepath VARCHAR(255) NOT NULL,
-    mime_type VARCHAR(50) NOT NULL,
+    filename TEXT NOT NULL,
+    filepath TEXT NOT NULL,
+    mime_type TEXT NOT NULL,
     file_size INTEGER NOT NULL,
-    alt_text VARCHAR(200),
+    alt_text TEXT,
     sort_order INTEGER DEFAULT 0,
-    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX IF NOT EXISTS idx_project_images_project ON project_images(project_id);
 
 -- Blog posts
 CREATE TABLE IF NOT EXISTS posts (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    title VARCHAR(200) NOT NULL,
-    slug VARCHAR(200) UNIQUE NOT NULL,
+    title TEXT NOT NULL,
+    slug TEXT UNIQUE NOT NULL,
     content TEXT NOT NULL,
-    excerpt VARCHAR(500),
-    featured_image VARCHAR(255),
-    status VARCHAR(20) NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'published')),
-    meta_title VARCHAR(70),
-    meta_description VARCHAR(160),
-    og_image VARCHAR(255),
-    locale VARCHAR(5) NOT NULL DEFAULT 'en' CHECK (locale IN ('en', 'ar')),
-    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMP,
-    published_at TIMESTAMP
+    excerpt TEXT,
+    featured_image TEXT,
+    status TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'published')),
+    meta_title TEXT,
+    meta_description TEXT,
+    og_image TEXT,
+    locale TEXT NOT NULL DEFAULT 'en' CHECK (locale IN ('en', 'ar')),
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT,
+    published_at TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_posts_status ON posts(status);
@@ -81,62 +81,62 @@ CREATE INDEX IF NOT EXISTS idx_posts_slug ON posts(slug);
 
 -- Categories
 CREATE TABLE IF NOT EXISTS categories (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    slug VARCHAR(100) UNIQUE NOT NULL,
-    description VARCHAR(255),
-    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    slug TEXT UNIQUE NOT NULL,
+    description TEXT,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX IF NOT EXISTS idx_categories_slug ON categories(slug);
 
 -- Tags
 CREATE TABLE IF NOT EXISTS tags (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    slug VARCHAR(50) UNIQUE NOT NULL,
-    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    slug TEXT UNIQUE NOT NULL,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX IF NOT EXISTS idx_tags_slug ON tags(slug);
 
 -- Skills
 CREATE TABLE IF NOT EXISTS skills (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    category VARCHAR(50) NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    category TEXT NOT NULL,
     proficiency INTEGER NOT NULL CHECK (proficiency >= 1 AND proficiency <= 100),
-    icon VARCHAR(50),
+    icon TEXT,
     sort_order INTEGER DEFAULT 0,
-    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX IF NOT EXISTS idx_skills_category ON skills(category);
 
 -- Languages
 CREATE TABLE IF NOT EXISTS languages (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    proficiency VARCHAR(50) NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    proficiency TEXT NOT NULL,
     sort_order INTEGER DEFAULT 0,
-    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Timeline entries (experience & education)
 CREATE TABLE IF NOT EXISTS timeline (
-    id SERIAL PRIMARY KEY,
-    type VARCHAR(20) NOT NULL CHECK (type IN ('experience', 'education')),
-    period VARCHAR(100) NOT NULL,
-    title VARCHAR(200) NOT NULL,
-    organization VARCHAR(200) NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    type TEXT NOT NULL CHECK (type IN ('experience', 'education')),
+    period TEXT NOT NULL,
+    title TEXT NOT NULL,
+    organization TEXT NOT NULL,
     description TEXT,
-    place VARCHAR(100) DEFAULT '',
-    work_type VARCHAR(50) DEFAULT '',
-    link VARCHAR(255),
-    logo VARCHAR(255),
+    place TEXT DEFAULT '',
+    work_type TEXT DEFAULT '',
+    link TEXT,
+    logo TEXT,
     sort_order INTEGER DEFAULT 0,
-    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMP
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_timeline_type ON timeline(type);
@@ -144,15 +144,15 @@ CREATE INDEX IF NOT EXISTS idx_timeline_sort ON timeline(sort_order);
 
 -- Contact messages
 CREATE TABLE IF NOT EXISTS messages (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    email VARCHAR(255) NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL,
     message TEXT NOT NULL,
-    is_read BOOLEAN DEFAULT FALSE,
+    is_read INTEGER DEFAULT 0,
     read_by INTEGER REFERENCES users(id),
-    read_at TIMESTAMP,
-    ip_address VARCHAR(45),
-    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+    read_at TEXT,
+    ip_address TEXT,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX IF NOT EXISTS idx_messages_is_read ON messages(is_read);
@@ -161,46 +161,46 @@ CREATE INDEX IF NOT EXISTS idx_messages_ip_address ON messages(ip_address);
 
 -- Media library
 CREATE TABLE IF NOT EXISTS media (
-    id SERIAL PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER REFERENCES users(id),
-    filename VARCHAR(255) NOT NULL,
-    filepath VARCHAR(255) NOT NULL,
-    mime_type VARCHAR(50) NOT NULL,
+    filename TEXT NOT NULL,
+    filepath TEXT NOT NULL,
+    mime_type TEXT NOT NULL,
     file_size INTEGER NOT NULL,
     width INTEGER,
     height INTEGER,
-    alt_text VARCHAR(200),
-    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+    alt_text TEXT,
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX IF NOT EXISTS idx_media_user ON media(user_id);
 
 -- Volunteering entries
 CREATE TABLE IF NOT EXISTS volunteering (
-    id SERIAL PRIMARY KEY,
-    title VARCHAR(200) NOT NULL,
-    organization VARCHAR(200) NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    organization TEXT NOT NULL,
     description TEXT,
-    place VARCHAR(100) DEFAULT '',
-    start_date VARCHAR(50) DEFAULT '',
-    end_date VARCHAR(50) DEFAULT '',
-    link VARCHAR(255),
+    place TEXT DEFAULT '',
+    start_date TEXT DEFAULT '',
+    end_date TEXT DEFAULT '',
+    link TEXT,
     sort_order INTEGER DEFAULT 0,
-    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMP
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_volunteering_sort ON volunteering(sort_order);
 
 -- Settings (key-value configuration)
 CREATE TABLE IF NOT EXISTS settings (
-    id SERIAL PRIMARY KEY,
-    key VARCHAR(100) UNIQUE NOT NULL,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    key TEXT UNIQUE NOT NULL,
     value TEXT,
-    group_name VARCHAR(50) NOT NULL,
-    locale VARCHAR(5) DEFAULT 'both' CHECK (locale IN ('en', 'ar', 'both')),
-    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMP
+    group_name TEXT NOT NULL,
+    locale TEXT DEFAULT 'both' CHECK (locale IN ('en', 'ar', 'both')),
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_settings_group ON settings(group_name);

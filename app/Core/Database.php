@@ -25,20 +25,31 @@ class Database
 
         $config = require __DIR__ . '/../Config/database.php';
 
-        $driver = $config['driver'] ?? 'pgsql';
-        $host = $config['host'] ?? 'localhost';
-        $port = $config['port'] ?? ($driver === 'pgsql' ? 5432 : 3306);
-        $dbname = $config['dbname'] ?? 'portfolio';
-        $user = $config['user'] ?? 'admin';
-        $pass = $config['pass'] ?? '';
+        $driver = $config['driver'] ?? 'sqlite';
 
-        $dsn = "{$driver}:host={$host};port={$port};dbname={$dbname}";
+        if ($driver === 'sqlite') {
+            $path = $config['path'] ?? __DIR__ . '/../../database/portfolio.sqlite';
+            $dsn = "sqlite:{$path}";
+            $this->pdo = new \PDO($dsn, null, null, [
+                \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+                \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
+                \PDO::ATTR_EMULATE_PREPARES => false,
+            ]);
+            $this->pdo->exec('PRAGMA foreign_keys = ON');
+        } else {
+            $host = $config['host'] ?? 'localhost';
+            $port = $config['port'] ?? '3306';
+            $dbname = $config['dbname'] ?? 'portfolio';
+            $user = $config['user'] ?? 'admin';
+            $pass = $config['pass'] ?? '';
 
-        $this->pdo = new \PDO($dsn, $user, $pass, [
-            \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
-            \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
-            \PDO::ATTR_EMULATE_PREPARES => false,
-        ]);
+            $dsn = "{$driver}:host={$host};port={$port};dbname={$dbname}";
+            $this->pdo = new \PDO($dsn, $user, $pass, [
+                \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
+                \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
+                \PDO::ATTR_EMULATE_PREPARES => false,
+            ]);
+        }
 
         return $this->pdo;
     }

@@ -20,27 +20,26 @@ done
 
 echo "Running database migrations if needed..."
 docker compose exec -T app php -r "
-\$pdo = new PDO('pgsql:host=db;port=5432;dbname=portfolio', 'portfolio', 'portfolio_secret');
-\$tables = \$pdo->query(\"SELECT tablename FROM pg_tables WHERE schemaname = 'public'\")->fetchAll(PDO::FETCH_COLUMN);
+\$pdo = new PDO('sqlite:/app/database/portfolio.sqlite');
+\$pdo->exec('PRAGMA foreign_keys = ON');
+\$tables = \$pdo->query(\"SELECT name FROM sqlite_master WHERE type='table'\")->fetchAll(PDO::FETCH_COLUMN);
 if (!in_array('timeline', \$tables)) {
     \$sql = file_get_contents('/app/database/schema.sql');
     \$pdo->exec(\$sql);
 } else {
-    // Add missing columns if schema was updated
-    \$pdo->exec(\"ALTER TABLE timeline ADD COLUMN IF NOT EXISTS link VARCHAR(255)\");
-    \$pdo->exec(\"ALTER TABLE timeline ADD COLUMN IF NOT EXISTS logo VARCHAR(255)\");
+    \$pdo->exec('ALTER TABLE timeline ADD COLUMN link TEXT DEFAULT NULL');
+    \$pdo->exec('ALTER TABLE timeline ADD COLUMN logo TEXT DEFAULT NULL');
 }
-// Add link column to projects if missing
-\$pdo->exec(\"ALTER TABLE projects ADD COLUMN IF NOT EXISTS link VARCHAR(255)\");
+\$pdo->exec('ALTER TABLE projects ADD COLUMN link TEXT DEFAULT NULL');
 if (!in_array('languages', \$tables)) {
-    \$pdo->exec(\"CREATE TABLE IF NOT EXISTS languages (
-        id SERIAL PRIMARY KEY,
-        name VARCHAR(100) NOT NULL,
-        proficiency VARCHAR(50) NOT NULL,
+    \$pdo->exec('CREATE TABLE IF NOT EXISTS languages (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        proficiency TEXT NOT NULL,
         sort_order INTEGER DEFAULT 0,
-        created_at TIMESTAMP NOT NULL DEFAULT NOW()
-    )\");
-    \$pdo->exec(\"INSERT INTO languages (name, proficiency, sort_order) VALUES
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+    )');
+    \$pdo->exec(\"INSERT OR IGNORE INTO languages (name, proficiency, sort_order) VALUES
         ('English', 'Fluent', 1),
         ('Arabic', 'Native', 2),
         ('French', 'Intermediate', 3)

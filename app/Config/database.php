@@ -16,10 +16,6 @@ if (file_exists($envFile)) {
 }
 
 return [
-    'driver' => $_ENV['DB_DRIVER'] ?? 'pgsql',
-    'host' => $_ENV['DB_HOST'] ?? 'localhost',
-    'port' => $_ENV['DB_PORT'] ?? '5432',
-    'dbname' => $_ENV['DB_NAME'] ?? 'portfolio',
-    'user' => $_ENV['DB_USER'] ?? 'admin',
-    'pass' => $_ENV['DB_PASS'] ?? '',
+    'driver' => $_ENV['DB_DRIVER'] ?? 'sqlite',
+    'path' => $_ENV['DB_PATH'] ?? __DIR__ . '/../../database/portfolio.sqlite',
 ];

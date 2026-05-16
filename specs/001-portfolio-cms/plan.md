@@ -17,7 +17,7 @@ uploads, content export, and SEO management. The platform follows the flat PHP
 
 **Language/Version**: PHP 8.1+
 **Primary Dependencies**: Flat PHP (no frameworks), TailwindCSS v3, Alpine.js v3, PDO
-**Storage**: MySQL or PostgreSQL
+**Storage**: SQLite
 **Testing**: Manual (browser-based validation)
 **Target Platform**: Linux VPS (Nginx)
 **Project Type**: web-application (frontend + backend)

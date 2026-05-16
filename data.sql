@@ -1,14 +1,15 @@
 BEGIN;
 
-TRUNCATE TABLE projects RESTART IDENTITY CASCADE;
-TRUNCATE TABLE posts RESTART IDENTITY CASCADE;
-TRUNCATE TABLE skills RESTART IDENTITY CASCADE;
-TRUNCATE TABLE timeline RESTART IDENTITY CASCADE;
-TRUNCATE TABLE volunteering RESTART IDENTITY CASCADE;
-TRUNCATE TABLE languages RESTART IDENTITY CASCADE;
-TRUNCATE TABLE settings RESTART IDENTITY CASCADE;
+DELETE FROM projects;
+DELETE FROM posts;
+DELETE FROM skills;
+DELETE FROM timeline;
+DELETE FROM volunteering;
+DELETE FROM languages;
+DELETE FROM settings;
+DELETE FROM sqlite_sequence;
 
-INSERT INTO skills (
+INSERT OR IGNORE INTO skills (
     id,
     name,
     category,
@@ -70,9 +71,9 @@ INSERT INTO skills (
 (37, 'Attention to Detail', 'Soft Skills', 92, NULL, 7),
 (38, 'Client Communication', 'Soft Skills', 88, NULL, 8),
 (39, 'Fast Learning', 'Soft Skills', 95, NULL, 9)
-ON CONFLICT DO NOTHING;
+;
 
-INSERT INTO timeline (
+INSERT OR IGNORE INTO timeline (
     id,
     type,
     period,
@@ -176,21 +177,21 @@ INSERT INTO timeline (
     'uploads/timeline_6a06d5a343bce.png',
     7
 )
-ON CONFLICT DO NOTHING;
+;
 
-INSERT INTO volunteering (id, title, organization, description, place, start_date, end_date, link, sort_order) VALUES
+INSERT OR IGNORE INTO volunteering (id, title, organization, description, place, start_date, end_date, link, sort_order) VALUES
 (1, 'Field Operations &amp; Campaign Coordinator', 'Takaful Charity Organization', 'Graduate of the Leadership Preparation Program, Batch 4. Managed and coordinated 5 field teams during Ramadan aid campaigns. Prepared operational and financial daily reports. Supervised field operations and solved team coordination issues. Supervised more than 30 charity kitchens serving over 1500 families daily during Ramadan. Managed distribution operations for Eid campaigns benefiting more than 700 families. Designed social media and campaign materials for multiple initiatives.', 'Sudan', '2021', 'Present', NULL, 1),
 (2, 'Co-Founder &amp; Secretary General', 'Sawaed Al-Dhad Charity Association', 'Co-founder and Secretary General of the association. Managed winter clothing and food support initiatives. Participated in fundraising campaign planning and coordination. Supported more than 100 families through charitable initiatives. Prepared operational and organizational reports.', 'Sudan', '2022', '2022', NULL, 2),
 (3, 'Media &amp; Event Organization Volunteer', 'Khutwa Charity Foundation', 'Participated in media and event organization activities. Assisted with graphic design and initiative support activities. Contributed to organizational event coordination.', 'Omdurman, Sudan', '2021', '2021', NULL, 3),
 (4, 'Deputy Media Supervisor', 'Arabic Language Faculty Committee', 'Elected Deputy Media Supervisor. Designed media materials and student activity graphics. Participated in organizing student receptions, sports events, and cultural activities.', 'Omdurman Islamic University', '2022', '2022', NULL, 4)
-ON CONFLICT DO NOTHING;
+;
 
-INSERT INTO languages (id, name, proficiency, sort_order) VALUES
+INSERT OR IGNORE INTO languages (id, name, proficiency, sort_order) VALUES
 (1, 'English', 'Upper Intermediate', 1),
 (2, 'Arabic', 'Native', 2)
-ON CONFLICT DO NOTHING;
+;
 
-INSERT INTO projects (
+INSERT OR IGNORE INTO projects (
     id,
     user_id,
     title,
@@ -236,7 +237,7 @@ The backend architecture emphasizes explicit business rules, data consistency, m
     'published',
     true,
     5,
-    NOW()
+    CURRENT_TIMESTAMP
 ),
 (
     2,
@@ -263,7 +264,7 @@ The application was deployed and actively used in a production environment, prov
     'published',
     true,
     3,
-    NOW()
+    CURRENT_TIMESTAMP
 ),
 (
     3,
@@ -290,7 +291,7 @@ The backend uses Django with Celery and Redis for asynchronous task processing a
     'published',
     true,
     6,
-    NOW()
+    CURRENT_TIMESTAMP
 ),
 (
     4,
@@ -316,7 +317,7 @@ The system was deployed publicly and structured using modular Django application
     'published',
     false,
     7,
-    NOW()
+    CURRENT_TIMESTAMP
 ),
 (
     5,
@@ -341,7 +342,7 @@ The system also includes webhook handling and operational monitoring tools for c
     'published',
     false,
     8,
-    NOW()
+    CURRENT_TIMESTAMP
 ),
 (
     6,
@@ -367,7 +368,7 @@ The project demonstrates server-driven UI patterns and lightweight reactive work
     'published',
     false,
     9,
-    NOW()
+    CURRENT_TIMESTAMP
 ),
 (
     7,
@@ -425,7 +426,7 @@ Created scalable infrastructure for long-term platform expansion',
     'published',
     true,
     2,
-    NOW()
+    CURRENT_TIMESTAMP
 ),
 (
     8,
@@ -482,7 +483,7 @@ Delivered scalable multi-role dashboards and real-time communication systems',
     'published',
     true,
     4,
-    NOW()
+    CURRENT_TIMESTAMP
 ),
 (
     9,
@@ -531,7 +532,7 @@ Measurable Outcomes:
     'published',
     false,
     10,
-    NOW()
+    CURRENT_TIMESTAMP
 ),
 (
     10,
@@ -585,11 +586,11 @@ Measurable Outcomes:
     'published',
     true,
     1,
-    NOW()
+    CURRENT_TIMESTAMP
 )
-ON CONFLICT DO NOTHING;
+;
 
-INSERT INTO posts (
+INSERT OR IGNORE INTO posts (
     id,
     user_id,
     title,
@@ -617,7 +618,7 @@ The experience strengthened my ability to work under pressure while maintaining 
     NULL,
     'published',
     'en',
-    NOW()
+    CURRENT_TIMESTAMP
 ),
 (
     2,
@@ -633,7 +634,7 @@ I use Celery, Redis, PostgreSQL, Docker, and Linux infrastructure to build scala
     NULL,
     'published',
     'en',
-    NOW()
+    CURRENT_TIMESTAMP
 ),
 (
     3,
@@ -649,7 +650,7 @@ Using Linux improved my understanding of infrastructure, deployment systems, and
     NULL,
     'published',
     'en',
-    NOW()
+    CURRENT_TIMESTAMP
 ),
 (
     4,
@@ -665,11 +666,11 @@ This architecture improves user experience and system performance under load.',
     NULL,
     'published',
     'en',
-    NOW()
+    CURRENT_TIMESTAMP
 )
-ON CONFLICT DO NOTHING;
+;
 
-INSERT INTO settings (
+INSERT OR IGNORE INTO settings (
     id,
     key,
     value,
@@ -685,6 +686,6 @@ INSERT INTO settings (
 (7, 'social_github', 'https://github.com/M-Alhbyb', 'social', 'en'),
 (8, 'social_linkedin', 'https://linkedin.com/in/m-elhabib', 'social', 'en'),
 (9, 'social_email', 'mohamed.elhabib@gmail.com', 'social', 'en')
-ON CONFLICT DO NOTHING;
+;
 
 COMMIT;
