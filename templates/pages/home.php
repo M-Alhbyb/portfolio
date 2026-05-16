@@ -70,7 +70,7 @@
                         </svg>
                     </div>
                     <h3 class="text-sm font-semibold text-white mb-2"><?= \App\Helpers\Language::t('infra.containers') ?></h3>
-                    <p class="text-xs text-gray-400">PHP, Node.js, APIs, Databases</p>
+                    <p class="text-xs text-gray-400">Python, Django, APIs, Databases</p>
                 </div>
                 <div class="glass-card rounded-lg p-5 text-center">
                     <div class="w-12 h-12 mx-auto mb-3 rounded-lg bg-purple-500/10 flex items-center justify-center">
