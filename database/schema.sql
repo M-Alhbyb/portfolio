@@ -120,6 +120,7 @@ CREATE TABLE IF NOT EXISTS languages (
     name TEXT NOT NULL,
     proficiency TEXT NOT NULL,
     sort_order INTEGER DEFAULT 0,
+    locale TEXT NOT NULL DEFAULT 'en' CHECK (locale IN ('en', 'ar')),
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -136,6 +137,7 @@ CREATE TABLE IF NOT EXISTS timeline (
     link TEXT,
     logo TEXT,
     sort_order INTEGER DEFAULT 0,
+    locale TEXT NOT NULL DEFAULT 'en' CHECK (locale IN ('en', 'ar')),
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT
 );
@@ -187,6 +189,7 @@ CREATE TABLE IF NOT EXISTS volunteering (
     end_date TEXT DEFAULT '',
     link TEXT,
     sort_order INTEGER DEFAULT 0,
+    locale TEXT NOT NULL DEFAULT 'en' CHECK (locale IN ('en', 'ar')),
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT
 );

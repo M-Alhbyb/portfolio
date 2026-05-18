@@ -37,14 +37,14 @@ class HomeController
             $groupedSkills[$skill['category']][] = $skill;
         }
 
-        $languages = LanguageModel::findAll();
-        $experience = Timeline::findByType('experience');
-        $education = Timeline::findByType('education');
+        $languages = LanguageModel::findAll($locale);
+        $experience = Timeline::findByType('experience', $locale);
+        $education = Timeline::findByType('education', $locale);
 
         $volunteering = [];
         try {
             $db = Database::getInstance();
-            $volunteering = $db->fetchAll("SELECT * FROM volunteering ORDER BY sort_order ASC, created_at DESC");
+            $volunteering = $db->fetchAll("SELECT * FROM volunteering WHERE locale = ? ORDER BY sort_order ASC, created_at DESC", [$locale]);
         } catch (\Exception $e) {
             $volunteering = [];
         }

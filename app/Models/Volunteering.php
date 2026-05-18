@@ -6,9 +6,12 @@ use App\Core\Database;
 
 class Volunteering
 {
-    public static function findAll(): array
+    public static function findAll(?string $locale = null): array
     {
         $db = Database::getInstance();
+        if ($locale) {
+            return $db->fetchAll("SELECT * FROM volunteering WHERE locale = ? ORDER BY sort_order ASC, created_at DESC", [$locale]);
+        }
         return $db->fetchAll("SELECT * FROM volunteering ORDER BY sort_order ASC, created_at DESC");
     }
 

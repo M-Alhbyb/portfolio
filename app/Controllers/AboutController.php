@@ -27,7 +27,7 @@ class AboutController
             foreach (array_merge($allSettings, $socialSettings) as $s) {
                 $settings[$s['key']] = $s['value'];
             }
-            $languages = LanguageModel::findAll();
+            $languages = LanguageModel::findAll($locale);
         } catch (\Exception $e) {
             $settings = [];
             $languages = [];

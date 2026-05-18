@@ -6,15 +6,24 @@ use App\Core\Database;
 
 class Timeline
 {
-    public static function findAll(): array
+    public static function findAll(?string $locale = null): array
     {
         $db = Database::getInstance();
+        if ($locale) {
+            return $db->fetchAll("SELECT * FROM timeline WHERE locale = ? ORDER BY sort_order ASC, created_at DESC", [$locale]);
+        }
         return $db->fetchAll("SELECT * FROM timeline ORDER BY sort_order ASC, created_at DESC");
     }
 
-    public static function findByType(string $type): array
+    public static function findByType(string $type, ?string $locale = null): array
     {
         $db = Database::getInstance();
+        if ($locale) {
+            return $db->fetchAll(
+                "SELECT * FROM timeline WHERE type = ? AND locale = ? ORDER BY sort_order ASC, created_at DESC",
+                [$type, $locale]
+            );
+        }
         return $db->fetchAll(
             "SELECT * FROM timeline WHERE type = ? ORDER BY sort_order ASC, created_at DESC",
             [$type]

@@ -6,9 +6,12 @@ use App\Core\Database;
 
 class Language
 {
-    public static function findAll(): array
+    public static function findAll(?string $locale = null): array
     {
         $db = Database::getInstance();
+        if ($locale) {
+            return $db->fetchAll("SELECT * FROM languages WHERE locale = ? ORDER BY sort_order ASC, name ASC", [$locale]);
+        }
         return $db->fetchAll("SELECT * FROM languages ORDER BY sort_order ASC, name ASC");
     }
 
