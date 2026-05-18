@@ -1,73 +1,68 @@
-<div class="max-w-4xl mx-auto">
-    <div class="mb-8">
-        <p class="text-sm font-mono text-cyan-400 mb-1"><span class="text-gray-500">//</span> skills</p>
-        <h1 class="text-2xl font-bold gradient-text">Manage Skills</h1>
-    </div>
+<div class="term-section">
+    <p class="term-prompt text-cat-green text-xs font-mono mb-1">./skills</p>
+    <h1 class="text-lg font-bold text-cat-mauve font-mono mb-6">Manage Skills</h1>
 
     <?php if ($error ?? false): ?>
-        <div class="mb-4 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-sm text-red-400"><?= htmlspecialchars($error) ?></div>
+        <div class="term-panel p-3 border-cat-red mb-4"><p class="text-xs text-cat-red font-mono"><?= htmlspecialchars($error) ?></p></div>
     <?php endif; ?>
     <?php if ($success ?? false): ?>
-        <div class="mb-4 p-3 rounded-lg bg-green-500/10 border border-green-500/20 text-sm text-green-400"><?= htmlspecialchars($success) ?></div>
+        <div class="term-panel p-3 border-cat-green mb-4"><p class="text-xs text-cat-green font-mono"><?= htmlspecialchars($success) ?></p></div>
     <?php endif; ?>
 
-    <div class="glass-card rounded-xl p-6 mb-8">
-        <h2 class="text-sm font-semibold text-white mb-4">Add New Skill</h2>
+    <div class="term-panel p-4 mb-6">
+        <h2 class="text-sm font-bold text-cat-peach font-mono mb-4">$ add-skill</h2>
         <form method="POST" action="/admin/skills" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             <input type="hidden" name="csrf_token" value="<?= \App\Core\Session::getCsrfToken() ?>">
             <div>
-                <label class="block text-xs text-gray-400 mb-1">Name</label>
-                <input type="text" name="name" required maxlength="100"
-                       class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                <label class="block text-xs text-cat-overlay2 font-mono mb-1">Name</label>
+                <input type="text" name="name" required maxlength="100" class="w-full px-3 py-2 text-sm">
             </div>
             <div>
-                <label class="block text-xs text-gray-400 mb-1">Category</label>
-                <select name="category" class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                <label class="block text-xs text-cat-overlay2 font-mono mb-1">Category</label>
+                <select name="category" class="w-full px-3 py-2 text-sm">
                     <?php foreach ($categories as $cat): ?>
                         <option value="<?= htmlspecialchars($cat) ?>"><?= htmlspecialchars($cat) ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
             <div>
-                <label class="block text-xs text-gray-400 mb-1">Proficiency (1-100)</label>
-                <input type="number" name="proficiency" value="75" min="1" max="100"
-                       class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                <label class="block text-xs text-cat-overlay2 font-mono mb-1">Proficiency (1-100)</label>
+                <input type="number" name="proficiency" value="75" min="1" max="100" class="w-full px-3 py-2 text-sm">
             </div>
             <div>
-                <label class="block text-xs text-gray-400 mb-1">Icon</label>
-                <input type="text" name="icon" maxlength="50"
-                       class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                <label class="block text-xs text-cat-overlay2 font-mono mb-1">Icon</label>
+                <input type="text" name="icon" maxlength="50" class="w-full px-3 py-2 text-sm">
             </div>
             <div class="flex items-end">
-                <button type="submit" class="btn-primary text-sm w-full">Add Skill</button>
+                <button type="submit" class="term-btn term-btn-primary text-sm w-full">$ add</button>
             </div>
         </form>
     </div>
 
-    <div class="glass-card rounded-xl overflow-hidden">
+    <div class="term-panel overflow-hidden">
         <table class="w-full text-sm">
             <thead>
-                <tr class="border-b border-blue-500/10 text-gray-400 text-left">
-                    <th class="p-4 font-medium">Name</th>
-                    <th class="p-4 font-medium hidden sm:table-cell">Category</th>
-                    <th class="p-4 font-medium hidden sm:table-cell">Proficiency</th>
-                    <th class="p-4 font-medium">Actions</th>
+                <tr class="border-b border-cat-surface1 text-cat-overlay2 text-left">
+                    <th class="p-4 font-mono font-medium">Name</th>
+                    <th class="p-4 font-mono font-medium hidden sm:table-cell">Category</th>
+                    <th class="p-4 font-mono font-medium hidden sm:table-cell">Proficiency</th>
+                    <th class="p-4 font-mono font-medium">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <?php if (empty($skills)): ?>
-                <tr><td colspan="4" class="p-8 text-center text-gray-500">No skills yet.</td></tr>
+                <tr><td colspan="4" class="p-8 text-center text-cat-overlay0 font-mono text-xs">No skills yet.</td></tr>
                 <?php else: ?>
                 <?php foreach ($skills as $s): ?>
-                <tr class="border-b border-blue-500/5 hover:bg-blue-500/5">
-                    <td class="p-4 text-white"><?= htmlspecialchars($s['name']) ?></td>
-                    <td class="p-4 hidden sm:table-cell text-gray-400"><?= htmlspecialchars($s['category']) ?></td>
+                <tr class="border-b border-cat-surface0 hover:bg-cat-surface0/50">
+                    <td class="p-4 text-cat-text font-mono"><?= htmlspecialchars($s['name']) ?></td>
+                    <td class="p-4 hidden sm:table-cell text-cat-subtext0 font-mono"><?= htmlspecialchars($s['category']) ?></td>
                     <td class="p-4 hidden sm:table-cell">
                         <div class="flex items-center gap-2">
-                            <div class="w-24 h-1.5 bg-gray-800 rounded-full overflow-hidden">
-                                <div class="h-full rounded-full bg-gradient-to-r from-blue-500 to-cyan-400" style="width: <?= (int) $s['proficiency'] ?>%"></div>
+                            <div class="w-24 h-1.5 bg-cat-surface0 rounded-full overflow-hidden">
+                                <div class="h-full rounded-full bg-cat-mauve" style="width: <?= (int) $s['proficiency'] ?>%"></div>
                             </div>
-                            <span class="text-xs text-gray-500"><?= (int) $s['proficiency'] ?>%</span>
+                            <span class="text-xs text-cat-overlay2 font-mono"><?= (int) $s['proficiency'] ?>%</span>
                         </div>
                     </td>
                     <td class="p-4">
@@ -79,13 +74,13 @@
                             <input type="hidden" name="proficiency" value="<?= (int) $s['proficiency'] ?>">
                             <input type="hidden" name="icon" value="<?= htmlspecialchars($s['icon'] ?? '') ?>">
                             <input type="hidden" name="sort_order" value="<?= (int) ($s['sort_order'] ?? 0) ?>">
-                            <input type="number" name="proficiency" value="<?= (int) $s['proficiency'] ?>" min="1" max="100" class="w-16 px-2 py-1 rounded bg-gray-800/50 border border-gray-700 text-white text-xs focus:border-blue-500">
-                            <button type="submit" class="text-xs px-2 py-1 rounded bg-blue-500/10 text-blue-300 hover:bg-blue-500/20">Update</button>
+                            <input type="number" name="proficiency" value="<?= (int) $s['proficiency'] ?>" min="1" max="100" class="w-16 px-2 py-1 text-xs">
+                            <button type="submit" class="text-xs px-2 py-1 rounded bg-cat-surface0 text-cat-blue hover:bg-cat-surface1 font-mono">Update</button>
                         </form>
                         <form method="POST" action="/admin/skills/<?= (int) $s['id'] ?>" class="inline" onsubmit="return confirm('Delete this skill?')">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="csrf_token" value="<?= \App\Core\Session::getCsrfToken() ?>">
-                            <button type="submit" class="text-xs px-2 py-1 rounded bg-red-500/10 text-red-300 hover:bg-red-500/20">Delete</button>
+                            <button type="submit" class="text-xs px-2 py-1 rounded bg-cat-surface0 text-cat-red hover:bg-cat-surface1 font-mono">delete</button>
                         </form>
                     </td>
                 </tr>
