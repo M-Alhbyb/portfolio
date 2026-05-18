@@ -688,4 +688,675 @@ INSERT OR IGNORE INTO settings (
 (9, 'social_email', 'mohammedalhbyb@gmail.com', 'social', 'en')
 ;
 
+INSERT OR IGNORE INTO categories (id, name, slug, description) VALUES
+(1, 'Linux', 'linux', NULL),
+(2, 'Development', 'development', NULL),
+(3, 'DevOps', 'devops', NULL),
+(4, 'Backend', 'backend', NULL),
+(5, 'Python', 'python', NULL),
+(6, 'AI', 'ai', NULL),
+(7, 'Productivity', 'productivity', NULL),
+(8, 'Programming', 'programming', NULL),
+(9, 'Tools', 'tools', NULL),
+(10, 'Architecture', 'architecture', NULL),
+(11, 'Docker', 'docker', NULL),
+(12, 'Learning', 'learning', NULL)
+;
+
+INSERT OR IGNORE INTO tags (id, name, slug) VALUES
+(1, 'linux', 'linux'),
+(2, 'web-development', 'web-development'),
+(3, 'terminal', 'terminal'),
+(4, 'productivity', 'productivity'),
+(5, 'programming', 'programming'),
+(6, 'docker', 'docker'),
+(7, 'nginx', 'nginx'),
+(8, 'deployment', 'deployment'),
+(9, 'devops', 'devops'),
+(10, 'fastapi', 'fastapi'),
+(11, 'python', 'python'),
+(12, 'ai', 'ai'),
+(13, 'backend', 'backend'),
+(14, 'api', 'api'),
+(15, 'neovim', 'neovim'),
+(16, 'coding', 'coding'),
+(17, 'vim', 'vim'),
+(18, 'git', 'git'),
+(19, 'github', 'github'),
+(20, 'development', 'development'),
+(21, 'architecture', 'architecture'),
+(22, 'full-stack', 'full-stack'),
+(23, 'software-engineering', 'software-engineering'),
+(24, 'containers', 'containers'),
+(25, 'learning', 'learning'),
+(26, 'projects', 'projects'),
+(27, 'reverse-proxy', 'reverse-proxy'),
+(28, 'web-server', 'web-server'),
+(29, 'command-line', 'command-line'),
+(30, 'bash', 'bash')
+;
+
+INSERT OR IGNORE INTO posts (
+    id,
+    user_id,
+    title,
+    slug,
+    content,
+    excerpt,
+    featured_image,
+    status,
+    meta_title,
+    meta_description,
+    locale,
+    published_at
+) VALUES
+(
+    5,
+    1,
+    'Why I Use Linux for Web Development',
+    'why-i-use-linux-for-web-development',
+    '# Why I Use Linux for Web Development
+
+I have used Linux for years in web development, backend engineering, and server management. After trying different operating systems, Linux became my main environment because it gives me speed, flexibility, and control.
+
+## Better Development Workflow
+
+Linux works naturally with developer tools:
+
+- Git
+- Docker
+- Node.js
+- Python
+- PostgreSQL
+- Nginx
+- SSH
+
+Most production servers also run Linux. This makes development and deployment more consistent.
+
+## Powerful Terminal
+
+The terminal is one of the biggest reasons I use Linux.
+
+I use tools like:
+
+- Tmux
+- Neovim
+- Bash
+- SSH
+- rsync
+
+These tools improve productivity and reduce repetitive work.
+
+## Better Performance
+
+Linux uses fewer resources compared to many desktop operating systems. My laptop stays responsive even when running:
+
+- Docker containers
+- Local databases
+- Frontend dev servers
+- AI tools
+
+## Full Control
+
+Linux allows deep customization.
+
+I can:
+- automate workflows
+- create scripts
+- configure services
+- optimize performance
+- manage servers directly
+
+## Final Thoughts
+
+Linux is not only for system administrators. It is one of the best environments for modern web development.',
+    'Linux gives developers speed, control, and stability. Here is why I use Linux daily for full stack development.',
+    NULL,
+    'published',
+    'Why I Use Linux for Web Development',
+    'Learn why Linux is one of the best operating systems for full stack web development and server management.',
+    'en',
+    CURRENT_TIMESTAMP
+),
+(
+    6,
+    1,
+    'How I Deploy Full Stack Applications',
+    'how-i-deploy-full-stack-applications',
+    '# How I Deploy Full Stack Applications
+
+Deploying applications is an important part of software engineering. A good deployment workflow reduces downtime and improves reliability.
+
+## My Stack
+
+I usually deploy applications using:
+
+- Docker
+- Docker Compose
+- Nginx
+- PostgreSQL
+- Linux VPS servers
+
+## Backend Deployment
+
+For backend services, I commonly use:
+
+- FastAPI
+- Django
+- Node.js
+
+Each service runs inside isolated containers.
+
+## Frontend Deployment
+
+Frontend applications are usually built with:
+
+- Next.js
+- React
+- Astro
+
+I expose them through Nginx reverse proxy.
+
+## CI/CD
+
+I use GitHub Actions to automate:
+
+- testing
+- builds
+- deployments
+
+This reduces manual errors.
+
+## Monitoring
+
+I monitor:
+- logs
+- server resources
+- container health
+- application errors
+
+Reliable monitoring improves stability.',
+    'My deployment workflow for modern web applications using Docker, Nginx, and Linux servers.',
+    NULL,
+    'published',
+    'How I Deploy Full Stack Applications',
+    'A practical deployment workflow using Docker, Nginx, GitHub Actions, and Linux servers.',
+    'en',
+    CURRENT_TIMESTAMP
+),
+(
+    7,
+    1,
+    'Building AI-Powered Applications with FastAPI',
+    'building-ai-powered-applications-with-fastapi',
+    '# Building AI-Powered Applications with FastAPI
+
+FastAPI became one of my favorite backend frameworks because it is fast, modern, and developer friendly.
+
+## Why FastAPI
+
+FastAPI provides:
+
+- high performance
+- automatic API documentation
+- async support
+- type safety
+
+These features make it suitable for AI applications.
+
+## AI Integrations
+
+I use FastAPI with:
+- OpenAI APIs
+- DeepSeek
+- vector databases
+- NLP pipelines
+
+## Example Use Cases
+
+Applications I build include:
+- CV analysis systems
+- AI content tools
+- recommendation systems
+- automation dashboards
+
+## Async Performance
+
+Async support helps applications handle many requests efficiently.
+
+This becomes important in AI systems where requests may take time.
+
+## Final Thoughts
+
+FastAPI is an excellent choice for modern backend development.',
+    'FastAPI is one of the best Python frameworks for AI-powered backend systems.',
+    NULL,
+    'published',
+    'Building AI-Powered Applications with FastAPI',
+    'Learn why FastAPI is great for scalable AI-powered backend systems and APIs.',
+    'en',
+    CURRENT_TIMESTAMP
+),
+(
+    8,
+    1,
+    'My Neovim Setup for Productivity',
+    'my-neovim-setup-for-productivity',
+    '# My Neovim Setup for Productivity
+
+Neovim is my primary editor for development work.
+
+## Why Neovim
+
+I prefer Neovim because it is:
+- fast
+- keyboard driven
+- lightweight
+- customizable
+
+## Plugins I Use
+
+Some useful plugins include:
+
+- Telescope
+- Treesitter
+- LSP support
+- Git integrations
+
+## Workflow
+
+I combine:
+- Neovim
+- Tmux
+- terminal tools
+
+This setup improves focus and speed.
+
+## Final Thoughts
+
+Neovim requires learning, but the productivity gains are worth it.',
+    'A simple and fast Neovim workflow for programming and server management.',
+    NULL,
+    'published',
+    'My Neovim Setup for Productivity',
+    'A practical Neovim setup for developers who want a fast and efficient coding workflow.',
+    'en',
+    CURRENT_TIMESTAMP
+),
+(
+    9,
+    1,
+    'Why Every Developer Should Learn Git',
+    'why-every-developer-should-learn-git',
+    '# Why Every Developer Should Learn Git
+
+Git is an essential tool for software development.
+
+## What Git Solves
+
+Git helps developers:
+- track changes
+- collaborate
+- recover old versions
+- manage branches
+
+## Important Commands
+
+Some important commands:
+```bash
+git status
+git add .
+git commit
+git push
+git pull
+```
+
+## Branching
+
+Branches help developers work safely without affecting production code.
+
+## GitHub Integration
+
+Platforms like GitHub improve collaboration and CI/CD workflows.
+
+## Final Thoughts
+
+Learning Git improves development workflow and teamwork.',
+    'Git is one of the most important tools for developers working on modern software projects.',
+    NULL,
+    'published',
+    'Why Every Developer Should Learn Git',
+    'Learn why Git is an essential skill for modern software developers.',
+    'en',
+    CURRENT_TIMESTAMP
+),
+(
+    10,
+    1,
+    'How I Organize Full Stack Projects',
+    'how-i-organize-full-stack-projects',
+    '# How I Organize Full Stack Projects
+
+Project structure affects maintainability and scalability.
+
+## Backend Structure
+
+I separate:
+- routes
+- services
+- models
+- utilities
+- configuration
+
+## Frontend Structure
+
+Frontend applications are divided into:
+- components
+- pages
+- hooks
+- services
+- state management
+
+## Environment Variables
+
+Sensitive configuration should stay in environment files.
+
+## Documentation
+
+I always include:
+- README files
+- setup instructions
+- deployment notes
+
+## Final Thoughts
+
+A clean structure saves time as projects grow.',
+    'A clean project structure improves scalability and maintainability.',
+    NULL,
+    'published',
+    'How I Organize Full Stack Projects',
+    'Learn how to structure scalable full stack applications for better maintainability.',
+    'en',
+    CURRENT_TIMESTAMP
+),
+(
+    11,
+    1,
+    'Why Docker Changed My Workflow',
+    'why-docker-changed-my-workflow',
+    '# Why Docker Changed My Workflow
+
+Docker became one of the most important tools in my workflow.
+
+## Consistent Environments
+
+Docker removes the classic issue:
+"It works on my machine."
+
+## Easier Deployment
+
+Applications become portable and reproducible.
+
+## Services I Containerize
+
+I use Docker for:
+- databases
+- backend APIs
+- frontend apps
+- Redis
+- worker services
+
+## Docker Compose
+
+Docker Compose simplifies multi-service applications.
+
+## Final Thoughts
+
+Docker improves reliability and development speed.',
+    'Docker simplified development, testing, and deployment across environments.',
+    NULL,
+    'published',
+    'Why Docker Changed My Workflow',
+    'Learn how Docker improves development workflows and deployment consistency.',
+    'en',
+    CURRENT_TIMESTAMP
+),
+(
+    12,
+    1,
+    'Learning Programming Through Projects',
+    'learning-programming-through-projects',
+    '# Learning Programming Through Projects
+
+Tutorials are useful, but projects teach deeper skills.
+
+## Why Projects Matter
+
+Projects force developers to:
+- solve problems
+- debug issues
+- organize code
+- deploy applications
+
+## Start Small
+
+Good beginner projects:
+- todo apps
+- blogs
+- dashboards
+- APIs
+
+## Improve Gradually
+
+Each project should introduce:
+- new tools
+- better architecture
+- improved UI
+- deployment workflows
+
+## Final Thoughts
+
+Consistency matters more than complexity.',
+    'Building projects is one of the fastest ways to improve programming skills.',
+    NULL,
+    'published',
+    'Learning Programming Through Projects',
+    'Discover why building projects is one of the best ways to learn programming.',
+    'en',
+    CURRENT_TIMESTAMP
+),
+(
+    13,
+    1,
+    'Using AI Tools as a Developer',
+    'using-ai-tools-as-a-developer',
+    '# Using AI Tools as a Developer
+
+AI tools became part of modern development workflows.
+
+## What AI Helps With
+
+AI assists with:
+- debugging
+- documentation
+- boilerplate generation
+- code explanations
+
+## Human Review Still Matters
+
+Developers should review:
+- architecture
+- security
+- performance
+- business logic
+
+## Best Use Cases
+
+AI works best for:
+- repetitive tasks
+- research
+- prototyping
+
+## Final Thoughts
+
+AI improves productivity when combined with strong engineering skills.',
+    'AI tools improve developer productivity when used correctly.',
+    NULL,
+    'published',
+    'Using AI Tools as a Developer',
+    'Learn practical ways developers use AI tools to improve productivity.',
+    'en',
+    CURRENT_TIMESTAMP
+),
+(
+    14,
+    1,
+    'Understanding Reverse Proxies with Nginx',
+    'understanding-reverse-proxies-with-nginx',
+    '# Understanding Reverse Proxies with Nginx
+
+Nginx is one of the most widely used web servers.
+
+## What Is a Reverse Proxy
+
+A reverse proxy forwards requests from users to backend services.
+
+## Common Uses
+
+Nginx helps with:
+- SSL
+- load balancing
+- caching
+- static files
+
+## Example Architecture
+
+A common setup:
+- Nginx
+- FastAPI backend
+- React frontend
+- PostgreSQL database
+
+## Final Thoughts
+
+Understanding reverse proxies is important for deployment workflows.',
+    'Nginx reverse proxies help manage modern web applications efficiently.',
+    NULL,
+    'published',
+    'Understanding Reverse Proxies with Nginx',
+    'Learn how reverse proxies work and why Nginx is widely used in modern deployments.',
+    'en',
+    CURRENT_TIMESTAMP
+),
+(
+    15,
+    1,
+    'Why Developers Should Learn the Command Line',
+    'why-developers-should-learn-the-command-line',
+    '# Why Developers Should Learn the Command Line
+
+The command line is an important skill for developers.
+
+## Faster Workflow
+
+Many tasks become faster through commands compared to graphical interfaces.
+
+## Automation
+
+Shell scripts help automate repetitive work.
+
+## Useful Commands
+
+Examples:
+```bash
+ls
+grep
+find
+rsync
+ssh
+```
+
+## Server Management
+
+Most servers are managed through terminals.
+
+## Final Thoughts
+
+Terminal skills improve efficiency and technical understanding.',
+    'Command line skills improve speed, automation, and system understanding.',
+    NULL,
+    'published',
+    'Why Developers Should Learn the Command Line',
+    'Learn why command line skills are important for modern software developers.',
+    'en',
+    CURRENT_TIMESTAMP
+),
+(
+    16,
+    1,
+    'How I Learn New Technologies',
+    'how-i-learn-new-technologies',
+    '# How I Learn New Technologies
+
+Technology changes quickly, so developers need effective learning strategies.
+
+## My Learning Process
+
+I usually:
+1. read official documentation
+2. build small projects
+3. test features
+4. deploy something real
+
+## Avoid Tutorial Overload
+
+Watching tutorials without building projects slows progress.
+
+## Focus on Fundamentals
+
+Core concepts remain useful across technologies.
+
+## Final Thoughts
+
+Consistent practice produces better long-term results.',
+    'My process for learning frameworks, tools, and programming technologies efficiently.',
+    NULL,
+    'published',
+    'How I Learn New Technologies',
+    'A practical system for learning programming tools and technologies efficiently.',
+    'en',
+    CURRENT_TIMESTAMP
+)
+;
+
+INSERT OR IGNORE INTO post_categories (post_id, category_id) VALUES
+(5, 1), (5, 2),
+(6, 3), (6, 4),
+(7, 5), (7, 6),
+(8, 1), (8, 7),
+(9, 8), (9, 9),
+(10, 10), (10, 2),
+(11, 11), (11, 3),
+(12, 8), (12, 12),
+(13, 6), (13, 8),
+(14, 4), (14, 3),
+(15, 1), (15, 7),
+(16, 12), (16, 8)
+;
+
+INSERT OR IGNORE INTO post_tags (post_id, tag_id) VALUES
+(5, 1), (5, 2), (5, 3), (5, 4), (5, 5),
+(6, 6), (6, 7), (6, 8), (6, 9), (6, 1),
+(7, 10), (7, 11), (7, 12), (7, 13), (7, 14),
+(8, 15), (8, 1), (8, 16), (8, 3), (8, 17),
+(9, 18), (9, 19), (9, 20), (9, 5),
+(10, 21), (10, 22), (10, 16), (10, 23),
+(11, 6), (11, 24), (11, 8), (11, 13),
+(12, 16), (12, 25), (12, 26), (12, 20),
+(13, 12), (13, 4), (13, 23), (13, 16),
+(14, 7), (14, 27), (14, 8), (14, 28),
+(15, 1), (15, 3), (15, 30), (15, 29),
+(16, 25), (16, 20), (16, 5), (16, 4)
+;
+
 COMMIT;
