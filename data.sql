@@ -2,6 +2,10 @@ BEGIN;
 
 DELETE FROM post_tags;
 DELETE FROM post_categories;
+DELETE FROM project_images;
+DELETE FROM project_skills;
+DELETE FROM messages;
+DELETE FROM media;
 DELETE FROM posts;
 DELETE FROM categories;
 DELETE FROM tags;
