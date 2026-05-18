@@ -1,3 +1,4 @@
+PRAGMA foreign_keys=OFF;
 BEGIN;
 
 DELETE FROM post_tags;
@@ -1368,3 +1369,5 @@ INSERT OR IGNORE INTO post_tags (post_id, tag_id) VALUES
 ;
 
 COMMIT;
+
+PRAGMA foreign_keys=ON;
