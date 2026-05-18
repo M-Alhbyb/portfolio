@@ -60,6 +60,11 @@ if (!in_array('users', \$tables)) {
     \$sql = file_get_contents('/app/database/seed.sql');
     \$pdo->exec(\$sql);
 }
+// Migration: add locale column to projects if missing
+\$cols = \$pdo->query(\"PRAGMA table_info(projects)\")->fetchAll(PDO::FETCH_COLUMN, 1);
+if (!in_array('locale', \$cols)) {
+    \$pdo->exec('ALTER TABLE projects ADD COLUMN locale TEXT NOT NULL DEFAULT \"en\" CHECK (locale IN (\"en\", \"ar\"))');
+}
 "
 
 echo "Clearing caches..."
