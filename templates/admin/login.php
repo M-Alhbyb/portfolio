@@ -10,43 +10,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body class="min-h-screen bg-[#070b15] text-gray-100 font-sans antialiased flex items-center justify-center p-4">
+<body class="min-h-screen bg-cat-base text-cat-text font-mono antialiased flex items-center justify-center p-4">
     <div class="w-full max-w-sm">
         <div class="text-center mb-8">
-            <div class="flex items-center justify-center gap-3 mb-4">
-                <span class="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.6)]"></span>
-                <span class="text-lg font-semibold gradient-text">CMS Control</span>
-            </div>
-            <p class="text-sm text-gray-400 font-mono">Authentication Required</p>
+            <p class="term-prompt text-cat-green text-sm font-mono mb-2">./login</p>
+            <p class="text-xs text-cat-subtext0 font-mono">Authentication Required</p>
         </div>
 
-        <div class="glass rounded-xl p-6">
+        <div class="term-panel p-6">
             <form method="POST" action="/admin/login" class="space-y-4">
                 <input type="hidden" name="csrf_token" value="<?= \App\Core\Session::getCsrfToken() ?>">
 
                 <?php if ($error ?? false): ?>
-                    <div class="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-sm text-red-400">
-                        <?= htmlspecialchars($error) ?>
+                    <div class="term-panel p-3 border-cat-red">
+                        <p class="text-xs text-cat-red font-mono"><?= htmlspecialchars($error) ?></p>
                     </div>
                 <?php endif; ?>
 
                 <div>
-                    <label class="block text-sm text-gray-300 mb-1">Username</label>
-                    <input type="text" name="username" required
-                           class="w-full px-4 py-2.5 rounded-lg bg-gray-800/50 border border-gray-700 text-white focus:border-blue-500 transition-colors">
+                    <label class="block text-xs text-cat-peach font-mono mb-1">Username</label>
+                    <input type="text" name="username" required class="w-full px-3 py-2 text-sm">
                 </div>
 
                 <div>
-                    <label class="block text-sm text-gray-300 mb-1">Password</label>
-                    <input type="password" name="password" required
-                           class="w-full px-4 py-2.5 rounded-lg bg-gray-800/50 border border-gray-700 text-white focus:border-blue-500 transition-colors">
+                    <label class="block text-xs text-cat-peach font-mono mb-1">Password</label>
+                    <input type="password" name="password" required class="w-full px-3 py-2 text-sm">
                 </div>
 
-                <button type="submit" class="btn-primary w-full">Authenticate</button>
+                <button type="submit" class="term-btn term-btn-primary w-full text-sm py-2">$ authenticate</button>
             </form>
 
             <div class="mt-6 text-center">
-                <a href="/" class="text-xs text-gray-500 hover:text-blue-400 transition-colors">&larr; Back to Portfolio</a>
+                <a href="/" class="text-xs text-cat-subtext0 hover:text-cat-lavender font-mono">← Back to Portfolio</a>
             </div>
         </div>
     </div>

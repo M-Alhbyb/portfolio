@@ -108,4 +108,41 @@ document.addEventListener('alpine:init', () => {
       }, this.speed);
     }
   }));
+
+  // Boot sequence — runs once per session on first homepage load
+  if (window.location.pathname === '/' && !sessionStorage.getItem('booted')) {
+    document.addEventListener('DOMContentLoaded', () => {
+      const bootLines = [
+        '[OK] Mounting filesystems...',
+        '[OK] Initializing kernel modules...',
+        '[OK] Starting neofetch daemon...',
+        '[OK] Loading portfolio modules...',
+        '[OK] Establishing secure connection...',
+        '[OK] System ready.'
+      ];
+      const overlay = document.createElement('div');
+      overlay.id = 'boot-overlay';
+      overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;background:#1e1e2e;display:flex;flex-direction:column;justify-content:center;align-items:center;font-family:JetBrains Mono,monospace;font-size:0.8125rem;color:#a6e3a1;padding:2rem;';
+      document.body.prepend(overlay);
+
+      bootLines.forEach((line, i) => {
+        const el = document.createElement('div');
+        el.style.cssText = 'opacity:0;animation:bootFadeIn 0.3s ease-out forwards;animation-delay:' + (i * 0.4) + 's;margin-bottom:0.25rem;';
+        el.textContent = line;
+        overlay.appendChild(el);
+      });
+
+      const style = document.createElement('style');
+      style.textContent = '@keyframes bootFadeIn{0%{opacity:0;transform:translateY(-2px)}100%{opacity:1;transform:translateY(0)}}';
+      document.head.appendChild(style);
+
+      setTimeout(() => {
+        overlay.style.transition = 'opacity 0.5s ease-out';
+        overlay.style.opacity = '0';
+        setTimeout(() => overlay.remove(), 500);
+      }, bootLines.length * 400 + 800);
+
+      sessionStorage.setItem('booted', '1');
+    });
+  }
 });

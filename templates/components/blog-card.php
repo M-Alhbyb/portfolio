@@ -1,29 +1,28 @@
-<a href="/blog/<?= htmlspecialchars($post['slug']) ?>" class="glass-card rounded-xl p-5 block group hover:-translate-y-1 transition-all duration-200">
-    <div class="flex items-center gap-2 mb-3">
-        <span class="text-xs font-mono text-gray-500">
-            <?= date('M j, Y', strtotime($post['published_at'] ?? $post['created_at'])) ?>
-        </span>
-        <?php if (!empty($post['locale'])): ?>
-            <span class="text-xs px-1.5 py-0.5 rounded bg-gray-800 text-gray-400 uppercase">
-                <?= htmlspecialchars($post['locale']) ?>
-            </span>
+<a href="/blog/<?= htmlspecialchars($post['slug']) ?>" class="flex items-start gap-3 px-4 py-3 hover:bg-cat-surface0 transition-colors group">
+    <span class="term-prompt-muted text-cat-teal text-xs font-mono mt-0.5 shrink-0">➜</span>
+    <div class="min-w-0 flex-1">
+        <div class="flex items-center gap-2 text-xs text-cat-overlay2 font-mono mb-1">
+            <span><?= date('Y-m-d', strtotime($post['published_at'] ?? $post['created_at'])) ?></span>
+            <?php if (!empty($post['locale'])): ?>
+                <span class="text-cat-surface2">|</span>
+                <span class="text-cat-subtext0"><?= htmlspecialchars($post['locale']) ?></span>
+            <?php endif; ?>
+        </div>
+        <h3 class="text-sm font-mono text-cat-yellow group-hover:text-cat-text transition-colors">
+            <?= htmlspecialchars($post['title']) ?>
+        </h3>
+        <?php if (!empty($post['excerpt'])): ?>
+            <p class="text-xs text-cat-subtext0 font-mono mt-1 line-clamp-2">
+                <?= htmlspecialchars($post['excerpt']) ?>
+            </p>
         <?php endif; ?>
-    </div>
-
-    <h3 class="text-base font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors line-clamp-2">
-        <?= htmlspecialchars($post['title']) ?>
-    </h3>
-
-    <?php if (!empty($post['excerpt'])): ?>
-        <p class="text-sm text-gray-400 line-clamp-3">
-            <?= htmlspecialchars($post['excerpt']) ?>
-        </p>
-    <?php endif; ?>
-
-    <div class="mt-4 flex items-center text-sm text-blue-400 group-hover:text-blue-300 transition-colors">
-        <span><?= \App\Helpers\Language::t('blog.read_more') ?></span>
-        <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-        </svg>
+        <?php if (!empty($post['tags'])): ?>
+            <?php $tags = json_decode($post['tags'], true) ?? []; ?>
+            <div class="flex flex-wrap gap-1.5 mt-1.5">
+                <?php foreach (array_slice($tags, 0, 3) as $tag): ?>
+                    <span class="text-xs text-cat-blue font-mono">#<?= htmlspecialchars(is_array($tag) ? ($tag['name'] ?? $tag) : $tag) ?></span>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
     </div>
 </a>

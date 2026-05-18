@@ -1,50 +1,44 @@
-<div class="max-w-4xl mx-auto">
-    <div class="mb-8">
-        <p class="text-sm font-mono text-cyan-400 mb-1"><span class="text-gray-500">//</span> timeline</p>
-        <h1 class="text-2xl font-bold gradient-text">Manage Timeline</h1>
-    </div>
+<div class="term-section">
+    <p class="term-prompt text-cat-green text-xs font-mono mb-1">./timeline</p>
+    <h1 class="text-lg font-bold text-cat-mauve font-mono mb-6">Manage Timeline</h1>
 
     <?php if ($error ?? false): ?>
-        <div class="mb-4 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-sm text-red-400"><?= htmlspecialchars($error) ?></div>
+        <div class="term-panel p-3 border-cat-red mb-4"><p class="text-xs text-cat-red font-mono"><?= htmlspecialchars($error) ?></p></div>
     <?php endif; ?>
     <?php if ($success ?? false): ?>
-        <div class="mb-4 p-3 rounded-lg bg-green-500/10 border border-green-500/20 text-sm text-green-400"><?= htmlspecialchars($success) ?></div>
+        <div class="term-panel p-3 border-cat-green mb-4"><p class="text-xs text-cat-green font-mono"><?= htmlspecialchars($success) ?></p></div>
     <?php endif; ?>
 
-    <div class="glass-card rounded-xl p-6 mb-8">
-        <h2 class="text-sm font-semibold text-white mb-4">Add New Entry</h2>
+    <div class="term-panel p-4 mb-6">
+        <h2 class="text-sm font-bold text-cat-peach font-mono mb-4">$ add-entry</h2>
         <form method="POST" action="/admin/timeline" enctype="multipart/form-data" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input type="hidden" name="csrf_token" value="<?= \App\Core\Session::getCsrfToken() ?>">
             <div>
-                <label class="block text-xs text-gray-400 mb-1">Type</label>
-                <select name="type" class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                <label class="block text-xs text-cat-overlay2 font-mono mb-1">Type</label>
+                <select name="type" class="w-full px-3 py-2 text-sm">
                     <option value="experience">Experience</option>
                     <option value="education">Education</option>
                 </select>
             </div>
             <div>
-                <label class="block text-xs text-gray-400 mb-1">Period</label>
-                <input type="text" name="period" required maxlength="100" placeholder="e.g. 2024 - Present"
-                       class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                <label class="block text-xs text-cat-overlay2 font-mono mb-1">Period</label>
+                <input type="text" name="period" required maxlength="100" placeholder="e.g. 2024 - Present" class="w-full px-3 py-2 text-sm">
             </div>
             <div>
-                <label class="block text-xs text-gray-400 mb-1">Title</label>
-                <input type="text" name="title" required maxlength="200"
-                       class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                <label class="block text-xs text-cat-overlay2 font-mono mb-1">Title</label>
+                <input type="text" name="title" required maxlength="200" class="w-full px-3 py-2 text-sm">
             </div>
             <div>
-                <label class="block text-xs text-gray-400 mb-1">Organization</label>
-                <input type="text" name="organization" required maxlength="200"
-                       class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                <label class="block text-xs text-cat-overlay2 font-mono mb-1">Organization</label>
+                <input type="text" name="organization" required maxlength="200" class="w-full px-3 py-2 text-sm">
             </div>
             <div>
-                <label class="block text-xs text-gray-400 mb-1">Place (City/Country)</label>
-                <input type="text" name="place" maxlength="100" placeholder="e.g. Qatar, Remote"
-                       class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                <label class="block text-xs text-cat-overlay2 font-mono mb-1">Place</label>
+                <input type="text" name="place" maxlength="100" placeholder="e.g. Qatar" class="w-full px-3 py-2 text-sm">
             </div>
             <div>
-                <label class="block text-xs text-gray-400 mb-1">Work Type</label>
-                <select name="work_type" class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                <label class="block text-xs text-cat-overlay2 font-mono mb-1">Work Type</label>
+                <select name="work_type" class="w-full px-3 py-2 text-sm">
                     <option value="">—</option>
                     <option value="Remote">Remote</option>
                     <option value="On-site">On-site</option>
@@ -52,101 +46,93 @@
                 </select>
             </div>
             <div>
-                <label class="block text-xs text-gray-400 mb-1">Link</label>
-                <input type="url" name="link" maxlength="255" placeholder="https://example.com"
-                       class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                <label class="block text-xs text-cat-overlay2 font-mono mb-1">Link</label>
+                <input type="url" name="link" maxlength="255" placeholder="https://example.com" class="w-full px-3 py-2 text-sm">
             </div>
             <div>
-                <label class="block text-xs text-gray-400 mb-1">Logo</label>
-                <input type="file" name="logo" accept=".jpg,.jpeg,.png,.webp"
-                       class="w-full text-sm text-gray-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:bg-blue-500/10 file:text-blue-300 hover:file:bg-blue-500/20">
+                <label class="block text-xs text-cat-overlay2 font-mono mb-1">Logo</label>
+                <input type="file" name="logo" accept=".jpg,.jpeg,.png,.webp" class="w-full text-sm text-cat-text file:mr-3 file:py-1.5 file:px-3 file:border-0 file:text-xs file:bg-cat-surface0 file:text-cat-blue hover:file:bg-cat-surface1">
             </div>
             <div class="sm:col-span-2">
-                <label class="block text-xs text-gray-400 mb-1">Description</label>
-                <textarea name="description" rows="3" maxlength="5000"
-                          class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500"></textarea>
+                <label class="block text-xs text-cat-overlay2 font-mono mb-1">Description</label>
+                <textarea name="description" rows="3" maxlength="5000" class="w-full px-3 py-2 text-sm"></textarea>
             </div>
             <div>
-                <label class="block text-xs text-gray-400 mb-1">Sort Order</label>
-                <input type="number" name="sort_order" value="0"
-                       class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                <label class="block text-xs text-cat-overlay2 font-mono mb-1">Sort Order</label>
+                <input type="number" name="sort_order" value="0" class="w-full px-3 py-2 text-sm">
             </div>
             <div class="flex items-end">
-                <button type="submit" class="btn-primary text-sm w-full">Add Entry</button>
+                <button type="submit" class="term-btn term-btn-primary text-sm w-full">$ add</button>
             </div>
         </form>
     </div>
 
-    <div class="glass-card rounded-xl overflow-hidden">
+    <div class="term-panel overflow-hidden">
         <table class="w-full text-sm">
             <thead>
-                <tr class="border-b border-blue-500/10 text-gray-400 text-left">
-                    <th class="p-4 font-medium">Type</th>
-                    <th class="p-4 font-medium">Period</th>
-                    <th class="p-4 font-medium hidden sm:table-cell">Title</th>
-                    <th class="p-4 font-medium hidden sm:table-cell">Organization</th>
-                    <th class="p-4 font-medium">Actions</th>
+                <tr class="border-b border-cat-surface1 text-cat-overlay2 text-left">
+                    <th class="p-4 font-mono font-medium">Type</th>
+                    <th class="p-4 font-mono font-medium">Period</th>
+                    <th class="p-4 font-mono font-medium hidden sm:table-cell">Title</th>
+                    <th class="p-4 font-mono font-medium hidden sm:table-cell">Organization</th>
+                    <th class="p-4 font-mono font-medium">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <?php if (empty($entries)): ?>
-                <tr><td colspan="5" class="p-8 text-center text-gray-500">No timeline entries yet.</td></tr>
+                <tr><td colspan="5" class="p-8 text-center text-cat-overlay0 font-mono text-xs">No timeline entries yet.</td></tr>
                 <?php else: ?>
                 <?php foreach ($entries as $e): ?>
-                <tr class="border-b border-blue-500/5 hover:bg-blue-500/5">
+                <tr class="border-b border-cat-surface0 hover:bg-cat-surface0/50">
                     <td class="p-4">
-                        <span class="text-xs px-2 py-0.5 rounded <?= $e['type'] === 'experience' ? 'bg-blue-500/10 text-blue-300' : 'bg-green-500/10 text-green-300' ?>">
+                        <span class="text-xs px-2 py-0.5 font-mono <?= $e['type'] === 'experience' ? 'text-cat-blue bg-cat-surface0' : 'text-cat-green bg-cat-surface0' ?>">
                             <?= htmlspecialchars(ucfirst($e['type'])) ?>
                         </span>
                     </td>
-                    <td class="p-4 text-white"><?= htmlspecialchars($e['period']) ?></td>
-                    <td class="p-4 hidden sm:table-cell text-white"><?= htmlspecialchars($e['title']) ?></td>
-                    <td class="p-4 hidden sm:table-cell text-gray-400"><?= htmlspecialchars($e['organization']) ?></td>
+                    <td class="p-4 text-cat-text font-mono"><?= htmlspecialchars($e['period']) ?></td>
+                    <td class="p-4 hidden sm:table-cell text-cat-text font-mono"><?= htmlspecialchars($e['title']) ?></td>
+                    <td class="p-4 hidden sm:table-cell text-cat-subtext0 font-mono"><?= htmlspecialchars($e['organization']) ?></td>
                     <td class="p-4">
                         <button @click="document.getElementById('edit-<?= (int) $e['id'] ?>').classList.toggle('hidden')"
-                                class="text-xs px-2 py-1 rounded bg-blue-500/10 text-blue-300 hover:bg-blue-500/20">Edit</button>
+                                class="text-xs px-2 py-1 rounded bg-cat-surface0 text-cat-blue hover:bg-cat-surface1 font-mono">edit</button>
                         <form method="POST" action="/admin/timeline/<?= (int) $e['id'] ?>" class="inline" onsubmit="return confirm('Delete this entry?')">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="csrf_token" value="<?= \App\Core\Session::getCsrfToken() ?>">
-                            <button type="submit" class="text-xs px-2 py-1 rounded bg-red-500/10 text-red-300 hover:bg-red-500/20">Delete</button>
+                            <button type="submit" class="text-xs px-2 py-1 rounded bg-cat-surface0 text-cat-red hover:bg-cat-surface1 font-mono">delete</button>
                         </form>
 
-                        <div id="edit-<?= (int) $e['id'] ?>" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60" @click.self="document.getElementById('edit-<?= (int) $e['id'] ?>').classList.add('hidden')">
-                            <div class="glass rounded-xl p-6 w-full max-w-lg mx-4 max-h-[90vh] overflow-y-auto">
-                                <h3 class="text-sm font-semibold text-white mb-4">Edit Entry</h3>
+                        <div id="edit-<?= (int) $e['id'] ?>" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-cat-base/80" @click.self="document.getElementById('edit-<?= (int) $e['id'] ?>').classList.add('hidden')">
+                            <div class="term-panel p-6 w-full max-w-lg mx-4 max-h-[90vh] overflow-y-auto">
+                                <h3 class="text-sm font-bold text-cat-peach font-mono mb-4">$ edit-entry</h3>
                                 <form method="POST" action="/admin/timeline/<?= (int) $e['id'] ?>" enctype="multipart/form-data" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <input type="hidden" name="_method" value="PUT">
                                     <input type="hidden" name="csrf_token" value="<?= \App\Core\Session::getCsrfToken() ?>">
                                     <div class="sm:col-span-2">
-                                        <label class="block text-xs text-gray-400 mb-1">Type</label>
-                                        <select name="type" class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                                        <label class="block text-xs text-cat-overlay2 font-mono mb-1">Type</label>
+                                        <select name="type" class="w-full px-3 py-2 text-sm">
                                             <option value="experience" <?= $e['type'] === 'experience' ? 'selected' : '' ?>>Experience</option>
                                             <option value="education" <?= $e['type'] === 'education' ? 'selected' : '' ?>>Education</option>
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="block text-xs text-gray-400 mb-1">Period</label>
-                                        <input type="text" name="period" value="<?= htmlspecialchars($e['period']) ?>" required maxlength="100"
-                                               class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                                        <label class="block text-xs text-cat-overlay2 font-mono mb-1">Period</label>
+                                        <input type="text" name="period" value="<?= htmlspecialchars($e['period']) ?>" required maxlength="100" class="w-full px-3 py-2 text-sm">
                                     </div>
                                     <div>
-                                        <label class="block text-xs text-gray-400 mb-1">Title</label>
-                                        <input type="text" name="title" value="<?= htmlspecialchars($e['title']) ?>" required maxlength="200"
-                                               class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                                        <label class="block text-xs text-cat-overlay2 font-mono mb-1">Title</label>
+                                        <input type="text" name="title" value="<?= htmlspecialchars($e['title']) ?>" required maxlength="200" class="w-full px-3 py-2 text-sm">
                                     </div>
                                     <div class="sm:col-span-2">
-                                        <label class="block text-xs text-gray-400 mb-1">Organization</label>
-                                        <input type="text" name="organization" value="<?= htmlspecialchars($e['organization']) ?>" required maxlength="200"
-                                               class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                                        <label class="block text-xs text-cat-overlay2 font-mono mb-1">Organization</label>
+                                        <input type="text" name="organization" value="<?= htmlspecialchars($e['organization']) ?>" required maxlength="200" class="w-full px-3 py-2 text-sm">
                                     </div>
                                     <div>
-                                        <label class="block text-xs text-gray-400 mb-1">Place</label>
-                                        <input type="text" name="place" value="<?= htmlspecialchars($e['place'] ?? '') ?>" maxlength="100" placeholder="e.g. Qatar"
-                                               class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                                        <label class="block text-xs text-cat-overlay2 font-mono mb-1">Place</label>
+                                        <input type="text" name="place" value="<?= htmlspecialchars($e['place'] ?? '') ?>" maxlength="100" placeholder="e.g. Qatar" class="w-full px-3 py-2 text-sm">
                                     </div>
                                     <div>
-                                        <label class="block text-xs text-gray-400 mb-1">Work Type</label>
-                                        <select name="work_type" class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                                        <label class="block text-xs text-cat-overlay2 font-mono mb-1">Work Type</label>
+                                        <select name="work_type" class="w-full px-3 py-2 text-sm">
                                             <option value="">—</option>
                                             <option value="Remote" <?= ($e['work_type'] ?? '') === 'Remote' ? 'selected' : '' ?>>Remote</option>
                                             <option value="On-site" <?= ($e['work_type'] ?? '') === 'On-site' ? 'selected' : '' ?>>On-site</option>
@@ -154,38 +140,34 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="block text-xs text-gray-400 mb-1">Link</label>
-                                        <input type="url" name="link" value="<?= htmlspecialchars($e['link'] ?? '') ?>" maxlength="255" placeholder="https://example.com"
-                                               class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                                        <label class="block text-xs text-cat-overlay2 font-mono mb-1">Link</label>
+                                        <input type="url" name="link" value="<?= htmlspecialchars($e['link'] ?? '') ?>" maxlength="255" placeholder="https://example.com" class="w-full px-3 py-2 text-sm">
                                     </div>
                                     <div>
-                                        <label class="block text-xs text-gray-400 mb-1">Logo</label>
-                                        <input type="file" name="logo" accept=".jpg,.jpeg,.png,.webp"
-                                               class="w-full text-sm text-gray-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:bg-blue-500/10 file:text-blue-300 hover:file:bg-blue-500/20">
+                                        <label class="block text-xs text-cat-overlay2 font-mono mb-1">Logo</label>
+                                        <input type="file" name="logo" accept=".jpg,.jpeg,.png,.webp" class="w-full text-sm text-cat-text file:mr-3 file:py-1.5 file:px-3 file:border-0 file:text-xs file:bg-cat-surface0 file:text-cat-blue hover:file:bg-cat-surface1">
                                         <?php if (!empty($e['logo'])): ?>
                                             <div class="mt-2">
                                                 <img src="/<?= htmlspecialchars($e['logo']) ?>" alt="Current logo" class="h-10 w-auto rounded">
-                                                <label class="text-xs text-gray-500 mt-1 flex items-center gap-1">
-                                                    <input type="checkbox" name="remove_logo" value="1" class="rounded bg-gray-800 border-gray-600">
+                                                <label class="text-xs text-cat-overlay2 font-mono mt-1 flex items-center gap-1">
+                                                    <input type="checkbox" name="remove_logo" value="1">
                                                     Remove logo
                                                 </label>
                                             </div>
                                         <?php endif; ?>
                                     </div>
                                     <div class="sm:col-span-2">
-                                        <label class="block text-xs text-gray-400 mb-1">Description</label>
-                                        <textarea name="description" rows="3" maxlength="5000"
-                                                  class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500"><?= htmlspecialchars($e['description'] ?? '') ?></textarea>
+                                        <label class="block text-xs text-cat-overlay2 font-mono mb-1">Description</label>
+                                        <textarea name="description" rows="3" maxlength="5000" class="w-full px-3 py-2 text-sm"><?= htmlspecialchars($e['description'] ?? '') ?></textarea>
                                     </div>
                                     <div>
-                                        <label class="block text-xs text-gray-400 mb-1">Sort Order</label>
-                                        <input type="number" name="sort_order" value="<?= (int) ($e['sort_order'] ?? 0) ?>"
-                                               class="w-full px-3 py-2 rounded-lg bg-gray-800/50 border border-gray-700 text-white text-sm focus:border-blue-500">
+                                        <label class="block text-xs text-cat-overlay2 font-mono mb-1">Sort Order</label>
+                                        <input type="number" name="sort_order" value="<?= (int) ($e['sort_order'] ?? 0) ?>" class="w-full px-3 py-2 text-sm">
                                     </div>
                                     <div class="flex items-end gap-2">
-                                        <button type="submit" class="btn-primary text-sm flex-1">Save</button>
+                                        <button type="submit" class="term-btn term-btn-primary text-sm flex-1">$ save</button>
                                         <button type="button" @click="document.getElementById('edit-<?= (int) $e['id'] ?>').classList.add('hidden')"
-                                                class="px-3 py-2 rounded-lg text-sm text-gray-400 hover:text-white border border-gray-700 hover:border-gray-600 transition-colors">Cancel</button>
+                                                class="term-btn text-sm flex-1">cancel</button>
                                     </div>
                                 </form>
                             </div>

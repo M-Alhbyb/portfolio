@@ -11,10 +11,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="min-h-screen font-sans antialiased">
+<body class="min-h-screen font-mono bg-cat-base text-cat-text">
     <?php require __DIR__ . '/../components/header.php'; ?>
 
-    <main class="min-h-screen">
+    <main class="min-h-screen pt-9 md:pt-9">
         <?= $content ?? '' ?>
     </main>
 
