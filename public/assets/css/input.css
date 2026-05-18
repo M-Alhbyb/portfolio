@@ -138,16 +138,38 @@ body {
   font-weight: bold;
 }
 
+.term-catppuccin-logo {
+  filter: sepia(0.5) hue-rotate(-10deg) saturate(1.2) contrast(1.1);
+  opacity: 0.9;
+}
+
+.term-catppuccin-img {
+  filter: sepia(0.6) hue-rotate(-10deg) saturate(1.1) contrast(1.05);
+}
+
+.term-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--cat-mauve);
+  mix-blend-mode: color;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
 /* Terminal Title Bar (tmux-style) */
 .term-titlebar {
   background: var(--cat-surface0);
-  border-bottom: 1px solid var(--cat-surface1);
-  height: 36px;
-  display: flex;
+  height: 40px;
   align-items: center;
   padding: 0 0.75rem;
   font-size: 0.8125rem;
   font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+@media (min-width: 768px) {
+  .term-titlebar {
+    border-bottom: 1px solid var(--cat-surface1);
+  }
 }
 
 .term-titlebar-item {
@@ -177,14 +199,6 @@ body {
 }
 
 /* neofetch-style output */
-.term-neofetch-ascii {
-  color: var(--cat-mauve);
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
-  white-space: pre;
-  line-height: 1.1;
-  font-size: 0.75rem;
-}
-
 .term-neofetch-key {
   color: var(--cat-blue);
   font-weight: bold;

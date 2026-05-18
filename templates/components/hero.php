@@ -1,31 +1,27 @@
 <section class="relative min-h-screen flex items-center overflow-hidden">
     <div class="absolute inset-0 term-grid opacity-30"></div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
-        <div class="flex items-center gap-12 lg:gap-16">
-            <div class="flex-1 min-w-0">
-                <div class="term-panel p-6 mb-8 max-w-lg">
-                    <pre class="term-neofetch-ascii text-[0.6rem] leading-tight mb-4">
-            ████████████
-          ██            ██
-         ██   ████████   ██
-        ██   ██████████   ██
-       ██   ████████████   ██
-       ██   ████████████   ██
-       ██   ████████████   ██
-        ██   ██████████   ██
-         ██   ████████   ██
-          ██            ██
-            ████████████
-                    </pre>
-                    <div class="space-y-1 text-sm font-mono">
-                        <div><span class="term-neofetch-key">Name:     </span><span class="term-neofetch-val">MohamedElhabib Mohamed</span></div>
-                        <div><span class="term-neofetch-key">Role:     </span><span class="term-neofetch-val">Full Stack Web Developer</span></div>
-                        <div><span class="term-neofetch-key">Focus:    </span><span class="term-neofetch-val text-cat-blue">Backend · DevOps · Linux · AI</span></div>
-                        <div><span class="term-neofetch-key">Location: </span><span class="term-neofetch-val">Khartoum, Sudan</span></div>
-                        <div><span class="term-neofetch-key">Email:    </span><span class="term-neofetch-val text-cat-blue">mohammedalhbyb@gmail.com</span></div>
-                        <div><span class="term-neofetch-key">Shell:    </span><span class="term-neofetch-val">zsh 5.9</span></div>
-                        <div><span class="term-neofetch-key">Uptime:   </span><span class="term-neofetch-val term-status-active text-cat-green">99.9%</span></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-32 w-full">
+        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-16">
+            <div class="flex-1 w-full md:min-w-0">
+                <div class="term-panel p-4 md:p-6 mb-8 w-full">
+                    <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 md:gap-6">
+                        <div class="flex-shrink-0">
+                            <div class="relative overflow-hidden w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 rounded-full border-2 border-cat-surface2">
+                                <img src="/assets/images/photo.webp" alt="MohamedElhabib Mohamed"
+                                     class="w-full h-full object-cover term-catppuccin-img">
+                                <div class="term-img-overlay rounded-full"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1 text-sm font-mono flex-1">
+                            <div><span class="term-neofetch-key">Name:     </span><span class="term-neofetch-val">MohamedElhabib Mohamed</span></div>
+                            <div><span class="term-neofetch-key">Role:     </span><span class="term-neofetch-val">Full Stack Web Developer</span></div>
+                            <div><span class="term-neofetch-key">Focus:    </span><span class="term-neofetch-val text-cat-blue">Backend · DevOps · Linux · AI</span></div>
+                            <div><span class="term-neofetch-key">Location: </span><span class="term-neofetch-val">Khartoum, Sudan</span></div>
+                            <div><span class="term-neofetch-key">Email:    </span><span class="term-neofetch-val text-cat-blue">mohammedalhbyb@gmail.com</span></div>
+                            <div><span class="term-neofetch-key">Shell:    </span><span class="term-neofetch-val">zsh 5.9</span></div>
+                            <div><span class="term-neofetch-key">Uptime:   </span><span class="term-neofetch-val term-status-active text-cat-green">99.9%</span></div>
+                        </div>
                     </div>
                 </div>
 
@@ -43,13 +39,6 @@
                     <a href="/contact" class="term-btn text-sm flex items-center gap-2">
                         ./contact --email
                     </a>
-                </div>
-            </div>
-
-            <div class="hidden md:block flex-shrink-0">
-                <div class="term-panel p-2">
-                    <img src="/assets/images/photo.webp" alt="MohamedElhabib Mohamed"
-                         class="w-64 lg:w-72 object-cover aspect-[4/5]">
                 </div>
             </div>
         </div>
