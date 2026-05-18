@@ -51,8 +51,10 @@
         </div>
 
         <?php if (!empty($groupedSkills)): ?>
-            <div class="space-y-4">
-                <p class="term-prompt text-cat-green text-sm font-mono mb-2"><?= \App\Helpers\Language::t('home.skills_cmd') ?></p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="md:col-span-2 lg:col-span-3">
+                    <p class="term-prompt text-cat-green text-sm font-mono mb-2"><?= \App\Helpers\Language::t('home.skills_cmd') ?></p>
+                </div>
                 <?php foreach ($groupedSkills as $category => $categorySkills): ?>
                     <div class="term-panel p-4">
                         <p class="text-cat-lavender text-sm font-mono mb-3"># <?= htmlspecialchars($category) ?></p>
