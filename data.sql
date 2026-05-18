@@ -1,7 +1,11 @@
 BEGIN;
 
-DELETE FROM projects;
+DELETE FROM post_tags;
+DELETE FROM post_categories;
 DELETE FROM posts;
+DELETE FROM categories;
+DELETE FROM tags;
+DELETE FROM projects;
 DELETE FROM skills;
 DELETE FROM timeline;
 DELETE FROM volunteering;
