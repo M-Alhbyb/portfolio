@@ -106,6 +106,7 @@ $router->get('/robots.txt', 'Controllers\\SEOController@robots');
 // Admin routes
 $router->get('/admin/login', 'Admin\\AuthController@login');
 $router->post('/admin/login', 'Admin\\AuthController@authenticate');
+$router->get('/admin/logout', 'Admin\\AuthController@logout');
 $router->post('/admin/logout', 'Admin\\AuthController@logout');
 $router->get('/admin', 'Admin\\DashboardController@index');
 $router->get('/admin/projects', 'Admin\\ProjectController@index');
@@ -156,7 +157,7 @@ Language::getLocale();
 $uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 $uri = rtrim($uri, '/') ?: '/';
 
-if (str_starts_with($uri, '/admin') && $uri !== '/admin/login') {
+if (str_starts_with($uri, '/admin') && !in_array($uri, ['/admin/login', '/admin/logout'])) {
     Auth::requireLogin();
 }
 

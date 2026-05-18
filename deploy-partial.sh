@@ -42,10 +42,18 @@ if (!in_array('timeline', \$tables)) {
     \$sql = file_get_contents('/app/database/schema.sql');
     \$pdo->exec(\$sql);
 } else {
-    \$pdo->exec('ALTER TABLE timeline ADD COLUMN link TEXT DEFAULT NULL');
-    \$pdo->exec('ALTER TABLE timeline ADD COLUMN logo TEXT DEFAULT NULL');
+    \$cols = \$pdo->query(\"PRAGMA table_info(timeline)\")->fetchAll(PDO::FETCH_COLUMN, 1);
+    if (!in_array('link', \$cols)) {
+        \$pdo->exec('ALTER TABLE timeline ADD COLUMN link TEXT DEFAULT NULL');
+    }
+    if (!in_array('logo', \$cols)) {
+        \$pdo->exec('ALTER TABLE timeline ADD COLUMN logo TEXT DEFAULT NULL');
+    }
 }
-\$pdo->exec('ALTER TABLE projects ADD COLUMN link TEXT DEFAULT NULL');
+\$cols = \$pdo->query(\"PRAGMA table_info(projects)\")->fetchAll(PDO::FETCH_COLUMN, 1);
+if (!in_array('link', \$cols)) {
+    \$pdo->exec('ALTER TABLE projects ADD COLUMN link TEXT DEFAULT NULL');
+}
 if (!in_array('languages', \$tables)) {
     \$pdo->exec('CREATE TABLE IF NOT EXISTS languages (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
