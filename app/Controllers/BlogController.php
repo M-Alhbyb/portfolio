@@ -27,9 +27,10 @@ class BlogController
         $categorySlug = $_GET['category'] ?? '';
         $tagSlug = $_GET['tag'] ?? '';
 
+        $locale = Language::getLocale();
         $db = Database::getInstance();
-        $where = "WHERE p.status = 'published'";
-        $params = [];
+        $where = "WHERE p.status = 'published' AND p.locale = ?";
+        $params = [$locale];
         $join = '';
         $groupBy = '';
 
@@ -65,7 +66,6 @@ class BlogController
         $categories = Category::findAll();
         $tags = Tag::findAll();
 
-        $locale = Language::getLocale();
         $dir = Language::dir();
 
         ob_start();
@@ -79,9 +79,10 @@ class BlogController
     public function show(array $params = []): void
     {
         $slug = $params['slug'] ?? '';
-        $post = Post::findBySlug($slug);
+        $locale = Language::getLocale();
+        $post = Post::findBySlug($slug, $locale);
 
-        if (!$post) {
+        if (!$post || $post['locale'] !== $locale) {
             http_response_code(404);
             require __DIR__ . '/../../templates/pages/404.php';
             return;
@@ -106,7 +107,6 @@ class BlogController
         $categories = Category::findByPostId($post['id']);
         $tags = Tag::findByPostId($post['id']);
 
-        $locale = Language::getLocale();
         $dir = Language::dir();
 
         ob_start();

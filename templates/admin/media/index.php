@@ -1,8 +1,8 @@
 <div class="term-section">
     <div class="flex items-center justify-between mb-6">
         <div>
-            <p class="term-prompt text-cat-green text-xs font-mono mb-1">./media</p>
-            <h1 class="text-lg font-bold text-cat-mauve font-mono">Media Library</h1>
+            <p class="term-prompt text-cat-green text-xs font-mono mb-1"><?= \App\Helpers\Language::t('admin.media.cmd') ?></p>
+            <h1 class="text-lg font-bold text-cat-mauve font-mono"><?= \App\Helpers\Language::t('admin.media.title') ?></h1>
         </div>
     </div>
 
@@ -20,14 +20,14 @@
                 <input type="file" name="file" required accept=".jpg,.jpeg,.png,.webp"
                        class="w-full text-sm text-cat-text file:mr-4 file:py-2 file:px-4 file:border-0 file:text-sm file:bg-cat-surface0 file:text-cat-blue hover:file:bg-cat-surface1">
             </div>
-            <button type="submit" class="term-btn term-btn-primary text-sm">$ upload</button>
+            <button type="submit" class="term-btn term-btn-primary text-sm"><?= \App\Helpers\Language::t('admin.media.upload') ?></button>
         </form>
-        <p class="text-xs text-cat-overlay0 font-mono mt-2">Allowed: JPG, PNG, WebP. Max 5MB.</p>
+        <p class="text-xs text-cat-overlay0 font-mono mt-2"><?= \App\Helpers\Language::t('admin.media.allowed') ?></p>
     </div>
 
     <?php if (empty($mediaItems)): ?>
         <div class="text-center py-12">
-            <p class="text-cat-overlay0 font-mono text-xs">No media uploaded yet.</p>
+            <p class="text-cat-overlay0 font-mono text-xs"><?= \App\Helpers\Language::t('admin.media.empty') ?></p>
         </div>
     <?php else: ?>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -39,10 +39,10 @@
                          loading="lazy"
                          class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-cat-base/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <form method="POST" action="/admin/media/<?= (int) $item['id'] ?>" onsubmit="return confirm('Delete this file?')">
+                        <form method="POST" action="/admin/media/<?= (int) $item['id'] ?>" onsubmit="return confirm('<?= \App\Helpers\Language::t('admin.media.delete_confirm') ?>')">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="csrf_token" value="<?= \App\Core\Session::getCsrfToken() ?>">
-                            <button type="submit" class="term-btn term-btn-danger text-xs py-1 px-2">$ rm</button>
+                            <button type="submit" class="term-btn term-btn-danger text-xs py-1 px-2"><?= \App\Helpers\Language::t('admin.media.rm') ?></button>
                         </form>
                     </div>
                 </div>

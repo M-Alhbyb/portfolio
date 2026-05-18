@@ -1,5 +1,5 @@
 <div class="py-24 term-section">
-    <p class="term-prompt text-cat-green text-sm font-mono mb-2">./contact --send</p>
+    <p class="term-prompt text-cat-green text-sm font-mono mb-2"><?= \App\Helpers\Language::t('contact.cmd') ?></p>
     <h1 class="text-2xl font-bold text-cat-mauve font-mono mb-6"><?= \App\Helpers\Language::t('contact.title') ?></h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">

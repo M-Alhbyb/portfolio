@@ -11,6 +11,8 @@ class MessageController
     public function index(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
         $db = Database::getInstance();
         $messages = $db->fetchAll("SELECT * FROM messages ORDER BY created_at DESC");
 
@@ -24,6 +26,8 @@ class MessageController
     public function show(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
         $id = (int) ($params['id'] ?? 0);
         $db = Database::getInstance();
         $message = $db->fetch("SELECT * FROM messages WHERE id = ?", [$id]);

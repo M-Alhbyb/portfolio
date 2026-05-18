@@ -455,7 +455,7 @@ Measurable Outcomes:
 )
 ;
 
-INSERT OR IGNORE INTO posts (user_id, title, slug, content, excerpt, featured_image, status, locale, published_at) VALUES
+INSERT OR IGNORE INTO posts (user_id, title, slug, content, excerpt, featured_image, status, published_at) VALUES
 (
     1,
     'How I Recovered 28 Breached Websites',
@@ -527,7 +527,73 @@ INSERT OR IGNORE INTO settings (key, value, group_name, locale) VALUES
 ('hero_title_ar', 'أبني أنظمة حقيقية تحل مشاكل الأعمال', 'hero', 'ar'),
 ('hero_subtitle_en', 'Backend engineer specializing in financial systems, ERP architecture, scalable APIs, and AI-powered platforms.', 'hero', 'en'),
 ('hero_subtitle_ar', 'مهندس backend متخصص في الأنظمة المالية، هندسة ERP، واجهات برمجية قابلة للتوسع، ومنصات ذكاء اصطناعي.', 'hero', 'ar'),
+(
+    1,
+    'كيف استعدت 28 موقعاً مخترقاً',
+    'how-i-recovered-28-breached-websites-ar',
+    '## كيف استعدت 28 موقعاً مخترقاً
+
+استعادة البنية التحتية تتطلب السرعة والتحديد والانضباط. خلال مشروع ترحيل حاسم، عملت على استعادة مواقع إنتاج مخترقة وإعادة الاستقرار التشغيلي.
+
+شملت العملية تعزيز الخوادم، تنظيف البرمجيات الخبيثة، استعادة قواعد البيانات، الترحيل إلى AWS، نشر Docker، وتحسين البنية التحتية.
+
+عززت هذه التجربة قدرتي على العمل تحت الضغط مع الحفاظ على الدقة التقنية.',
+    'دروس مستفادة من استعادة وترحيل أنظمة إنتاج مخترقة.',
+    NULL,
+    'published',
+    'ar',
+    CURRENT_TIMESTAMP
+),
+(
+    1,
+    'لماذا أصبح لينكس بيئة تطويري الرئيسية',
+    'why-linux-became-my-primary-development-environment-ar',
+    '## لماذا أصبح لينكس بيئة تطويري الرئيسية
+
+لينكس يوفر المرونة والتحكم والأداء لسير العمل التطويري الحديث. يعتمد سير عملي اليومي بشكل كبير على إدارة لينكس، أدوات الطرفية، بيئات Docker، وإدارة الخوادم.
+
+استخدام لينكس حسن فهمي للبنية التحتية وأنظمة النشر وعمليات الخوادم.',
+    'كيف حسن لينكس سير عملي كمطور ويب كامل ومهندس DevOps.',
+    NULL,
+    'published',
+    'ar',
+    CURRENT_TIMESTAMP
+),
+(
+    1,
+    'بناء أنظمة Django قابلة للتوسع',
+    'building-scalable-django-systems-ar',
+    '## بناء أنظمة Django قابلة للتوسع
+
+أنظمة Django الحديثة تتطلب بنية نظيفة وسير عمل غير متزامن وقواعد بيانات محسنة وخطوط نشر موثوقة.
+
+أستخدم Celery و Redis و PostgreSQL و Docker والبنية التحتية للينكس لبناء أنظمة خادم قابلة للتوسع تركز على الموثوقية والصيانة.',
+    'أنماط بنية خادم عملية لتطبيقات Django قابلة للتوسع.',
+    NULL,
+    'published',
+    'ar',
+    CURRENT_TIMESTAMP
+),
+(
+    1,
+    'المهام غير المتزامنة مع Celery و Redis',
+    'asynchronous-tasks-with-celery-and-redis-ar',
+    '## المهام غير المتزامنة مع Celery و Redis
+
+قوائم المهام غير المتزامنة تحسن استجابة التطبيقات وقابليتها للتوسع. أستخدم Celery مع Redis لإدارة المهام الخلفية والإشعارات وعمليات المعالجة وسير العمل الطويل.
+
+هذه البنية تحسن تجربة المستخدم وأداء النظام تحت الضغط.',
+    'تحسين استجابة الخوادم باستخدام معالجة المهام غير المتزامنة.',
+    NULL,
+    'published',
+    'ar',
+    CURRENT_TIMESTAMP
+),
 ('social_github', 'https://github.com/M-Alhbyb', 'social', 'en'),
 ('social_linkedin', 'https://linkedin.com/in/m-elhabib', 'social', 'en'),
-('social_email', 'mohammedalhbyb@gmail.com', 'social', 'en')
+('social_email', 'mohammedalhbyb@gmail.com', 'social', 'en'),
+('about_bio_ar', 'أنا محمد الحبيب محمد، مطور ويب كامل من السودان. أبني تطبيقات ويب وأنظمة داخلية وأدوات أتمتة مع التركيز على الموثوقية والبساطة والاستدامة طويلة المدى.', 'about', 'ar'),
+('about_philosophy_ar', 'نهجي في الهندسة عملي: اجعل الأنظمة بسيطة وقابلة للصيانة. أتمت المهام المتكررة كلما أمكن. ابنِ حلولاً بناءً على احتياجات حقيقية، لا اتجاهات. تعلم باستمرار وتحسن خطوة بخطوة.', 'about', 'ar'),
+('about_interests_ar', 'تطبيقات تعمل بالذكاء الاصطناعي، أدوات المطورين والأتمتة، تصميم الأنظمة وهندسة الخوادم، منصات التعلم التكيفي، البرمجيات مفتوحة المصدر', 'about', 'ar'),
+('about_journey_ar', 'أعتقد أن الهندسة القوية تأتي من الممارسة المستمرة والفضول. معظم مهاراتي اكتسبتها من بناء مشاريع حقيقية.', 'about', 'ar')
 ;

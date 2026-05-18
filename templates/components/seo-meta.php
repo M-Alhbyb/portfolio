@@ -1,10 +1,10 @@
 <?php
-$title = $title ?? 'MohamedElhabib Mohamed - Engineering Portfolio';
-$description = $description ?? 'Portfolio of MohamedElhabib Mohamed, showcasing engineering projects, DevOps infrastructure, and technical expertise.';
+$title = $title ?? \App\Helpers\Language::t('seo.default_title');
+$description = $description ?? \App\Helpers\Language::t('seo.default_description');
 $ogTitle = $ogTitle ?? $title;
 $ogDescription = $ogDescription ?? $description;
 $ogImage = $ogImage ?? null;
-$ogType = $ogType ?? 'website';
+$ogType = $ogType ?? \App\Helpers\Language::t('seo.default_og_type');
 $canonical = $canonical ?? null;
 $noindex = $noindex ?? false;
 ?>

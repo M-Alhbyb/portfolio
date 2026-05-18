@@ -136,13 +136,13 @@
 <hr class="divider">
 
 <?php if ($summary): ?>
-<h2>Professional Summary</h2>
+<h2><?= \App\Helpers\Language::t('admin.cv.professional_summary') ?></h2>
 <p class="summary-text"><?= htmlspecialchars($summary) ?></p>
 <?php endif; ?>
 
-<h2>Volunteering</h2>
+<h2><?= \App\Helpers\Language::t('admin.cv.volunteering') ?></h2>
 <?php if (empty($volunteering)): ?>
-    <p style="font-size:10pt;color:#555;">No volunteer entries yet.</p>
+    <p style="font-size:10pt;color:#555;"><?= \App\Helpers\Language::t('admin.cv.no_volunteer') ?></p>
 <?php else: ?>
     <?php foreach ($volunteering as $vol): ?>
     <div class="entry">
@@ -169,9 +169,9 @@
     <?php endforeach; ?>
 <?php endif; ?>
 
-<h2>Experience</h2>
+<h2><?= \App\Helpers\Language::t('admin.cv.experience') ?></h2>
 <?php if (empty($experience)): ?>
-    <p style="font-size:10pt;color:#555;">No experience entries yet.</p>
+    <p style="font-size:10pt;color:#555;"><?= \App\Helpers\Language::t('admin.cv.no_experience') ?></p>
 <?php else: ?>
     <?php foreach ($experience as $exp): ?>
     <div class="entry">
@@ -199,9 +199,9 @@
     <?php endforeach; ?>
 <?php endif; ?>
 
-<h2>Education</h2>
+<h2><?= \App\Helpers\Language::t('admin.cv.education') ?></h2>
 <?php if (empty($education)): ?>
-    <p style="font-size:10pt;color:#555;">No education entries yet.</p>
+    <p style="font-size:10pt;color:#555;"><?= \App\Helpers\Language::t('admin.cv.no_education') ?></p>
 <?php else: ?>
     <?php foreach ($education as $edu): ?>
     <div class="entry">
@@ -224,7 +224,7 @@
 <?php endif; ?>
 
 <?php if (!empty($groupedSkills)): ?>
-<h2>Skills</h2>
+<h2><?= \App\Helpers\Language::t('admin.cv.skills') ?></h2>
 <div class="skills-grid">
     <?php foreach ($groupedSkills as $category => $skills): ?>
     <div class="skill-cat">
@@ -239,7 +239,7 @@
 <?php endif; ?>
 
 <?php if (!empty($languages)): ?>
-<h2>Languages</h2>
+<h2><?= \App\Helpers\Language::t('admin.cv.languages') ?></h2>
 <div class="skills-grid">
     <?php foreach ($languages as $l): ?>
     <div class="skill-cat">
@@ -251,7 +251,7 @@
 <?php endif; ?>
 
 <?php if (!empty($projects)): ?>
-<h2>Projects</h2>
+<h2><?= \App\Helpers\Language::t('admin.cv.projects') ?></h2>
 <?php foreach ($projects as $proj): ?>
 <div class="entry">
     <div class="project-title"><?= htmlspecialchars($proj['title']) ?></div>
@@ -259,7 +259,7 @@
     <div class="project-tech">
         <?php
             $techs = json_decode($proj['tech_stack'], true);
-            if (is_array($techs)) echo 'Technologies: ' . htmlspecialchars(implode(', ', $techs));
+            if (is_array($techs)) echo \App\Helpers\Language::t('admin.cv.technologies') . htmlspecialchars(implode(', ', $techs));
         ?>
     </div>
     <?php endif; ?>

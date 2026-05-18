@@ -1,6 +1,6 @@
 <div class="term-section">
-    <p class="term-prompt text-cat-green text-xs font-mono mb-1">./settings</p>
-    <h1 class="text-lg font-bold text-cat-mauve font-mono mb-6">Site Settings</h1>
+    <p class="term-prompt text-cat-green text-xs font-mono mb-1"><?= \App\Helpers\Language::t('admin.settings.cmd') ?></p>
+    <h1 class="text-lg font-bold text-cat-mauve font-mono mb-6"><?= \App\Helpers\Language::t('admin.settings.title') ?></h1>
 
     <?php if ($success ?? false): ?>
         <div class="term-panel p-3 border-cat-green mb-4"><p class="text-xs text-cat-green font-mono"><?= htmlspecialchars($success) ?></p></div>
@@ -20,14 +20,14 @@
             <?php $groupSettings = array_filter($settings, fn($s) => $s['group_name'] === $group); ?>
 
             <?php if (empty($groupSettings)): ?>
-                <p class="text-xs text-cat-overlay0 font-mono">No settings in this group.</p>
+                <p class="text-xs text-cat-overlay0 font-mono"><?= \App\Helpers\Language::t('admin.settings.no_settings') ?></p>
             <?php else: ?>
                 <table class="w-full text-sm">
                     <thead>
                         <tr class="text-cat-overlay2 text-left border-b border-cat-surface1">
-                            <th class="pb-2 pr-4 font-mono font-medium">Key</th>
-                            <th class="pb-2 pr-4 font-mono font-medium">Value</th>
-                            <th class="pb-2 pr-4 font-mono font-medium hidden sm:table-cell">Locale</th>
+                            <th class="pb-2 pr-4 font-mono font-medium"><?= \App\Helpers\Language::t('admin.settings.key') ?></th>
+                            <th class="pb-2 pr-4 font-mono font-medium"><?= \App\Helpers\Language::t('admin.settings.value') ?></th>
+                            <th class="pb-2 pr-4 font-mono font-medium hidden sm:table-cell"><?= \App\Helpers\Language::t('admin.settings.locale') ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,9 +41,9 @@
                             </td>
                             <td class="py-2 hidden sm:table-cell">
                                 <select name="locales[]" class="px-2 py-1.5 text-sm">
-                                    <option value="en" <?= $s['locale'] === 'en' ? 'selected' : '' ?>>EN</option>
-                                    <option value="ar" <?= $s['locale'] === 'ar' ? 'selected' : '' ?>>AR</option>
-                                    <option value="both" <?= $s['locale'] === 'both' ? 'selected' : '' ?>>Both</option>
+                                    <option value="en" <?= $s['locale'] === 'en' ? 'selected' : '' ?>><?= \App\Helpers\Language::t('admin.settings.en') ?></option>
+                                    <option value="ar" <?= $s['locale'] === 'ar' ? 'selected' : '' ?>><?= \App\Helpers\Language::t('admin.settings.ar') ?></option>
+                                    <option value="both" <?= $s['locale'] === 'both' ? 'selected' : '' ?>><?= \App\Helpers\Language::t('admin.settings.both') ?></option>
                                 </select>
                             </td>
                         </tr>
@@ -54,6 +54,6 @@
         </div>
         <?php endforeach; ?>
 
-        <button type="submit" class="term-btn term-btn-primary text-sm py-2 px-4">$ save-all</button>
+        <button type="submit" class="term-btn term-btn-primary text-sm py-2 px-4"><?= \App\Helpers\Language::t('admin.settings.save_all') ?></button>
     </form>
 </div>

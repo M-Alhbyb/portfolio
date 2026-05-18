@@ -18,8 +18,11 @@ class HomeController
         $seo->setTitle('MohamedElhabib Mohamed - Full Stack & AI Developer')
             ->setDescription('Portfolio of MohamedElhabib Mohamed, showcasing full-stack web development projects, AI solutions, and technical expertise.');
 
-        $featuredProjects = Project::findFeatured(6);
-        $recentPosts = Post::findRecent(3);
+        $locale = Language::getLocale();
+        $dir = Language::dir();
+
+        $featuredProjects = Project::findFeatured(6, $locale);
+        $recentPosts = Post::findRecent(3, $locale);
 
         $skills = [];
         try {
@@ -47,9 +50,6 @@ class HomeController
         }
 
         $contactInfo = $this->getContactInfo();
-
-        $locale = Language::getLocale();
-        $dir = Language::dir();
 
         ob_start();
         require __DIR__ . '/../../templates/pages/home.php';

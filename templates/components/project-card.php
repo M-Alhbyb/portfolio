@@ -10,9 +10,9 @@
                     <?= htmlspecialchars($project['title']) ?>
                 </span>
                 <?php if (!empty($project['status']) && $project['status'] === 'published'): ?>
-                    <span class="term-status-active text-cat-green text-xs shrink-0">active</span>
+                    <span class="term-status-active text-cat-green text-xs shrink-0"><?= \App\Helpers\Language::t('project.status_active') ?></span>
                 <?php else: ?>
-                    <span class="term-status-inactive text-cat-red text-xs shrink-0">draft</span>
+                    <span class="term-status-inactive text-cat-red text-xs shrink-0"><?= \App\Helpers\Language::t('project.status_draft') ?></span>
                 <?php endif; ?>
             </div>
             <p class="text-cat-subtext0 text-xs font-mono mt-1 line-clamp-2">

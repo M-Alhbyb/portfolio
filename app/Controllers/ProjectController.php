@@ -15,12 +15,11 @@ class ProjectController
         $seo->setTitle('Projects - MohamedElhabib Mohamed')
             ->setDescription('Engineering case studies showcasing architecture, implementation, and deployment.');
 
-        $page = (int) ($_GET['page'] ?? 1);
-        $projects = Project::findAll($page);
-        $total = Project::countAll();
-
         $locale = Language::getLocale();
         $dir = Language::dir();
+        $page = (int) ($_GET['page'] ?? 1);
+        $projects = Project::findAll($page, 12, $locale);
+        $total = Project::countAll($locale);
 
         ob_start();
         require __DIR__ . '/../../templates/pages/projects.php';
@@ -33,7 +32,8 @@ class ProjectController
     public function show(array $params = []): void
     {
         $slug = $params['slug'] ?? '';
-        $project = Project::findBySlug($slug);
+        $locale = Language::getLocale();
+        $project = Project::findBySlug($slug, $locale);
 
         if (!$project) {
             http_response_code(404);
@@ -49,7 +49,6 @@ class ProjectController
         $images = ProjectImage::findByProjectId($project['id']);
         $techStack = !empty($project['tech_stack']) ? json_decode($project['tech_stack'], true) : [];
 
-        $locale = Language::getLocale();
         $dir = Language::dir();
 
         ob_start();

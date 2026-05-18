@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS projects (
     status TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'published')),
     featured INTEGER DEFAULT 0,
     sort_order INTEGER DEFAULT 0,
+    locale TEXT NOT NULL DEFAULT 'en' CHECK (locale IN ('en', 'ar')),
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT,
     published_at TEXT

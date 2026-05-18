@@ -16,6 +16,8 @@ class MediaController
     public function index(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
         $page = (int) ($_GET['page'] ?? 1);
         $mediaItems = Media::findAll($page);
         $total = Media::countAll();

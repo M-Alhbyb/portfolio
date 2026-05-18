@@ -15,7 +15,7 @@
         <p class="text-gray-400 mb-8"><?= \App\Helpers\Language::t('error.500_message') ?></p>
         <a href="/" class="btn-primary inline-flex items-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="<?= \App\Helpers\Language::dir() === 'rtl' ? 'M14 5l7 7-7 7M3 12h18' : 'M10 19l-7-7m0 0l7-7m-7 7h18' ?>"/>
             </svg>
             <?= \App\Helpers\Language::t('error.500_home') ?>
         </a>

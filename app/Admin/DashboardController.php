@@ -13,6 +13,8 @@ class DashboardController
     public function index(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
 
         $totalProjects = 0;
         $totalPosts = 0;

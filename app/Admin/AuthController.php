@@ -16,6 +16,8 @@ class AuthController
             exit;
         }
 
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
         $error = Session::flash('login_error');
 
         require __DIR__ . '/../../templates/admin/login.php';

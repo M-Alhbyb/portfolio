@@ -16,12 +16,15 @@ class AboutController
         $seo->setTitle('About - MohamedElhabib Mohamed')
             ->setDescription('Learn about MohamedElhabib Mohamed — engineering philosophy, infrastructure mindset, and professional journey.');
 
+        $locale = Language::getLocale();
+        $dir = Language::dir();
+
         $settings = [];
         $languages = [];
         try {
-            $db = Database::getInstance();
-            $allSettings = $db->fetchAll("SELECT * FROM settings WHERE group_name = 'about' OR group_name = 'social'");
-            foreach ($allSettings as $s) {
+            $allSettings = Setting::getByGroupAndLocale('about', $locale);
+            $socialSettings = Setting::getByGroupAndLocale('social', $locale);
+            foreach (array_merge($allSettings, $socialSettings) as $s) {
                 $settings[$s['key']] = $s['value'];
             }
             $languages = LanguageModel::findAll();
@@ -29,9 +32,6 @@ class AboutController
             $settings = [];
             $languages = [];
         }
-
-        $locale = Language::getLocale();
-        $dir = Language::dir();
 
         ob_start();
         require __DIR__ . '/../../templates/pages/about.php';

@@ -6,40 +6,55 @@ use App\Core\Database;
 
 class Project
 {
-    public static function findFeatured(int $limit = 6): array
+    public static function findFeatured(int $limit = 6, ?string $locale = null): array
     {
         $db = Database::getInstance();
-        return $db->fetchAll(
-            "SELECT * FROM projects WHERE status = 'published' AND featured = TRUE ORDER BY sort_order ASC, created_at DESC LIMIT ?",
-            [$limit]
-        );
+        $sql = "SELECT * FROM projects WHERE status = 'published' AND featured = TRUE";
+        $params = [$limit];
+        if ($locale !== null) {
+            $sql .= " AND locale = ?";
+            array_splice($params, 0, 0, [$locale]);
+        }
+        $sql .= " ORDER BY sort_order ASC, created_at DESC LIMIT ?";
+        return $db->fetchAll($sql, $params);
     }
 
-    public static function findBySlug(string $slug): ?array
+    public static function findBySlug(string $slug, ?string $locale = null): ?array
     {
         $db = Database::getInstance();
-        return $db->fetch(
-            "SELECT * FROM projects WHERE slug = ? AND status = 'published'",
-            [$slug]
-        );
+        $sql = "SELECT * FROM projects WHERE slug = ? AND status = 'published'";
+        $params = [$slug];
+        if ($locale !== null) {
+            $sql .= " AND locale = ?";
+            $params[] = $locale;
+        }
+        return $db->fetch($sql, $params);
     }
 
-    public static function findAll(int $page = 1, int $perPage = 12): array
+    public static function findAll(int $page = 1, int $perPage = 12, ?string $locale = null): array
     {
         $db = Database::getInstance();
         $offset = ($page - 1) * $perPage;
-        return $db->fetchAll(
-            "SELECT * FROM projects WHERE status = 'published' ORDER BY sort_order ASC, created_at DESC LIMIT ? OFFSET ?",
-            [$perPage, $offset]
-        );
+        $sql = "SELECT * FROM projects WHERE status = 'published'";
+        $params = [$perPage, $offset];
+        if ($locale !== null) {
+            $sql .= " AND locale = ?";
+            array_splice($params, 0, 0, [$locale]);
+        }
+        $sql .= " ORDER BY sort_order ASC, created_at DESC LIMIT ? OFFSET ?";
+        return $db->fetchAll($sql, $params);
     }
 
-    public static function countAll(): int
+    public static function countAll(?string $locale = null): int
     {
         $db = Database::getInstance();
-        $result = $db->fetch(
-            "SELECT COUNT(*) as count FROM projects WHERE status = 'published'"
-        );
+        $sql = "SELECT COUNT(*) as count FROM projects WHERE status = 'published'";
+        $params = [];
+        if ($locale !== null) {
+            $sql .= " AND locale = ?";
+            $params[] = $locale;
+        }
+        $result = $db->fetch($sql, $params);
         return (int) ($result['count'] ?? 0);
     }
 

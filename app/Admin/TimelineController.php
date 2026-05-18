@@ -16,6 +16,8 @@ class TimelineController
     public function index(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
         $entries = Timeline::findAll();
         $error = Session::flash('timeline_error');
         $success = Session::flash('timeline_success');

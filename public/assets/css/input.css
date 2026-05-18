@@ -398,8 +398,9 @@ html[dir="rtl"] {
   text-align: right;
 }
 
-html[dir="rtl"] body {
-  font-family: 'Cairo', 'JetBrains Mono', 'Courier New', monospace;
+html[dir="rtl"] body,
+html[dir="rtl"] .font-mono {
+  font-family: 'Cairo', 'JetBrains Mono', 'Courier New', monospace !important;
 }
 
 html[dir="rtl"] .term-titlebar-item {
@@ -415,16 +416,207 @@ html[dir="rtl"] .term-prompt::before {
   content: '$ ';
 }
 
+/* Border directional swaps */
 html[dir="rtl"] .border-l-4 {
   border-left-width: 0;
   border-right-width: 4px;
 }
 
+html[dir="rtl"] .border-r {
+  border-right-width: 0;
+  border-left-width: 1px;
+}
+
+html[dir="rtl"] .border-l {
+  border-left-width: 0;
+  border-right-width: 1px;
+}
+
+html[dir="rtl"] .border-l-2 {
+  border-left-width: 0;
+  border-right-width: 2px;
+}
+
+html[dir="rtl"] .border-l-0 {
+  border-left-width: 0;
+  border-right-width: 0;
+}
+
+/* Padding directional swaps */
 html[dir="rtl"] .lg\\:pl-64 {
   padding-left: 0;
   padding-right: 16rem;
 }
 
+html[dir="rtl"] .lg\\:pl-56 {
+  padding-left: 0;
+  padding-right: 14rem;
+}
+
+html[dir="rtl"] .pl-8 {
+  padding-left: 0;
+  padding-right: 2rem;
+}
+
+html[dir="rtl"] .pl-4 {
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+html[dir="rtl"] .pl-3 {
+  padding-left: 0;
+  padding-right: 0.75rem;
+}
+
+html[dir="rtl"] .pl-2 {
+  padding-left: 0;
+  padding-right: 0.5rem;
+}
+
+html[dir="rtl"] .pr-4 {
+  padding-right: 0;
+  padding-left: 1rem;
+}
+
+html[dir="rtl"] .pr-3 {
+  padding-right: 0;
+  padding-left: 0.75rem;
+}
+
+html[dir="rtl"] .pr-2 {
+  padding-right: 0;
+  padding-left: 0.5rem;
+}
+
+/* Margin directional swaps */
+html[dir="rtl"] .ml-auto {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+html[dir="rtl"] .mr-auto {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+html[dir="rtl"] .ml-2 {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+html[dir="rtl"] .ml-4 {
+  margin-left: 0;
+  margin-right: 1rem;
+}
+
+html[dir="rtl"] .ml-6 {
+  margin-left: 0;
+  margin-right: 1.5rem;
+}
+
+html[dir="rtl"] .ml-1 {
+  margin-left: 0;
+  margin-right: 0.25rem;
+}
+
+html[dir="rtl"] .mr-2 {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+html[dir="rtl"] .mr-1 {
+  margin-right: 0;
+  margin-left: 0.25rem;
+}
+
+html[dir="rtl"] .mr-4 {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+html[dir="rtl"] .ml-3 {
+  margin-left: 0;
+  margin-right: 0.75rem;
+}
+
+html[dir="rtl"] .mr-3 {
+  margin-right: 0;
+  margin-left: 0.75rem;
+}
+
+/* Space-x swaps */
+html[dir="rtl"] .space-x-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+html[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+html[dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+html[dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+html[dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+/* Text alignment */
+html[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+html[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+/* Position swaps */
+html[dir="rtl"] .left-0 {
+  left: auto;
+  right: 0;
+}
+
+html[dir="rtl"] .right-0 {
+  right: auto;
+  left: 0;
+}
+
+html[dir="rtl"] .right-4 {
+  right: auto;
+  left: 1rem;
+}
+
+html[dir="rtl"] .left-4 {
+  left: auto;
+  right: 1rem;
+}
+
+html[dir="rtl"] .right-2 {
+  right: auto;
+  left: 0.5rem;
+}
+
+html[dir="rtl"] .left-2 {
+  left: auto;
+  right: 0.5rem;
+}
+
+/* Fixed positioned sidebar */
+html[dir="rtl"] .fixed.inset-y-0.left-0 {
+  left: auto;
+  right: 0;
+}
+
+html[dir="rtl"] .fixed.inset-y-0.right-0 {
+  right: auto;
+  left: 0;
+}
+
+/* Translate (sidebar animation) */
 html[dir="rtl"] .translate-x-0 {
   --tw-translate-x: 0;
 }
@@ -433,19 +625,40 @@ html[dir="rtl"] .-translate-x-full {
   --tw-translate-x: 100%;
 }
 
-html[dir="rtl"] .left-0 {
-  left: auto;
-  right: 0;
+html[dir="rtl"] .translate-x-full {
+  --tw-translate-x: -100%;
 }
 
-html[dir="rtl"] .border-r {
-  border-right-width: 0;
-  border-left-width: 1px;
+/* Gallery nav arrows */
+html[dir="rtl"] .gallery-prev {
+  left: auto;
+  right: 1rem;
 }
 
-html[dir="rtl"] .fixed.inset-y-0.left-0 {
-  left: auto;
-  right: 0;
+html[dir="rtl"] .gallery-next {
+  right: auto;
+  left: 1rem;
+}
+
+/* File input button */
+html[dir="rtl"] .file\\:mr-3::file-selector-button,
+html[dir="rtl"] .file\\:mr-4::file-selector-button {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+/* Flex order for hero */
+html[dir="rtl"] .hero-order {
+  flex-direction: row-reverse;
+}
+
+/* Clearfix after RTL overrides */
+html[dir="rtl"] .clear-right {
+  clear: left;
+}
+
+html[dir="rtl"] .clear-left {
+  clear: right;
 }
 
 /* Responsive */

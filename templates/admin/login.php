@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth">
+<html lang="<?= \App\Helpers\Language::getLocale() ?>" dir="<?= \App\Helpers\Language::dir() ?>" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login - Elhabib Portfolio</title>
+    <title><?= \App\Helpers\Language::t('admin.login.title') ?></title>
     <link rel="stylesheet" href="/assets/css/app.css">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="min-h-screen bg-cat-base text-cat-text font-mono antialiased flex items-center justify-center p-4">
     <div class="w-full max-w-sm">
         <div class="text-center mb-8">
-            <p class="term-prompt text-cat-green text-sm font-mono mb-2">./login</p>
-            <p class="text-xs text-cat-subtext0 font-mono">Authentication Required</p>
+            <p class="term-prompt text-cat-green text-sm font-mono mb-2"><?= \App\Helpers\Language::t('admin.login.prompt') ?></p>
+            <p class="text-xs text-cat-subtext0 font-mono"><?= \App\Helpers\Language::t('admin.login.auth_required') ?></p>
         </div>
 
         <div class="term-panel p-6">
@@ -28,20 +28,20 @@
                 <?php endif; ?>
 
                 <div>
-                    <label class="block text-xs text-cat-peach font-mono mb-1">Username</label>
+                    <label class="block text-xs text-cat-peach font-mono mb-1"><?= \App\Helpers\Language::t('admin.login.username') ?></label>
                     <input type="text" name="username" required class="w-full px-3 py-2 text-sm">
                 </div>
 
                 <div>
-                    <label class="block text-xs text-cat-peach font-mono mb-1">Password</label>
+                    <label class="block text-xs text-cat-peach font-mono mb-1"><?= \App\Helpers\Language::t('admin.login.password') ?></label>
                     <input type="password" name="password" required class="w-full px-3 py-2 text-sm">
                 </div>
 
-                <button type="submit" class="term-btn term-btn-primary w-full text-sm py-2">$ authenticate</button>
+                <button type="submit" class="term-btn term-btn-primary w-full text-sm py-2"><?= \App\Helpers\Language::t('admin.login.authenticate') ?></button>
             </form>
 
             <div class="mt-6 text-center">
-                <a href="/" class="text-xs text-cat-subtext0 hover:text-cat-lavender font-mono">← Back to Portfolio</a>
+                <a href="/" class="text-xs text-cat-subtext0 hover:text-cat-lavender font-mono"><?= \App\Helpers\Language::t('admin.login.back') ?></a>
             </div>
         </div>
     </div>

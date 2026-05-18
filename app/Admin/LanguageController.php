@@ -12,6 +12,8 @@ class LanguageController
     public function index(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
         $languages = Language::findAll();
 
         $error = Session::flash('language_error');

@@ -4,7 +4,7 @@
 
 <!-- Featured Projects -->
 <section id="projects" class="py-24 term-section">
-    <p class="term-prompt text-cat-green text-sm font-mono mb-2">ls -la ~/projects/ --featured</p>
+    <p class="term-prompt text-cat-green text-sm font-mono mb-2"><?= \App\Helpers\Language::t('home.projects_cmd') ?></p>
     <div class="mb-12">
         <h2 class="text-2xl font-bold text-cat-mauve font-mono mb-2"><?= \App\Helpers\Language::t('projects.title') ?></h2>
         <p class="text-cat-subtext0 text-sm font-mono"><?= \App\Helpers\Language::t('projects.description') ?></p>
@@ -23,36 +23,36 @@
     <?php endif; ?>
 
     <div class="mt-6">
-        <a href="/projects" class="text-cat-blue text-sm font-mono hover:text-cat-lavender">$ cat ~/projects/ --all →</a>
+        <a href="/projects" class="text-cat-blue text-sm font-mono hover:text-cat-lavender"><?= \App\Helpers\Language::t('home.projects_all_cmd') ?></a>
     </div>
 </section>
 
 <!-- Infrastructure Section -->
 <section id="infrastructure" class="py-24 bg-cat-mantle">
     <div class="term-section">
-        <p class="term-prompt text-cat-green text-sm font-mono mb-2">cat infra.txt</p>
+        <p class="term-prompt text-cat-green text-sm font-mono mb-2"><?= \App\Helpers\Language::t('home.infra_cmd') ?></p>
         <h2 class="text-2xl font-bold text-cat-mauve font-mono mb-2"><?= \App\Helpers\Language::t('infra.title') ?></h2>
 
         <div class="term-panel p-4 mb-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="term-panel p-4">
-                    <h3 class="text-cat-blue text-sm font-mono mb-2">Frontend</h3>
-                    <p class="text-cat-subtext0 text-xs font-mono">React, Vue, TailwindCSS, Alpine.js</p>
+                    <h3 class="text-cat-blue text-sm font-mono mb-2"><?= \App\Helpers\Language::t('home.infra_frontend') ?></h3>
+                    <p class="text-cat-subtext0 text-xs font-mono"><?= \App\Helpers\Language::t('home.infra_frontend_tech') ?></p>
                 </div>
                 <div class="term-panel p-4">
-                    <h3 class="text-cat-teal text-sm font-mono mb-2">Backend</h3>
-                    <p class="text-cat-subtext0 text-xs font-mono">Python, Django, APIs, Databases</p>
+                    <h3 class="text-cat-teal text-sm font-mono mb-2"><?= \App\Helpers\Language::t('home.infra_backend') ?></h3>
+                    <p class="text-cat-subtext0 text-xs font-mono"><?= \App\Helpers\Language::t('home.infra_backend_tech') ?></p>
                 </div>
                 <div class="term-panel p-4">
-                    <h3 class="text-cat-mauve text-sm font-mono mb-2">AI/ML</h3>
-                    <p class="text-cat-subtext0 text-xs font-mono">LLMs, NLP, RAG, Fine-tuning</p>
+                    <h3 class="text-cat-mauve text-sm font-mono mb-2"><?= \App\Helpers\Language::t('home.infra_ai_ml') ?></h3>
+                    <p class="text-cat-subtext0 text-xs font-mono"><?= \App\Helpers\Language::t('home.infra_ai_ml_tech') ?></p>
                 </div>
             </div>
         </div>
 
         <?php if (!empty($groupedSkills)): ?>
             <div class="space-y-4">
-                <p class="term-prompt text-cat-green text-sm font-mono mb-2">cat skills.dat</p>
+                <p class="term-prompt text-cat-green text-sm font-mono mb-2"><?= \App\Helpers\Language::t('home.skills_cmd') ?></p>
                 <?php foreach ($groupedSkills as $category => $categorySkills): ?>
                     <div class="term-panel p-4">
                         <p class="text-cat-lavender text-sm font-mono mb-3"># <?= htmlspecialchars($category) ?></p>
@@ -79,7 +79,7 @@
 
 <?php if (!empty($languages)): ?>
 <section class="py-24 term-section">
-    <p class="term-prompt-muted text-cat-teal text-sm font-mono mb-2">cat languages.json</p>
+    <p class="term-prompt-muted text-cat-teal text-sm font-mono mb-2"><?= \App\Helpers\Language::t('home.languages_cmd') ?></p>
     <h2 class="text-2xl font-bold text-cat-mauve font-mono mb-6"><?= \App\Helpers\Language::t('about.languages') ?></h2>
     <div class="term-panel p-4 max-w-2xl">
         <div class="space-y-1 divide-y divide-cat-surface1">
@@ -97,7 +97,7 @@
 <!-- Experience Section -->
 <section id="experience" class="py-24 bg-cat-mantle">
     <div class="term-section">
-        <p class="term-prompt text-cat-green text-sm font-mono mb-2">cat ~/.experience</p>
+        <p class="term-prompt text-cat-green text-sm font-mono mb-2"><?= \App\Helpers\Language::t('home.experience_cmd') ?></p>
         <h2 class="text-2xl font-bold text-cat-mauve font-mono mb-6"><?= \App\Helpers\Language::t('timeline.experience') ?></h2>
 
         <?php if (!empty($experience)): ?>
@@ -114,7 +114,7 @@
 
 <!-- Education Section -->
 <section class="py-24 term-section">
-    <p class="term-prompt-muted text-cat-teal text-sm font-mono mb-2">cat education.log</p>
+    <p class="term-prompt-muted text-cat-teal text-sm font-mono mb-2"><?= \App\Helpers\Language::t('home.education_cmd') ?></p>
     <h2 class="text-2xl font-bold text-cat-mauve font-mono mb-6"><?= \App\Helpers\Language::t('timeline.education') ?></h2>
 
     <?php if (!empty($education)): ?>
@@ -131,7 +131,7 @@
 <?php if (!empty($volunteering)): ?>
 <section class="py-24 bg-cat-mantle">
     <div class="term-section">
-        <p class="term-prompt-muted text-cat-teal text-sm font-mono mb-2">cat volunteering.md</p>
+        <p class="term-prompt-muted text-cat-teal text-sm font-mono mb-2"><?= \App\Helpers\Language::t('home.volunteering_cmd') ?></p>
         <h2 class="text-2xl font-bold text-cat-mauve font-mono mb-6"><?= \App\Helpers\Language::t('volunteering.title') ?></h2>
         <div class="space-y-2">
             <?php foreach ($volunteering as $v): ?>
@@ -171,7 +171,7 @@
 
 <!-- Blog Preview -->
 <section id="blog" class="py-24 term-section">
-    <p class="term-prompt text-cat-green text-sm font-mono mb-2">man -k blog 2>/dev/null | head -3</p>
+    <p class="term-prompt text-cat-green text-sm font-mono mb-2"><?= \App\Helpers\Language::t('home.blog_cmd') ?></p>
     <h2 class="text-2xl font-bold text-cat-mauve font-mono mb-6"><?= \App\Helpers\Language::t('blog.title') ?></h2>
 
     <?php if (!empty($recentPosts)): ?>
@@ -187,14 +187,14 @@
     <?php endif; ?>
 
     <div class="mt-6">
-        <a href="/blog" class="text-cat-blue text-sm font-mono hover:text-cat-lavender">$ cat ~/blog/ --all →</a>
+        <a href="/blog" class="text-cat-blue text-sm font-mono hover:text-cat-lavender"><?= \App\Helpers\Language::t('home.blog_all_cmd') ?></a>
     </div>
 </section>
 
 <!-- Contact Section -->
 <section id="contact" class="py-24 bg-cat-mantle">
     <div class="term-section">
-        <p class="term-prompt text-cat-green text-sm font-mono mb-2">./contact --send</p>
+        <p class="term-prompt text-cat-green text-sm font-mono mb-2"><?= \App\Helpers\Language::t('home.contact_cmd') ?></p>
         <h2 class="text-2xl font-bold text-cat-mauve font-mono mb-6"><?= \App\Helpers\Language::t('contact.title') ?></h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">

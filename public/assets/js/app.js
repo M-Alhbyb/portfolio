@@ -37,7 +37,7 @@ document.addEventListener('alpine:init', () => {
           }
         })
         .catch(() => {
-          this.errors = { _: 'An error occurred. Please try again.' };
+          this.errors = { _: window.__ ? window.__['js.error'] : 'An error occurred. Please try again.' };
         })
         .finally(() => {
           this.loading = false;
@@ -112,13 +112,14 @@ document.addEventListener('alpine:init', () => {
   // Boot sequence — runs once per session on first homepage load
   if (window.location.pathname === '/' && !sessionStorage.getItem('booted')) {
     document.addEventListener('DOMContentLoaded', () => {
+      const __ = window.__ || {};
       const bootLines = [
-        '[OK] Mounting filesystems...',
-        '[OK] Initializing kernel modules...',
-        '[OK] Starting neofetch daemon...',
-        '[OK] Loading portfolio modules...',
-        '[OK] Establishing secure connection...',
-        '[OK] System ready.'
+        __('js.boot_mount') || '[OK] Mounting filesystems...',
+        __('js.boot_kernel') || '[OK] Initializing kernel modules...',
+        __('js.boot_neofetch') || '[OK] Starting neofetch daemon...',
+        __('js.boot_modules') || '[OK] Loading portfolio modules...',
+        __('js.boot_connection') || '[OK] Establishing secure connection...',
+        __('js.boot_ready') || '[OK] System ready.'
       ];
       const overlay = document.createElement('div');
       overlay.id = 'boot-overlay';

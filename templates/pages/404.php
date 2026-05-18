@@ -14,11 +14,11 @@
     <canvas id="matrix"></canvas>
     <div class="text-center max-w-lg mx-auto px-4 relative z-10">
         <div class="text-8xl font-bold text-cat-mauve mb-4 font-mono">404</div>
-        <div class="text-cat-overlay2 text-xs font-mono mb-4">$ cat /dev/null 2>&1</div>
+        <div class="text-cat-overlay2 text-xs font-mono mb-4"><?= \App\Helpers\Language::t('error.404_cmd') ?></div>
         <h1 class="text-xl font-bold text-cat-yellow font-mono mb-3"><?= \App\Helpers\Language::t('error.404_title') ?></h1>
         <p class="text-cat-subtext0 text-sm font-mono mb-8"><?= \App\Helpers\Language::t('error.404_message') ?></p>
         <a href="/" class="term-btn term-btn-primary text-sm inline-flex items-center gap-2">
-            ← <?= \App\Helpers\Language::t('error.404_home') ?>
+            <?= \App\Helpers\Language::dir() === 'rtl' ? '→' : '←' ?> <?= \App\Helpers\Language::t('error.404_home') ?>
         </a>
     </div>
     <script>

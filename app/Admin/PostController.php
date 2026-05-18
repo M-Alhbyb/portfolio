@@ -12,6 +12,8 @@ class PostController
     public function index(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
         $posts = [];
         try {
             $db = \App\Core\Database::getInstance();
@@ -28,6 +30,8 @@ class PostController
     public function create(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
         $post = [];
         $errors = Session::flash('errors') ?? [];
         $categories = \App\Models\Category::findAll();
@@ -80,6 +84,8 @@ class PostController
     public function edit(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
         $id = (int) ($params['id'] ?? 0);
         $post = Post::findById($id);
         if (!$post) { http_response_code(404); echo 'Post not found'; return; }

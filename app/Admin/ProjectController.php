@@ -13,6 +13,8 @@ class ProjectController
     public function index(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
         $projects = [];
         try {
             $db = \App\Core\Database::getInstance();
@@ -29,6 +31,8 @@ class ProjectController
     public function create(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
         $project = [];
         $errors = Session::flash('errors') ?? [];
 
@@ -75,6 +79,8 @@ class ProjectController
     public function edit(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
         $id = (int) ($params['id'] ?? 0);
         $project = Project::findById($id);
         if (!$project) { http_response_code(404); echo 'Project not found'; return; }
@@ -140,6 +146,7 @@ class ProjectController
             'status' => in_array($input['status'] ?? '', ['draft', 'published']) ? $input['status'] : 'draft',
             'featured' => $input['featured'] ?? '',
             'sort_order' => (int) ($input['sort_order'] ?? 0),
+            'locale' => in_array($input['locale'] ?? '', ['en', 'ar']) ? $input['locale'] : 'en',
         ];
     }
 

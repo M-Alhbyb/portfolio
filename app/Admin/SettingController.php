@@ -12,6 +12,8 @@ class SettingController
     public function index(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
         $settings = Setting::getAll();
         $groups = ['seo', 'homepage', 'social', 'general'];
 

@@ -16,6 +16,8 @@ class ExportController
     public function index(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
 
         ob_start();
         require __DIR__ . '/../../templates/admin/export.php';
@@ -48,6 +50,8 @@ class ExportController
     public function cv(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
 
         $db = Database::getInstance();
 

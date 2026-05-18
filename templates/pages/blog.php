@@ -1,10 +1,10 @@
 <div class="py-24 term-section">
-    <p class="term-prompt text-cat-green text-sm font-mono mb-2">man -k blog</p>
+    <p class="term-prompt text-cat-green text-sm font-mono mb-2"><?= \App\Helpers\Language::t('blog.man_cmd') ?></p>
     <h1 class="text-2xl font-bold text-cat-mauve font-mono mb-6"><?= \App\Helpers\Language::t('blog.title') ?></h1>
 
     <?php if (!empty($categories) || !empty($tags)): ?>
     <div class="flex flex-wrap items-center gap-2 mb-8 font-mono text-xs">
-        <a href="/blog" class="px-2 py-1 <?= empty($categorySlug) && empty($tagSlug) ? 'text-cat-green bg-cat-surface0' : 'text-cat-subtext0 hover:text-cat-lavender' ?> transition-colors">all</a>
+        <a href="/blog" class="px-2 py-1 <?= empty($categorySlug) && empty($tagSlug) ? 'text-cat-green bg-cat-surface0' : 'text-cat-subtext0 hover:text-cat-lavender' ?> transition-colors"><?= \App\Helpers\Language::t('blog.all_filter') ?></a>
         <?php foreach ($categories as $cat): ?>
             <a href="/blog?category=<?= htmlspecialchars($cat['slug']) ?>"
                class="px-2 py-1 <?= ($categorySlug ?? '') === $cat['slug'] ? 'text-cat-green bg-cat-surface0' : 'text-cat-subtext0 hover:text-cat-lavender' ?> transition-colors">

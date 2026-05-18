@@ -39,7 +39,7 @@
                 <span class="text-cat-overlay2 ml-1">[<?= htmlspecialchars($item['work_type']) ?>]</span>
             <?php endif; ?>
             <?php if (!empty($item['link'])): ?>
-                <a href="<?= htmlspecialchars($item['link']) ?>" target="_blank" rel="noopener noreferrer" class="ml-1 text-cat-blue hover:text-cat-lavender underline text-xs">[link]</a>
+                <a href="<?= htmlspecialchars($item['link']) ?>" target="_blank" rel="noopener noreferrer" class="ml-1 text-cat-blue hover:text-cat-lavender underline text-xs"><?= \App\Helpers\Language::t('timeline.link') ?></a>
             <?php endif; ?>
         </p>
 

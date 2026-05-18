@@ -1,29 +1,29 @@
 <footer>
     <div class="term-panel border-t-0 mx-4 sm:mx-6 lg:mx-8 max-w-7xl lg:mx-auto">
         <div class="px-6 py-8">
-            <pre class="text-cat-overlay2 text-xs font-mono mb-6">=== LICENSE ===</pre>
+            <pre class="text-cat-overlay2 text-xs font-mono mb-6"><?= \App\Helpers\Language::t('footer.license') ?></pre>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
-                    <p class="term-neofetch-key text-sm mb-1">Name:</p>
-                    <p class="term-neofetch-val text-sm mb-3">MohamedElhabib Mohamed</p>
+                    <p class="term-neofetch-key text-sm mb-1"><?= \App\Helpers\Language::t('footer.name_label') ?></p>
+                    <p class="term-neofetch-val text-sm mb-3"><?= \App\Helpers\Language::t('footer.author') ?></p>
                     <p class="text-cat-subtext0 text-xs font-mono leading-relaxed">
                         <?= \App\Helpers\Language::t('footer.tagline') ?>
                     </p>
                 </div>
 
                 <div>
-                    <p class="term-neofetch-key text-sm mb-1">Quick Links:</p>
+                    <p class="term-neofetch-key text-sm mb-1"><?= \App\Helpers\Language::t('footer.quick_links_label') ?></p>
                     <ul class="space-y-1">
-                        <li><a href="/" class="text-cat-subtext0 text-xs hover:text-cat-lavender">~/home</a></li>
-                        <li><a href="/projects" class="text-cat-subtext0 text-xs hover:text-cat-lavender">~/projects</a></li>
-                        <li><a href="/blog" class="text-cat-subtext0 text-xs hover:text-cat-lavender">~/blog</a></li>
-                        <li><a href="/about" class="text-cat-subtext0 text-xs hover:text-cat-lavender">~/about</a></li>
+                        <li><a href="/" class="text-cat-subtext0 text-xs hover:text-cat-lavender"><?= \App\Helpers\Language::t('nav.home_cmd') ?></a></li>
+                        <li><a href="/projects" class="text-cat-subtext0 text-xs hover:text-cat-lavender"><?= \App\Helpers\Language::t('nav.projects_cmd') ?></a></li>
+                        <li><a href="/blog" class="text-cat-subtext0 text-xs hover:text-cat-lavender"><?= \App\Helpers\Language::t('nav.blog_cmd') ?></a></li>
+                        <li><a href="/about" class="text-cat-subtext0 text-xs hover:text-cat-lavender"><?= \App\Helpers\Language::t('nav.about_cmd') ?></a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <p class="term-neofetch-key text-sm mb-1">Connect:</p>
+                    <p class="term-neofetch-key text-sm mb-1"><?= \App\Helpers\Language::t('footer.connect_label') ?></p>
                     <div class="flex space-x-3">
                         <a href="https://github.com/M-Alhbyb" target="_blank" rel="noopener noreferrer" class="text-cat-subtext0 hover:text-cat-lavender p-1" aria-label="GitHub">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -43,10 +43,10 @@
 
             <div class="mt-6 pt-4 border-t border-cat-surface1 flex flex-col sm:flex-row items-center justify-between gap-2">
                 <p class="text-cat-overlay2 text-xs font-mono">
-                    Copyright (c) <?= date('Y') ?> MohamedElhabib Mohamed. All rights reserved.
+                    <?= \App\Helpers\Language::t('footer.copyright', ['year' => date('Y')]) ?>
                 </p>
                 <p class="term-status-active text-cat-green text-xs font-mono">
-                    site uptime
+                    <?= \App\Helpers\Language::t('footer.uptime') ?>
                 </p>
             </div>
         </div>

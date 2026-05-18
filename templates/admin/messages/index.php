@@ -1,12 +1,12 @@
 <div class="term-section">
     <div class="mb-6">
-        <p class="term-prompt text-cat-green text-xs font-mono mb-1">./messages --list</p>
-        <h1 class="text-lg font-bold text-cat-mauve font-mono">Messages</h1>
+        <p class="term-prompt text-cat-green text-xs font-mono mb-1"><?= \App\Helpers\Language::t('admin.messages.cmd') ?></p>
+        <h1 class="text-lg font-bold text-cat-mauve font-mono"><?= \App\Helpers\Language::t('admin.messages.title') ?></h1>
     </div>
 
     <?php if (empty($messages)): ?>
         <div class="term-panel p-6 text-center">
-            <p class="text-xs text-cat-subtext0 font-mono">No messages yet.</p>
+            <p class="text-xs text-cat-subtext0 font-mono"><?= \App\Helpers\Language::t('admin.messages.empty') ?></p>
         </div>
     <?php else: ?>
         <div class="space-y-1">
@@ -26,7 +26,7 @@
                     <?= htmlspecialchars($m['message']) ?>
                 </p>
                 <div class="mt-2">
-                    <a href="/admin/messages/<?= (int) $m['id'] ?>" class="text-xs text-cat-blue hover:text-cat-lavender font-mono">[ view ]</a>
+                    <a href="/admin/messages/<?= (int) $m['id'] ?>" class="text-xs text-cat-blue hover:text-cat-lavender font-mono"><?= \App\Helpers\Language::t('admin.messages.view') ?></a>
                 </div>
             </div>
             <?php endforeach; ?>

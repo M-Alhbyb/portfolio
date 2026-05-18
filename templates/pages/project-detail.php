@@ -7,13 +7,13 @@
 <section class="py-8">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-xs text-cat-subtext0 font-mono mb-6">
-            ($ <a href="/projects" class="text-cat-blue hover:text-cat-lavender">cd ~/projects</a> && ./<?= htmlspecialchars($project['slug'] ?? '') ?>)
+            ($ <a href="/projects" class="text-cat-blue hover:text-cat-lavender"><?= \App\Helpers\Language::t('project.cd_cmd') ?></a> && ./<?= htmlspecialchars($project['slug'] ?? '') ?>)
         </div>
 
         <div class="space-y-8">
             <?php if (!empty($project['content'])): ?>
             <div>
-                <h2 class="term-man-section text-sm font-bold mb-2">NAME</h2>
+                <h2 class="term-man-section text-sm font-bold mb-2"><?= \App\Helpers\Language::t('project.man_name') ?></h2>
                 <p class="text-cat-text text-sm font-mono ml-6 leading-relaxed">
                     <?= htmlspecialchars($project['title'] ?? '') ?> — <?= htmlspecialchars($project['short_description'] ?? '') ?>
                 </p>
@@ -21,7 +21,7 @@
             <?php endif; ?>
 
             <div>
-                <h2 class="term-man-section text-sm font-bold mb-2">SYNOPSIS</h2>
+                <h2 class="term-man-section text-sm font-bold mb-2"><?= \App\Helpers\Language::t('project.man_synopsis') ?></h2>
                 <div class="text-cat-text text-sm font-mono ml-6 leading-relaxed">
                     <?= htmlspecialchars($project['short_description'] ?? '') ?>
                 </div>
@@ -29,7 +29,7 @@
 
             <?php if (!empty($project['content'])): ?>
             <div>
-                <h2 class="term-man-section text-sm font-bold mb-2">DESCRIPTION</h2>
+                <h2 class="term-man-section text-sm font-bold mb-2"><?= \App\Helpers\Language::t('project.man_description') ?></h2>
                 <div class="text-cat-text text-sm font-mono ml-6 leading-relaxed prose prose-invert max-w-none">
                     <?= \App\Helpers\Markdown::render($project['content']) ?>
                 </div>
@@ -38,7 +38,7 @@
 
             <?php if (!empty($techStack)): ?>
             <div>
-                <h2 class="term-man-section text-sm font-bold mb-2">TECH STACK</h2>
+                <h2 class="term-man-section text-sm font-bold mb-2"><?= \App\Helpers\Language::t('project.man_tech_stack') ?></h2>
                 <div class="ml-6 flex flex-wrap gap-x-3 gap-y-1">
                     <?php foreach ($techStack as $tech): ?>
                         <span class="text-cat-blue text-sm font-mono"><?= htmlspecialchars($tech) ?></span>
@@ -49,7 +49,7 @@
 
             <?php if (!empty($project['architecture_details'])): ?>
             <div>
-                <h2 class="term-man-section text-sm font-bold mb-2">ARCHITECTURE</h2>
+                <h2 class="term-man-section text-sm font-bold mb-2"><?= \App\Helpers\Language::t('project.man_architecture') ?></h2>
                 <div class="text-cat-text text-sm font-mono ml-6 leading-relaxed prose prose-invert max-w-none">
                     <?= \App\Helpers\Markdown::render($project['architecture_details']) ?>
                 </div>
@@ -58,7 +58,7 @@
 
             <?php if (!empty($project['challenges'])): ?>
             <div>
-                <h2 class="term-man-section text-sm font-bold mb-2">BUGS / CHALLENGES</h2>
+                <h2 class="term-man-section text-sm font-bold mb-2"><?= \App\Helpers\Language::t('project.man_challenges') ?></h2>
                 <div class="text-cat-text text-sm font-mono ml-6 leading-relaxed prose prose-invert max-w-none">
                     <?= \App\Helpers\Markdown::render($project['challenges']) ?>
                 </div>
@@ -67,7 +67,7 @@
 
             <?php if (!empty($project['outcomes'])): ?>
             <div>
-                <h2 class="term-man-section text-sm font-bold mb-2">EXIT STATUS / OUTCOMES</h2>
+                <h2 class="term-man-section text-sm font-bold mb-2"><?= \App\Helpers\Language::t('project.man_outcomes') ?></h2>
                 <div class="text-cat-text text-sm font-mono ml-6 leading-relaxed prose prose-invert max-w-none">
                     <?= \App\Helpers\Markdown::render($project['outcomes']) ?>
                 </div>
@@ -75,9 +75,9 @@
             <?php endif; ?>
 
             <div>
-                <h2 class="term-man-section text-sm font-bold mb-2">SEE ALSO</h2>
+                <h2 class="term-man-section text-sm font-bold mb-2"><?= \App\Helpers\Language::t('project.man_see_also') ?></h2>
                 <div class="ml-6 text-sm font-mono space-y-1">
-                    <a href="/projects" class="text-cat-blue hover:text-cat-lavender">~/projects</a>
+                    <a href="/projects" class="text-cat-blue hover:text-cat-lavender"><?= \App\Helpers\Language::t('project.back_dir') ?></a>
                     <?php if (!empty($project['link'])): ?>
                         <br>
                         <a href="<?= htmlspecialchars($project['link']) ?>" target="_blank" rel="noopener noreferrer" class="text-cat-blue hover:text-cat-lavender"><?= htmlspecialchars($project['link']) ?></a>
@@ -94,7 +94,7 @@
 }, $images)), ENT_QUOTES, 'UTF-8'); ?>
 <section class="py-8" x-data="gallery" data-images='<?= $galleryJson ?>' @keydown.window="onKeydown">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="term-man-section text-sm font-bold mb-4">GALLERY</h2>
+        <h2 class="term-man-section text-sm font-bold mb-4"><?= \App\Helpers\Language::t('project.gallery') ?></h2>
 
         <div class="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4">
             <?php foreach ($images as $i => $image): ?>
@@ -119,7 +119,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
             </button>
-            <button @click="prev" class="absolute left-4 text-white/70 hover:text-white transition-colors z-10">
+            <button @click="prev" class="gallery-prev absolute left-4 text-white/70 hover:text-white transition-colors z-10">
                 <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                 </svg>
@@ -128,7 +128,7 @@
                 <img :src="images[currentIndex].src" :alt="images[currentIndex].alt"
                      class="max-h-[90vh] max-w-[90vw] object-contain">
             </template>
-            <button @click="next" class="absolute right-4 text-white/70 hover:text-white transition-colors z-10">
+            <button @click="next" class="gallery-next absolute right-4 text-white/70 hover:text-white transition-colors z-10">
                 <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                 </svg>

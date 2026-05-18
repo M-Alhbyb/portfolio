@@ -1,6 +1,6 @@
 <article class="py-24 term-section">
     <p class="term-prompt text-cat-green text-sm font-mono mb-2">
-        <a href="/blog" class="text-cat-blue hover:text-cat-lavender">~/blog</a>
+        <a href="/blog" class="text-cat-blue hover:text-cat-lavender"><?= \App\Helpers\Language::t('blog.breadcrumb') ?></a>
         <span class="text-cat-overlay2">/</span>
         <span class="text-cat-text"><?= htmlspecialchars($post['slug'] ?? '') ?></span>
     </p>

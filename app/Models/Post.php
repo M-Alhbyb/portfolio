@@ -6,39 +6,54 @@ use App\Core\Database;
 
 class Post
 {
-    public static function findPublished(int $limit = 10, int $offset = 0): array
+    public static function findPublished(int $limit = 10, int $offset = 0, ?string $locale = null): array
     {
         $db = Database::getInstance();
-        return $db->fetchAll(
-            "SELECT * FROM posts WHERE status = 'published' ORDER BY published_at DESC LIMIT ? OFFSET ?",
-            [$limit, $offset]
-        );
+        $sql = "SELECT * FROM posts WHERE status = 'published'";
+        $params = [$limit, $offset];
+        if ($locale !== null) {
+            $sql .= " AND locale = ?";
+            array_splice($params, 0, 0, [$locale]);
+        }
+        $sql .= " ORDER BY published_at DESC LIMIT ? OFFSET ?";
+        return $db->fetchAll($sql, $params);
     }
 
-    public static function findRecent(int $limit = 3): array
+    public static function findRecent(int $limit = 3, ?string $locale = null): array
     {
         $db = Database::getInstance();
-        return $db->fetchAll(
-            "SELECT * FROM posts WHERE status = 'published' ORDER BY published_at DESC LIMIT ?",
-            [$limit]
-        );
+        $sql = "SELECT * FROM posts WHERE status = 'published'";
+        $params = [$limit];
+        if ($locale !== null) {
+            $sql .= " AND locale = ?";
+            array_splice($params, 0, 0, [$locale]);
+        }
+        $sql .= " ORDER BY published_at DESC LIMIT ?";
+        return $db->fetchAll($sql, $params);
     }
 
-    public static function findBySlug(string $slug): ?array
+    public static function findBySlug(string $slug, ?string $locale = null): ?array
     {
         $db = Database::getInstance();
-        return $db->fetch(
-            "SELECT * FROM posts WHERE slug = ? AND status = 'published'",
-            [$slug]
-        );
+        $sql = "SELECT * FROM posts WHERE slug = ? AND status = 'published'";
+        $params = [$slug];
+        if ($locale !== null) {
+            $sql .= " AND locale = ?";
+            $params[] = $locale;
+        }
+        return $db->fetch($sql, $params);
     }
 
-    public static function countPublished(): int
+    public static function countPublished(?string $locale = null): int
     {
         $db = Database::getInstance();
-        $result = $db->fetch(
-            "SELECT COUNT(*) as count FROM posts WHERE status = 'published'"
-        );
+        $sql = "SELECT COUNT(*) as count FROM posts WHERE status = 'published'";
+        $params = [];
+        if ($locale !== null) {
+            $sql .= " AND locale = ?";
+            $params[] = $locale;
+        }
+        $result = $db->fetch($sql, $params);
         return (int) ($result['count'] ?? 0);
     }
 

@@ -12,6 +12,8 @@ class SkillController
     public function index(array $params = []): void
     {
         Auth::requireLogin();
+        $locale = \App\Helpers\Language::getLocale();
+        $dir = \App\Helpers\Language::dir();
         $skills = Skill::findAll();
         $categories = ['AI & Automation', 'Architecture & Concepts', 'Backend', 'Frontend', 'DevOps', 'Cloud', 'Database', 'Tools', 'Other'];
 
