@@ -118,7 +118,7 @@ INSERT OR IGNORE INTO timeline (
     2,
     'experience',
     'Jan 2026 - Present',
-    'Infrastructure &amp; DevOps Lead',
+    'Infrastructure & DevOps Lead',
     'Finjan Investment LLC.',
     'Directed infrastructure recovery operations in Qatar, migrated 28 breached websites to AWS infrastructure, secured +25 production systems, and coordinated technical crisis management for an enterprise portfolio.',
     'Doha, Qatar',
@@ -2142,7 +2142,7 @@ Rose Gate ERP نظام Laravel + React لإدارة متجر بيع بالتجز
     10,
     'ar',
     CURRENT_TIMESTAMP
-)
+);
 
 INSERT OR IGNORE INTO timeline (
     id,
